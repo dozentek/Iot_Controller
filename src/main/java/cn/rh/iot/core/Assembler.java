@@ -1,7 +1,6 @@
 package cn.rh.iot.core;
 
 import cn.rh.iot.mqtt.MqttChannel;
-import cn.rh.iot.mqtt.MqttConfig;
 import cn.rh.iot.net.NetChannel;
 import cn.rh.iot.net.NetChannelInitializer;
 import io.netty.bootstrap.Bootstrap;
@@ -26,7 +25,7 @@ public class Assembler {
             device.setChannel(new NetChannel((NetDevice)device));
             Bootstrap b= device.getBootstrap();
             b.group(group);
-            if (((NetDevice)device).getProtocol() == ProtocolType.UDP) {
+            if (((NetDevice)device).getProtocol() == NetProtocolType.UDP) {
                 b.channel(NioDatagramChannel.class);
             } else {
                 b.channel(NioSocketChannel.class);

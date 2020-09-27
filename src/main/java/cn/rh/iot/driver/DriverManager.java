@@ -1,5 +1,7 @@
 package cn.rh.iot.driver;
 
+import cn.rh.iot.config.IotConfig;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
@@ -15,9 +17,16 @@ import java.util.HashMap;
  **/
 public class DriverManager {
 
-    private String driverDir;
-    private DriverClassLoader classLoader;
-    private HashMap<String,Class> driverMap=new HashMap<String,Class>();
+    private final DriverClassLoader classLoader;
+    private final HashMap<String,Class> driverMap=new HashMap<String,Class>();
+    @Getter
+    private boolean isLoaded=false;
+
+    private static DriverManager _instance=new DriverManager();
+
+    public static DriverManager getInstance(){
+        return _instance;
+    }
 
     /*
      * @Description: 构造函数
@@ -26,27 +35,32 @@ public class DriverManager {
      * @Author: Y.Y
      * @Date: 2020/9/21 10:57
      */
-    public DriverManager(String driverDir) throws Exception {
-
-        this.driverDir=driverDir;
+    public DriverManager(){
         classLoader=new DriverClassLoader();
+    }
 
+    public boolean load(String driverDir){
         File dir=new File(driverDir);
 
-        if(dir.exists()) {
-            File[] files=dir.listFiles();
-            for (File f:files) {
-                if(!f.isDirectory())
-                {
+        if(!dir.exists()) {
+            log.error("驱动程序文件目录[ {} ]不存在",driverDir);
+            return false;
+        }
+
+        try {
+            File[] files = dir.listFiles();
+            for (File f : files) {
+                if (!f.isDirectory()) {
                     createDriver(f);
                 }
             }
+        }catch (Exception ex){
+            return false;
         }
-        else {
-            log.error("驱动程序文件目录不存在：["+driverDir+"]");
-            throw new Exception("驱动程序文件目录不存在：["+driverDir+"]");
-        }
+        isLoaded=true;
+        return true;
     }
+
 
     /*
      * @Description: 获取类的新实例
@@ -56,12 +70,14 @@ public class DriverManager {
      * @Date: 2020/9/24 9:03
      */
     public IDriver getNewDriverObject(String classname){
-        Class c=driverMap.get(classname);
+        if(!isLoaded){
+            return null;
+        }
+        Class<?> c=driverMap.get(classname);
         if(c==null) {
             return null;
         }
-        else
-        {
+        else{
             try {
                 IDriver driver = (IDriver) c.newInstance();
                 return driver;
@@ -70,6 +86,10 @@ public class DriverManager {
                 return null;
             }
         }
+    }
+
+    public int Count(){
+        return driverMap.size();
     }
 
     /*
@@ -102,23 +122,17 @@ public class DriverManager {
      * @Author: Y.Y
      * @Date: 2020/9/21 10:59
      */
-    private void createDriver(File file){
-
+    private void createDriver(File file) {
         try {
-            Class c = classLoader.LoadClassFromDisk(file);
+            Class<?> c = classLoader.LoadClassFromDisk(file);
 
-            if(c!=null)
-            {
-                if(!driverMap.containsKey(c.getName()))
-                {
+            if(c!=null){
+                if(!driverMap.containsKey(c.getName())){
                     driverMap.put(c.getName(),c);
                 }
             }
-
-        }catch (Exception ex)
-        {
-            ex.printStackTrace();
+        }catch (Exception ex){
+            log.error("加载驱动出现错误:{}",ex.toString());
         }
-
     }
 }

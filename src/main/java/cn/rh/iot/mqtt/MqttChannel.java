@@ -1,5 +1,6 @@
 package cn.rh.iot.mqtt;
 
+import cn.rh.iot.config.IotConfig;
 import cn.rh.iot.core.Device;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -29,19 +30,19 @@ public class MqttChannel {
     private final Device device;
     private final String host;
 
-    public MqttChannel(Device device,String serverHost,String username,String password) {
+    public MqttChannel(Device device) {
         this.device=device;
-        this.host=serverHost;
+        this.host= IotConfig.getInstance().getMqtt().getServerURI();
 
-        RECONNECT_INTERVAL=MqttConfig.Instance().getInt("reconnectInterval")*1000;
+        RECONNECT_INTERVAL= IotConfig.getInstance().getMqtt().getReconnectInterval()*1000;
 
         persistence=new MemoryPersistence();
         options = new MqttConnectOptions();
         options.setCleanSession(true);
-        options.setUserName(username.trim());
-        options.setPassword(password.trim().toCharArray());
-        options.setConnectionTimeout(MqttConfig.Instance().getInt("ConnectionTimeout"));
-        options.setKeepAliveInterval(MqttConfig.Instance().getInt("KeepAliveInterval"));  //心跳时间，单位秒，每隔固定时间发送心跳包
+        options.setUserName(IotConfig.getInstance().getMqtt().getUsername());
+        options.setPassword(IotConfig.getInstance().getMqtt().getPassword().toCharArray());
+        options.setConnectionTimeout(IotConfig.getInstance().getMqtt().getConnectionTimeout());
+        options.setKeepAliveInterval(IotConfig.getInstance().getMqtt().getKeepAliveInterval());  //心跳时间，单位秒，每隔固定时间发送心跳包
     }
 
     public void Write(String send_message) {
@@ -55,11 +56,8 @@ public class MqttChannel {
             msg.setQos(device.getPublishTopicParam().getQos());
             msg.setPayload(send_message.getBytes(StandardCharsets.UTF_8));
             client.publish(device.getPublishTopicParam().getTopic(),msg);
-
-            log.info(device.getName()+"-->Topic:["+device.getPublishTopicParam().getTopic()+"]+msg["+send_message+"]");
-        }catch (MqttException ex)
-        {
-            log.error(device.getName()+"-->Topic:["+device.getPublishTopicParam().getTopic()+"]+msg["+send_message+"] 失败");
+         }catch (MqttException ex) {
+            log.error("设备[{}] 发送Topic[{}]-[{}]失败",device.getName(),device.getPublishTopicParam().getTopic(),send_message);
         }
     }
 
@@ -100,5 +98,4 @@ public class MqttChannel {
         }
         return false;
     }
-
 }

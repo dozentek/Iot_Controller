@@ -6,7 +6,7 @@ package cn.rh.iot.core;
  * @Author: Y.Y
  * @Create: 2020-09-18 12:01
  **/
-public enum ProtocolType {
+public enum NetProtocolType {
     TCP,
     UDP;
 }

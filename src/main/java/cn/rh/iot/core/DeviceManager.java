@@ -1,5 +1,7 @@
 package cn.rh.iot.core;
 
+import cn.rh.iot.config.DeviceConfigInfo;
+import cn.rh.iot.config.IotConfig;
 import cn.rh.iot.driver.DriverManager;
 import cn.rh.iot.driver.IDriver;
 import cn.rh.iot.mqtt.TopicParam;
@@ -28,35 +30,36 @@ import java.util.Iterator;
 @Slf4j
 public class DeviceManager {
 
-    private HashMap<String ,Device> devices=new HashMap<>();
+    private final HashMap<String ,Device> devices=new HashMap<>();
 
     @Getter
     private boolean isLoaded=false;
-    private String driverFileDir;
-    private DriverManager driverManager;
     private final EventLoopGroup group = new NioEventLoopGroup();
 
+    private static final DeviceManager _instance=new DeviceManager();
 
-    /*
-     * @Description: 根据配置信息，加载所有需要通信的设备对象
-     * @Param: [configFilePathname]  配置文件
-     * @Return: boolean 是否加载成功
-     * @Author: Y.Y
-     * @Date: 2020/9/24 10:25
-     */
-    public boolean Load(String configFilePathname){
+    public static DeviceManager getInstance(){
+        return _instance;
+    }
+
+    public boolean Load(IotConfig configObj){
         if(isLoaded){
             return true;
         }
-        File file=new File(configFilePathname);
-
-        if(!file.exists()){
-            log.error("配置文件["+configFilePathname+"]丢失");
+        if(configObj==null || !configObj.isLoaded()){
+            log.error("配置信息对象未加载,导致无法加载Driver");
             return false;
-        }else{
-            isLoaded=CreateDevices(configFilePathname);
         }
-        return  isLoaded;
+        try {
+            for (int i = 0; i < configObj.DeviceCount(); i++) {
+                CreateDevice(configObj.getDeviceInfoObject2(i));
+            }
+        }catch (Exception ex){
+            log.error("加载Driver失败，原因:{}",ex.getMessage());
+            return false;
+        }
+        isLoaded=true;
+        return true;
     }
 
     /*
@@ -78,15 +81,7 @@ public class DeviceManager {
      * @Date: 2020/9/24 10:28
      */
     public ArrayList<String> getKeyList(){
-
-        ArrayList<String> res=new ArrayList<>();
-
-        Iterator it=devices.keySet().iterator();
-
-        while(it.hasNext()){
-            String key = (String)it.next();
-            res.add(key);
-        }
+        ArrayList<String> res = new ArrayList<>(devices.keySet());
         return res;
     }
 
@@ -101,147 +96,34 @@ public class DeviceManager {
         return devices.get(key);
     }
 
-    /*
-     * @Description: 加载配置文件，创建Device对象并加载Device驱动
-     * @Param: [configFile]
-     * @Return: boolean
-     * @Author: Y.Y
-     * @Date: 2020/9/24 11:22
-     */
-    private boolean CreateDevices(String configFile){
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        try {
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            Document document = builder.parse(configFile);
-
-            NodeList nodes=document.getDocumentElement().getElementsByTagName("DriverFilePath");
-            if(nodes.getLength()>0){
-                driverFileDir=((Element)(nodes.item(0))).getTextContent().trim();
-                driverManager=new DriverManager(driverFileDir);
-            }else{
-                log.error("配置项DriverFilePath未找到");
-                return false;
-            }
-
-            NodeList devices=document.getDocumentElement().getElementsByTagName("Device");
-            for(int i=0;i<devices.getLength();i++){
-                Element ele=(Element)devices.item(i);
-                CreateDevice(ele);
-            }
-        }catch (Exception ex){
-            log.error(ex.toString());
-            devices.clear();
-            return false;
-        }
-        return true;
-    }
-
-    /*
-     * @Description: 解析XmlElement配置，创建设备对象，并自动加入到管理器中
-     * @Param: [ele] 设备对象对应的xml配置文件中的配置项
-     * @Return: void
-     * @Author: Y.Y
-     * @Date: 2020/9/24 10:30
-     */
-    private void CreateDevice(Element ele) throws Exception{
-        String name=ele.getAttribute("name").trim();
-        if(name.isEmpty()){
-            String errStr="Device标签缺少name属性";
-            log.error(errStr);
-            throw new Exception(errStr);
-        }
+    private void CreateDevice(DeviceConfigInfo info) throws Exception{
 
         NetDevice device=new NetDevice(group);
-        device.setName(name);
-        device.setIntroduction(ele.getAttribute("intro").trim());
+        device.setName(info.getName());
+        device.setIntroduction(info.getInfo());
+        device.setRole(info.getRole());
+        device.setProtocol(info.getProtocol());
+        device.setAskInterval(info.getAskInterval());
+        device.setTimeout(info.getTimeout());
+        device.setIp(info.getIp());
+        device.setPort(info.getPort());
 
-        if(ele.getAttribute("role").trim().toUpperCase()=="CLIENT") {
-            device.setRole(NetRoleType.CLIENT);
+        device.setDriver(DriverManager.getInstance().getNewDriverObject(info.getDriverClassName()));
+
+        ArrayList<String>  topicNames=info.getPublishTopicNameList();
+        if(topicNames.size()>0){
+            device.setPublishTopicParam(new TopicParam(topicNames.get(0),0));
         }else{
-            device.setRole(NetRoleType.SERVER);
+            device.setPublishTopicParam(null);
         }
 
-        if(ele.getAttribute("protocol").trim().toUpperCase()=="UDP") {
-            device.setProtocol(ProtocolType.UDP);
+        topicNames=info.getSubscribeTopicNameList();
+        if(topicNames.size()>0){
+            device.setSubscribeTopicParam(new TopicParam(topicNames.get(0),0));
         }else{
-            device.setProtocol(ProtocolType.TCP);
+            device.setSubscribeTopicParam(null);
         }
 
-        if(ele.getAttribute("askInterval").trim().isEmpty()){
-            device.setAskInterval(-1);  //askInterval<=0，表示不需要定时询问
-        }else{
-            int interval=Integer.parseInt(ele.getAttribute("askInterval").trim());
-            device.setAskInterval(interval);
-        }
-
-        if(ele.getAttribute("timeout").trim().isEmpty()){
-            device.setTimeout(60000);
-        }else{
-            int timeout=Integer.parseInt(ele.getAttribute("timeout").trim());
-            device.setTimeout(timeout);
-        }
-
-        NodeList nodes=ele.getElementsByTagName("Net");
-        if(nodes.getLength()==0){
-            String errStr="Device标签缺少Net节点";
-            log.error(errStr);
-            throw new Exception(errStr);
-        }else{
-
-            String ip =((Element)nodes.item(0)).getElementsByTagName("IP").item(0).getTextContent().trim();
-            int  port=Integer.parseInt(((Element)nodes.item(0)).getElementsByTagName("Port").item(0).getTextContent().trim());
-            InetSocketAddress address=new InetSocketAddress(ip,port);
-            device.setAddress(address);
-        }
-
-        nodes=ele.getElementsByTagName("Driver");
-        if(nodes.getLength()==0){
-            String errStr="Device标签缺少Driver节点";
-            log.error(errStr);
-            throw new Exception(errStr);
-        }else{
-            IDriver driver=driverManager.getNewDriverObject(nodes.item(0).getTextContent().trim());
-            if(driver==null){
-                String errStr="驱动:"+nodes.item(0).getTextContent().trim()+"不存在";
-                log.error(errStr);
-                throw new Exception(errStr);
-            }else{
-                device.setDriver(driver);
-
-                NodeList paramNode=ele.getElementsByTagName("Params");
-                if(paramNode.getLength()>0){
-                    NodeList params=paramNode.item(0).getChildNodes();
-                    if(params.getLength()>0){
-                        HashMap<String,Object> ps=new HashMap<>();
-                        for(int i=0;i<params.getLength();i++){
-                            ps.put(((Element)params.item(i)).getAttribute("name"),
-                                    ((Element)params.item(i)).getAttribute("value"));
-                        }
-                        driver.InjectParams(ps);
-                    }
-                }
-            }
-        }
-
-        nodes=ele.getElementsByTagName("Topic");
-        if(nodes.getLength()==0){
-            log.error("Device标签缺少Topic节点");
-            throw new Exception("Device标签缺少Topic节点");
-        }else{
-            NodeList topics=((Element)nodes.item(0)).getElementsByTagName("PubTopic");
-            if(topics.getLength()>0){
-                device.setPublishTopicParam(new TopicParam(topics.item(0).getTextContent().trim(),0));
-            }else{
-                device.setPublishTopicParam(null);
-            }
-
-            topics=((Element)nodes.item(0)).getElementsByTagName("SubTopic");
-            if(topics.getLength()>0){
-                device.setSubscribeTopicParam(new TopicParam(topics.item(0).getTextContent().trim(),0));
-            }else{
-                device.setSubscribeTopicParam(null);
-            }
-        }
 
         //为Device装配通信链路
         Assembler.AssembleMqttChannel(device);

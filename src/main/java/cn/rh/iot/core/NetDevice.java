@@ -24,9 +24,11 @@ public class NetDevice extends Device {
     @Getter @Setter
     private NetRoleType role;
     @Getter @Setter
-    private ProtocolType protocol;
+    private NetProtocolType protocol;
     @Getter @Setter
-    private InetSocketAddress address;
+    private String ip;
+    @Getter @Setter
+    private int port;
 
     private EventLoopGroup group;
 
@@ -41,7 +43,7 @@ public class NetDevice extends Device {
         if(this.channel.isConnected()){
             return;
         }
-        ChannelFuture future=this.bootstrap.connect(address.getAddress().getHostAddress(), address.getPort());
+        ChannelFuture future=this.bootstrap.connect(ip, port);
         future.addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture futureListener) throws Exception {
@@ -60,9 +62,8 @@ public class NetDevice extends Device {
     }
 
     public void Disconnect(){
-        if(channel==null){
-            return;
+        if(channel!=null){
+            channel.Disconnect();
         }
-
     }
 }

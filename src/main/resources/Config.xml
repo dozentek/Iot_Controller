@@ -7,10 +7,10 @@
                 <Port>4096</Port>
             </Net>
             <Driver>cn.rh.iot.driver.lift</Driver>
-            <Topic>
-                <SubTopic>Lift/Ctrl</SubTopic>
-                <PubTopic>Lift/Info</PubTopic>
-            </Topic>
+            <Topics>
+                <Topic kind="in">Lift/Ctrl</Topic>
+                <Topic kind="out">Lift/Info</Topic>
+            </Topics>
         </Device>
         <Device intro="车载BMS" name="BMS" role="Server" protocol="TCP" askInterval="1000" timeout="6000">
             <Net>
@@ -18,9 +18,9 @@
                 <Port>50023</Port>
             </Net>
             <Driver>cn.rh.iot.driver.bms</Driver>
-            <Topic>
-                <PubTopic>BMS/Info</PubTopic>
-            </Topic>
+            <Topics>
+                <Topic kind="out">BMS/Info</Topic>
+            </Topics>
         </Device>
         <Device intro="车载RTK" name="RTK" role="Server" protocol="TCP"  timeout="6000">
             <Net>
@@ -28,9 +28,9 @@
                 <Port>23</Port>
             </Net>
             <Driver>cn.rh.iot.driver.rtk</Driver>
-            <Topic>
-                <PubTopic>RTK/Info</PubTopic>
-            </Topic>
+            <Topics>
+                <Topic kind="out">RTK/Info</Topic>
+            </Topics>
         </Device>
         <Device intro="气象站" name="Met" role="Server" protocol="TCP" askInterval="1000" timeout="6000">
             <Net>
@@ -38,10 +38,15 @@
                 <Port>502</Port>
             </Net>
             <Driver>cn.rh.iot.driver.met</Driver>
-            <Topic>
-                <PubTopic>Met/Info</PubTopic>
-            </Topic>
+            <Topics>
+                <Topic kind="out">Met/Info</Topic>
+            </Topics>
         </Device>
     </Devices>
     <DriverFilePath>Driver</DriverFilePath>
+    <Mqtt reconnectInterval="5" connectionTimeout="10" keepAliveInterval="5">
+        <ServerURI>tcp://dozen.tech:1883</ServerURI>
+        <Username> </Username>
+        <Password> </Password>
+    </Mqtt>
 </Config>

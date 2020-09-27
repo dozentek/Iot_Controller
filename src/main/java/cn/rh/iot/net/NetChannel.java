@@ -33,7 +33,7 @@ public class NetChannel implements IChannel {
     @Getter @Setter
     private NetRoleType role;
     @Getter @Setter
-    private ProtocolType protocol;
+    private NetProtocolType protocol;
     @Getter @Setter
     private InetSocketAddress address;
 

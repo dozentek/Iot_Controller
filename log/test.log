@@ -1,1 +1,93 @@
 2020-09-27 09:42:45 [main] INFO  test:15 - 中国
+2020-09-27 10:07:53 [MQTT Call: BMS_1] INFO  testMqttChannel:51 - ====连接成功====
+2020-09-27 10:09:43 [MQTT Call: BMS_1] INFO  testMqttChannel:42 - Topic:BMS/Ctrl|{
+  "msg": "hello"
+}
+2020-09-27 10:09:43 [MQTT Rec: BMS_1] INFO  testMqttChannel:37 - ====连接丢失====
+2020-09-27 10:10:30 [MQTT Call: BMS_1] INFO  testMqttChannel:51 - ====连接成功====
+2020-09-27 10:11:12 [MQTT Call: BMS_1] INFO  testMqttChannel:42 - Topic:BMS/Ctrl|{
+  "msg": "hello"
+}
+2020-09-27 10:12:41 [MQTT Call: BMS_1] INFO  testMqttChannel:51 - ====连接成功====
+2020-09-27 10:15:48 [MQTT Call: BMS_1] INFO  testMqttChannel:51 - ====连接成功====
+2020-09-27 10:16:31 [MQTT Call: BMS_1] INFO  testMqttChannel:42 - Topic:BMS/Ctrl|{
+  "msg": "hello"
+}
+2020-09-27 10:16:57 [MQTT Call: BMS_1] INFO  testMqttChannel:51 - ====连接成功====
+2020-09-27 10:22:47 [MQTT Call: BMS_1] INFO  testMqttChannel:51 - ====连接成功====
+2020-09-27 10:22:47 [MQTT Call: BMS_1] INFO  testMqttChannel:54 - 订阅主题
+2020-09-27 10:23:28 [MQTT Call: BMS_1] INFO  testMqttChannel:42 - Topic:BMS/Info|hello
+2020-09-27 10:23:46 [MQTT Call: BMS_1] INFO  testMqttChannel:42 - Topic:BMS/Ctrl|{
+  "msg": "hello"
+}
+2020-09-27 10:25:36 [MQTT Call: BMS_1] INFO  testMqttChannel:51 - ====连接成功====
+2020-09-27 10:25:40 [MQTT Call: BMS_1] INFO  testMqttChannel:54 - 订阅主题
+2020-09-27 10:26:12 [MQTT Call: BMS_1] INFO  testMqttChannel:51 - ====连接成功====
+2020-09-27 10:26:25 [MQTT Call: BMS_1] INFO  testMqttChannel:54 - 订阅主题
+2020-09-27 10:26:48 [MQTT Call: BMS_1] INFO  testMqttChannel:42 - Topic:BMS/Ctrl|{
+  "msg": "hello"
+}
+2020-09-27 10:26:50 [MQTT Call: BMS_1] INFO  testMqttChannel:42 - Topic:BMS/Ctrl|{
+  "msg": "hello"
+}
+2020-09-27 10:26:51 [MQTT Call: BMS_1] INFO  testMqttChannel:42 - Topic:BMS/Ctrl|{
+  "msg": "hello"
+}
+2020-09-27 10:29:23 [MQTT Call: BMS_1] INFO  testMqttChannel:51 - ====连接成功====
+2020-09-27 10:31:11 [MQTT Call: BMS_1] INFO  testMqttChannel:51 - ====连接成功====
+2020-09-27 10:31:42 [MQTT Call: BMS_1] INFO  testMqttChannel:51 - ====连接成功====
+2020-09-27 10:31:42 [MQTT Call: BMS_1] INFO  testMqttChannel:54 - 订阅主题
+2020-09-27 10:32:16 [MQTT Call: BMS_1] INFO  testMqttChannel:42 - Topic:BMS/Ctrl|{
+  "msg": "hello"
+}
+2020-09-27 10:33:05 [MQTT Call: BMS_1] INFO  testMqttChannel:51 - ====连接成功====
+2020-09-27 10:33:26 [MQTT Call: BMS_1] INFO  testMqttChannel:51 - ====连接成功====
+2020-09-27 10:33:26 [MQTT Call: BMS_1] INFO  testMqttChannel:54 - 订阅主题
+2020-09-27 10:33:54 [MQTT Call: BMS_1] INFO  testMqttChannel:51 - ====连接成功====
+2020-09-27 10:34:11 [MQTT Call: BMS_1] INFO  testMqttChannel:51 - ====连接成功====
+2020-09-27 10:34:11 [MQTT Call: BMS_1] INFO  testMqttChannel:54 - 订阅主题
+2020-09-27 10:34:56 [MQTT Call: BMS_1] INFO  testMqttChannel:51 - ====连接成功====
+2020-09-27 10:35:45 [MQTT Call: BMS_1] INFO  testMqttChannel:51 - ====连接成功====
+2020-09-27 10:36:02 [MQTT Call: BMS_1] INFO  testMqttChannel:51 - ====连接成功====
+2020-09-27 10:36:31 [MQTT Call: BMS_1] INFO  testMqttChannel:51 - ====连接成功====
+2020-09-27 10:36:59 [MQTT Call: BMS_1] INFO  testMqttChannel:51 - ====连接成功====
+2020-09-27 10:38:24 [MQTT Call: BMS_1] INFO  testMqttChannel:51 - ====连接成功====
+2020-09-27 10:38:24 [main] INFO  testMqttChannel:57 - 订阅主题
+2020-09-27 10:38:36 [MQTT Call: BMS_1] INFO  testMqttChannel:42 - Topic:BMS/Ctrl|{
+  "msg": "hello"
+}
+2020-09-27 10:38:37 [MQTT Call: BMS_1] INFO  testMqttChannel:42 - Topic:BMS/Ctrl|{
+  "msg": "hello"
+}
+2020-09-27 10:41:24 [main] INFO  testMqttChannel:61 - Mqtt错误,错误码:0
+2020-09-27 10:42:11 [main] INFO  testMqttChannel:61 - Mqtt错误,错误码:0
+2020-09-27 10:44:02 [main] INFO  testMqttChannel:61 - Mqtt错误,错误码:32103
+2020-09-27 10:45:56 [main] INFO  testMqttChannel:61 - Mqtt错误,错误码:0
+2020-09-27 10:47:07 [main] INFO  testMqttChannel:61 - Mqtt错误,错误码:32103
+2020-09-27 10:48:43 [MQTT Call: BMS_1] INFO  testMqttChannel:58 - ====连接成功====
+2020-09-27 10:48:43 [main] INFO  testMqttChannel:64 - 订阅主题
+2020-09-27 10:55:53 [MQTT Call: BMS_1] INFO  testMqttChannel:58 - ====连接成功====
+2020-09-27 10:55:53 [main] INFO  testMqttChannel:64 - 订阅主题
+2020-09-27 10:56:12 [main] INFO  testDeviceManager:21 - D:\SourceHome\Iot_Controller
+2020-09-27 11:00:43 [main] INFO  testDeviceManager:21 - D:\SourceHome\Iot_Controller
+2020-09-27 11:00:49 [main] ERROR DeviceManager:54 - 配置文件[D:\SourceHome\Iot_Controller
+out"resources"mqtt.properties]丢失
+2020-09-27 11:02:19 [main] ERROR DeviceManager:54 - 配置文件[D:\SourceHome\Iot_Controller"build"resources"mqtt.properties]丢失
+2020-09-27 11:02:55 [main] ERROR DeviceManager:54 - 配置文件[D:\SourceHome\Iot_Controller\build\resources\mqtt.properties]丢失
+2020-09-27 11:03:25 [main] ERROR DeviceManager:54 - 配置文件[D:\SourceHome\Iot_Controller\out\resources\mqtt.properties]丢失
+2020-09-27 11:04:19 [main] ERROR DeviceManager:54 - 配置文件[D:\SourceHome\Iot_Controller\production\out\resources\mqtt.properties]丢失
+2020-09-27 11:04:52 [main] ERROR DeviceManager:132 - org.xml.sax.SAXParseException; systemId: file:///D:/SourceHome/Iot_Controller/out/production/resources/mqtt.properties; lineNumber: 1; columnNumber: 1; 前言中不允许有内容。
+2020-09-27 11:05:35 [main] ERROR DeviceManager:132 - org.xml.sax.SAXParseException; systemId: file:///D:/SourceHome/Iot_Controller/out/production/resources/mqtt.properties; lineNumber: 1; columnNumber: 1; 前言中不允许有内容。
+2020-09-27 15:49:33 [main] ERROR IotConfig:115 - 配置文件加载失败，错误：java.lang.NullPointerException
+2020-09-27 15:52:08 [main] ERROR IotConfig:115 - 配置文件加载失败，错误：java.lang.NullPointerException
+2020-09-27 15:54:16 [main] ERROR IotConfig:115 - 配置文件加载失败，错误：java.lang.NullPointerException
+2020-09-27 15:55:35 [main] ERROR DeviceConfigInfo:73 - 配置文件缺少: Device/Net/IP配置项
+2020-09-27 15:55:35 [main] ERROR IotConfig:104 - 配置文件中Device解析错误
+2020-09-27 15:58:15 [main] ERROR IotConfig:115 - 配置文件加载成功
+2020-09-27 15:59:03 [main] ERROR DeviceConfigInfo:73 - 配置文件缺少: Device/Net/IP配置项
+2020-09-27 15:59:03 [main] ERROR IotConfig:109 - 配置文件中Device解析错误
+2020-09-27 16:14:48 [main] INFO  IotConfig:115 - 配置文件加载成功
+2020-09-27 16:14:59 [main] INFO  IotConfig:115 - 配置文件加载成功
+2020-09-27 16:15:17 [main] INFO  IotConfig:115 - 配置文件加载成功
+2020-09-27 16:16:41 [main] INFO  IotConfig:115 - 配置文件加载成功
+2020-09-27 16:18:38 [main] INFO  IotConfig:115 - 配置文件加载成功
