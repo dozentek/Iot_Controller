@@ -1,0 +1,11 @@
+
+1、------------lombok使用注意事项----------------------
+在Gradle5.0版本以后这种方式会引起编译错误，正确引入方式如下：
+
+annotationProcessor 'org.projectlombok:lombok:1.18.8'
+compileOnly 'org.projectlombok:lombok:1.18.8'
+
+单测使用的话就加上：
+testAnnotationProcessor 'org.projectlombok:lombok:1.18.8'
+testCompileOnly 'org.projectlombok:lombok:1.18.8'
+1、--------------------------------------------------

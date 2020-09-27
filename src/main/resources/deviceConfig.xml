@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Devices>
+        <Device intro="升降台" name="Lift" role="Server" protocol="TCP" askInterval="1000" timeout="6000">
+            <Net>
+                <IP>192.168.200.3</IP>
+                <Port>4096</Port>
+            </Net>
+            <Driver>cn.rh.iot.driver.lift</Driver>
+            <Topic>
+                <SubTopic>Lift/Ctrl</SubTopic>
+                <PubTopic>Lift/Info</PubTopic>
+            </Topic>
+        </Device>
+        <Device intro="车载BMS" name="BMS" role="Server" protocol="TCP" askInterval="1000" timeout="6000">
+            <Net>
+                <IP>192.168.200.4</IP>
+                <Port>50023</Port>
+            </Net>
+            <Driver>cn.rh.iot.driver.bms</Driver>
+            <Topic>
+                <PubTopic>BMS/Info</PubTopic>
+            </Topic>
+        </Device>
+        <Device intro="车载RTK" name="RTK" role="Server" protocol="TCP"  timeout="6000">
+            <Net>
+                <IP>192.168.200.5</IP>
+                <Port>23</Port>
+            </Net>
+            <Driver>cn.rh.iot.driver.rtk</Driver>
+            <Topic>
+                <PubTopic>RTK/Info</PubTopic>
+            </Topic>
+        </Device>
+        <Device intro="气象站" name="Met" role="Server" protocol="TCP" askInterval="1000" timeout="6000">
+            <Net>
+                <IP>192.168.200.6</IP>
+                <Port>502</Port>
+            </Net>
+            <Driver>cn.rh.iot.driver.met</Driver>
+            <Topic>
+                <PubTopic>Met/Info</PubTopic>
+            </Topic>
+        </Device>
+    </Devices>
+    <DriverFilePath>Driver</DriverFilePath>
+</Config>
