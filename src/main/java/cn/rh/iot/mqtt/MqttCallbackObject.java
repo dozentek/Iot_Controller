@@ -1,5 +1,6 @@
 package cn.rh.iot.mqtt;
 
+import cn.rh.iot.config.IotConfig;
 import cn.rh.iot.core.Device;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -31,7 +32,7 @@ public class MqttCallbackObject implements MqttCallbackExtended {
         topic=device.getSubscribeTopicParam().getTopic();
         qos=device.getSubscribeTopicParam().getQos();
 
-        RECONNECT_INTERVAL=MqttConfig.Instance().getInt("reconnectInterval")*1000;
+        RECONNECT_INTERVAL= IotConfig.getInstance().getMqtt().getReconnectInterval()*1000;
     }
 
     @Override

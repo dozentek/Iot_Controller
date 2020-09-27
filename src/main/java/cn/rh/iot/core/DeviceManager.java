@@ -34,6 +34,7 @@ public class DeviceManager {
 
     @Getter
     private boolean isLoaded=false;
+    @Getter
     private final EventLoopGroup group = new NioEventLoopGroup();
 
     private static final DeviceManager _instance=new DeviceManager();
@@ -42,7 +43,7 @@ public class DeviceManager {
         return _instance;
     }
 
-    public boolean Load(IotConfig configObj){
+    public boolean load(IotConfig configObj){
         if(isLoaded){
             return true;
         }

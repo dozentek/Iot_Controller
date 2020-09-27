@@ -1,7 +1,8 @@
 package core;
 
-import cn.rh.iot.core.Device;
+import cn.rh.iot.config.IotConfig;
 import cn.rh.iot.core.DeviceManager;
+import cn.rh.iot.driver.DriverManager;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
@@ -16,18 +17,20 @@ import java.util.ArrayList;
  **/
 public class testDeviceManager {
     @Test
-    public void testLoad(){
-        DeviceManager manager=new DeviceManager();
+    public void testLoad() {
+        String filepath = System.getProperty("user.dir") + "\\out\\production\\resources\\" + "Config.xml";
+        IotConfig.getInstance().load(filepath);
+        DriverManager.getInstance().load(IotConfig.getInstance().getDriverFilePath());
+        DeviceManager.getInstance().load(IotConfig.getInstance());
 
-//
-//        String filepath=System.getProperty("user.dir")+"\\out\\production\\resources\\"+"deviceConfigTest.xml";
-//        manager.Load(filepath);
-//
-//        Device device;
-//        ArrayList<String> keys=manager.getKeyList();
-//        for(int i=0;i<keys.size();i++){
-//            System.out.println("设备名称："+manager.getDevice(keys.get(i)).getName());
-//            System.out.println("设备类："+((Object)manager.getDevice(keys.get(i)).getDriver()).getClass().getName());
-//        }
+        try {
+            ArrayList<String> keys = DeviceManager.getInstance().getKeyList();
+            for (int i = 0; i < keys.size(); i++) {
+                System.out.println("设备名称：" + DeviceManager.getInstance().getDevice(keys.get(i)).getName());
+                System.out.println("设备类：" + ((Object) DeviceManager.getInstance().getDevice(keys.get(i)).getDriver()).getClass().getName());
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 }
