@@ -3,10 +3,10 @@
     <Devices>
         <Device intro="升降台" name="Lift" role="Server" protocol="TCP" askInterval="1000" timeout="6000">
             <Net>
-                <IP>192.168.200.3</IP>
-                <Port>4096</Port>
+                <IP>127.0.0.1</IP>
+                <Port>4001</Port>
             </Net>
-            <Driver>cn.rh.iot.driver.lift</Driver>
+            <Driver>cn.rh.iot.driver.LiftDriver</Driver>
             <Topics>
                 <Topic kind="in">Lift/Ctrl</Topic>
                 <Topic kind="out">Lift/Info</Topic>
@@ -14,30 +14,30 @@
         </Device>
         <Device intro="车载BMS" name="BMS" role="Server" protocol="TCP" askInterval="1000" timeout="6000">
             <Net>
-                <IP>192.168.200.4</IP>
-                <Port>50023</Port>
+                <IP>127.0.0.1</IP>
+                <Port>4002</Port>
             </Net>
-            <Driver>cn.rh.iot.driver.bms</Driver>
+            <Driver>cn.rh.iot.driver.BmsDriver</Driver>
             <Topics>
                 <Topic kind="out">BMS/Info</Topic>
             </Topics>
         </Device>
         <Device intro="车载RTK" name="RTK" role="Server" protocol="TCP"  timeout="6000">
             <Net>
-                <IP>192.168.200.5</IP>
-                <Port>23</Port>
+                <IP>127.0.0.1</IP>
+                <Port>4008</Port>
             </Net>
-            <Driver>cn.rh.iot.driver.rtk</Driver>
+            <Driver>cn.rh.iot.driver.RTKDriver</Driver>
             <Topics>
                 <Topic kind="out">RTK/Info</Topic>
             </Topics>
         </Device>
         <Device intro="气象站" name="Met" role="Server" protocol="TCP" askInterval="1000" timeout="6000">
             <Net>
-                <IP>192.168.200.6</IP>
-                <Port>502</Port>
+                <IP>127.0.0.1</IP>
+                <Port>4004</Port>
             </Net>
-            <Driver>cn.rh.iot.driver.met</Driver>
+            <Driver>cn.rh.iot.driver.MetDriver</Driver>
             <Topics>
                 <Topic kind="out">Met/Info</Topic>
             </Topics>

@@ -1,7 +1,6 @@
 package cn.rh.iot.config;
 
 import lombok.Getter;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -52,7 +51,6 @@ public class IotConfig {
         if(index<0 || index>=devices.size()){
             return null;
         }
-
         return devices.get(index);
     }
 

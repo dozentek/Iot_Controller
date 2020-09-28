@@ -29,9 +29,9 @@ public abstract class Device {
     protected int timeout;
 
     @Getter @Setter
-    protected TopicParam subscribeTopicParam=new TopicParam();
+    protected TopicParam subscribeTopicParam;
     @Getter @Setter
-    protected TopicParam publishTopicParam=new TopicParam();
+    protected TopicParam publishTopicParam;
 
     @Getter @Setter
     protected IDriver driver;
@@ -41,7 +41,7 @@ public abstract class Device {
     protected IChannel channel;
 
     @Getter @Setter
-    protected Bootstrap bootstrap;
+    protected Bootstrap bootstrap=new Bootstrap();
     @Getter
     protected HashMap<String ,Object> injectParams=new HashMap<>();
 
@@ -59,15 +59,14 @@ public abstract class Device {
 
     public void Start(){
         if(mqttChannel!=null && channel!=null){
-
-            mqttChannel.Connect();
-            //channel.Connect();
+            //mqttChannel.Connect();
+            channel.Connect();
         }
     }
 
     public void Stop(){
         if(mqttChannel!=null && channel!=null){
-            mqttChannel.Disconnect();
+            //mqttChannel.Disconnect();
             channel.Disconnect();
         }
     }

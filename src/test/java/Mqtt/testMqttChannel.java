@@ -1,9 +1,13 @@
+package Mqtt;
+
+import cn.rh.iot.config.IotConfig;
 import cn.rh.iot.core.Device;
 import cn.rh.iot.core.DeviceManager;
+import cn.rh.iot.driver.DriverManager;
+import cn.rh.iot.mqtt.MqttChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
-import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -64,10 +68,45 @@ public class testMqttChannel {
             log.info("订阅主题");
             client.publish("BMS/Info", "hello".getBytes(), 0, false);
 
+            try {
+                Thread.sleep(500);
+            }catch (Exception ex){
+
+            }
+            client.disconnect(5);
+            client.close();
         } catch (MqttException ex) {
             log.info("Mqtt错误,错误码:"+ex.getReasonCode());
         }
     }
 
 
+    @Test
+    public void testMqttChannelFunc(){
+        String filepath = System.getProperty("user.dir") + "\\out\\production\\resources\\" + "Config.xml";
+        IotConfig.getInstance().load(filepath);
+        DriverManager.getInstance().load(IotConfig.getInstance().getDriverFilePath());
+        DeviceManager.getInstance().load(IotConfig.getInstance());
+
+        Device device=DeviceManager.getInstance().getDevice("BMS");
+        MqttChannel channel=new MqttChannel(device);
+
+        Device device2=DeviceManager.getInstance().getDevice("Met");
+        MqttChannel channel2=new MqttChannel(device2);
+
+        channel.Connect();
+        channel2.Connect();
+
+        for(int i=0;i<10;i++){
+            if(channel.isConnected()){
+                channel.Write("BMS");
+                channel2.Write("Met");
+            }
+            try {
+                Thread.sleep(5);
+            }catch (Exception ex){
+                ;
+            }
+        }
+    }
 }

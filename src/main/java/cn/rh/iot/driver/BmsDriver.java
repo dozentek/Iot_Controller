@@ -44,19 +44,15 @@ public class BmsDriver implements IDriver {
 
         int id=ByteUtil.byteArrayToInt(data,1,false);
         if(id==ID_V_C){
+            double  voltage=ByteUtil.bytesToUShort(data,5,false)*0.1;
+            double  current=ByteUtil.bytesToShort(data,5+2,false)*0.1;
 
-            double  voltage=ByteUtil.bytesToUShort(data,0,false)*0.1;
-            double  current=ByteUtil.bytesToShort(data,2,false)*0.1;
-
-            StringBuilder jsonStr=new StringBuilder();
-
-            jsonStr.append("\"msgId\":").append(02).append(",").append(System.lineSeparator());
-            jsonStr.append("\"payload\":{").append(System.lineSeparator());
-            jsonStr.append("\"voltage\": ").append(String.valueOf(voltage)+",").append(System.lineSeparator());
-            jsonStr.append("\"current\": ").append(String.valueOf(current)).append(System.lineSeparator());
-            jsonStr.append("}");
-
-            return jsonStr.toString();
+            String jsonStr = "\"msgId\":" + 02 + "," + System.lineSeparator() +
+                    "\"payload\":{" + System.lineSeparator() +
+                    "\"voltage\": " + String.valueOf(voltage) + "," + System.lineSeparator() +
+                    "\"current\": " + String.valueOf(current) + System.lineSeparator() +
+                    "}";
+            return jsonStr;
 
         }else if(id==ID_DTC) {
 
@@ -66,15 +62,12 @@ public class BmsDriver implements IDriver {
             String errorCodeStr=Long.toHexString(value);
             String errorString=getErrorString(value);
 
-            StringBuilder jsonStr=new StringBuilder();
-
-            jsonStr.append("\"msgId\":\"").append(02).append("\",").append(System.lineSeparator());
-            jsonStr.append("\"payload\":\"{").append(System.lineSeparator());
-            jsonStr.append("\"DTC\": ").append("\"").append(errorCodeStr).append("\","+System.lineSeparator());
-            jsonStr.append("\"warning\": ").append("\"").append(errorString).append("\""+System.lineSeparator());
-            jsonStr.append("}");
-
-            return jsonStr.toString();
+            String jsonStr = "\"msgId\":\"" + 02 + "\"," + System.lineSeparator() +
+                    "\"payload\":\"{" + System.lineSeparator() +
+                    "\"DTC\": " + "\"" + errorCodeStr + "\"," + System.lineSeparator() +
+                    "\"warning\": " + "\"" + errorString + "\"" + System.lineSeparator() +
+                    "}";
+            return jsonStr;
         }
         return null;
     }
@@ -168,7 +161,7 @@ public class BmsDriver implements IDriver {
             }
         }
 
-        if(errorString.length()>0 && errorString.substring(errorString.length()-1)=="|"){
+        if(errorString.length()>0 && errorString.substring(errorString.length() - 1).equals("|")){
             errorString.delete(errorString.length()-1,errorString.length()-1 );
         }
 

@@ -15,7 +15,7 @@ import java.util.List;
  **/
 public class ByteToJsonDecoder extends ByteToMessageDecoder {
 
-    private Device device;
+    private final Device device;
 
     public ByteToJsonDecoder(Device device) {
         this.device = device;
@@ -27,15 +27,19 @@ public class ByteToJsonDecoder extends ByteToMessageDecoder {
             return;
         }
         if(in.readableBytes()>0) {
-            ByteBuf data = in.readBytes(in.readableBytes());
-            byte[] inData = new byte[data.readableBytes()];
+            byte[] inData = new byte[in.readableBytes()];
+            in.readBytes(inData);
             String msg=device.getDriver().decode(inData);
 
             //对于无法解析的数据，返回空字符串
-            if(msg==null || msg==""){
+            if(msg==null || msg.equals("")){
                 return;
             }
             out.add(Pack(msg));
+
+//            if(device!=null && device.getMqttChannel()!=null){
+//                device.getMqttChannel().Write(Pack(msg));
+//            }
         }
     }
 
@@ -45,8 +49,8 @@ public class ByteToJsonDecoder extends ByteToMessageDecoder {
         sb.append("{");
         sb.append(System.lineSeparator());
         sb.append("\"deviceName\":\"").append(device.getName()).append("\",").append(System.lineSeparator());
-        sb.append("\"deviceNumber\":\"").append(device.getId()).append("\",").append(System.lineSeparator());
-        sb.append(msg);
+        sb.append("\"deviceNumber\":\"").append(device.getId()==null?"":device.getId()).append("\",").append(System.lineSeparator());
+        sb.append(msg).append(System.lineSeparator());
         sb.append("}");
 
         return sb.toString();

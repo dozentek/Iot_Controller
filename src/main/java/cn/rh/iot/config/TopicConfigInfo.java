@@ -1,14 +1,9 @@
 package cn.rh.iot.config;
 
-import cn.rh.iot.core.NetProtocolType;
-import cn.rh.iot.core.NetRoleType;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-
-import java.util.ArrayList;
 
 /**
  * @Program: Iot_Controller
@@ -43,7 +38,7 @@ public class TopicConfigInfo {
             log.error("配置文件，Topic项不能为空");
             return false;
         }
-        if(ele.getAttribute("kind").trim().toUpperCase()=="IN"){
+        if(!ele.getAttribute("kind").trim().toUpperCase().equals("IN")){
             kind="OUT";
         }else{
             kind="IN";

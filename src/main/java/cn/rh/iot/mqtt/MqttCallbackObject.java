@@ -28,9 +28,13 @@ public class MqttCallbackObject implements MqttCallbackExtended {
     public MqttCallbackObject(Device device, MqttClient client) {
         this.device = device;
         this.client=client;
+        if(device.getSubscribeTopicParam()==null){
+            topic=""; qos=0;
+        }else {
+            topic = device.getSubscribeTopicParam().getTopic();
+            qos=device.getSubscribeTopicParam().getQos();
+        }
 
-        topic=device.getSubscribeTopicParam().getTopic();
-        qos=device.getSubscribeTopicParam().getQos();
 
         RECONNECT_INTERVAL= IotConfig.getInstance().getMqtt().getReconnectInterval()*1000;
     }

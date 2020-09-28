@@ -6,7 +6,7 @@
                 <IP>192.168.200.3</IP>
                 <Port>4096</Port>
             </Net>
-            <Driver>cn.rh.iot.driver.lift</Driver>
+            <Driver>cn.rh.iot.driver.LiftDriver</Driver>
             <Topics>
                 <Topic kind="in">Lift/Ctrl</Topic>
                 <Topic kind="out">Lift/Info</Topic>
@@ -17,7 +17,7 @@
                 <IP>192.168.200.4</IP>
                 <Port>50023</Port>
             </Net>
-            <Driver>cn.rh.iot.driver.bms</Driver>
+            <Driver>cn.rh.iot.driver.BmsDriver</Driver>
             <Topics>
                 <Topic kind="out">BMS/Info</Topic>
             </Topics>
@@ -27,7 +27,7 @@
                 <IP>192.168.200.5</IP>
                 <Port>23</Port>
             </Net>
-            <Driver>cn.rh.iot.driver.rtk</Driver>
+            <Driver>cn.rh.iot.driver.RTKDriver</Driver>
             <Topics>
                 <Topic kind="out">RTK/Info</Topic>
             </Topics>
@@ -37,14 +37,14 @@
                 <IP>192.168.200.6</IP>
                 <Port>502</Port>
             </Net>
-            <Driver>cn.rh.iot.driver.met</Driver>
+            <Driver>cn.rh.iot.driver.MetDriver</Driver>
             <Topics>
                 <Topic kind="out">Met/Info</Topic>
             </Topics>
         </Device>
     </Devices>
     <DriverFilePath>Driver</DriverFilePath>
-    <Mqtt reconnectInterval="5" connectionTimeout="10" keepAliveInterval="5">
+    <Mqtt reconnectInterval="5" connectionTimeout="10" keepAliveInterval="20">
         <ServerURI>tcp://dozen.tech:1883</ServerURI>
         <Username> </Username>
         <Password> </Password>

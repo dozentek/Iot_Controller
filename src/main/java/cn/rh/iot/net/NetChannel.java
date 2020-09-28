@@ -1,7 +1,9 @@
 package cn.rh.iot.net;
 
-import cn.rh.iot.core.*;
-import io.netty.bootstrap.Bootstrap;
+import cn.rh.iot.core.Device;
+import cn.rh.iot.core.IChannel;
+import cn.rh.iot.core.NetDevice;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
@@ -10,7 +12,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
-import java.net.InetSocketAddress;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -22,24 +23,15 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class NetChannel implements IChannel {
 
-    private static int RECONNECT_INTERVAL=3000;  //ms
+    private static final int RECONNECT_INTERVAL=3000;  //ms
 
     @Getter @Setter
     private Channel netChannel;
     @Getter
-    private final Bootstrap bootstrap;
-    @Getter
     private final Device device;
-    @Getter @Setter
-    private NetRoleType role;
-    @Getter @Setter
-    private NetProtocolType protocol;
-    @Getter @Setter
-    private InetSocketAddress address;
 
     public NetChannel(NetDevice device) {
         this.device = device;
-        bootstrap=new Bootstrap();
     }
 
     @Override
@@ -53,16 +45,19 @@ public class NetChannel implements IChannel {
     @Override
     public void Write(byte[] data){
        if(netChannel!=null && netChannel.isWritable()){
-           netChannel.writeAndFlush(data);
+           netChannel.writeAndFlush(Unpooled.copiedBuffer(data));
        }
     }
 
     @Override
     public void Connect(){
-        if(netChannel!=null && netChannel.isActive()){
+        if(device==null ||(netChannel!=null && netChannel.isActive())){
             return;
         }
-        ChannelFuture future=bootstrap.connect(address.getAddress().getHostAddress(), address.getPort());
+        String ip=((NetDevice)device).getIp();
+        int port=((NetDevice)device).getPort();
+
+        ChannelFuture future=device.getBootstrap().connect(ip, port);
         future.addListener((ChannelFutureListener) futureListener -> {
             if(futureListener.isSuccess()){
                 netChannel=(SocketChannel)futureListener.channel();
@@ -81,8 +76,13 @@ public class NetChannel implements IChannel {
 
     @Override
     public void Disconnect() {
-        if(netChannel!=null){
-            netChannel.close();
+        if(netChannel!=null && netChannel.isOpen()){
+            ChannelFuture future=netChannel.close();
+            future.addListener((ChannelFutureListener) futureListener -> {
+                if(futureListener.isSuccess()){
+                    log.info("与设备："+device.getName()+"断开连接");
+                }
+            });
         }
     }
 }

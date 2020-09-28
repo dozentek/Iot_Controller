@@ -50,14 +50,16 @@ public class MqttChannel {
         if(client==null || !client.isConnected()){
             return;
         }
-
+        if(device.getPublishTopicParam()==null){
+            return;
+        }
         try {
             MqttMessage msg=new MqttMessage();
             msg.setQos(device.getPublishTopicParam().getQos());
             msg.setPayload(send_message.getBytes(StandardCharsets.UTF_8));
             client.publish(device.getPublishTopicParam().getTopic(),msg);
          }catch (MqttException ex) {
-            log.error("设备[{}] 发送Topic[{}]-[{}]失败",device.getName(),device.getPublishTopicParam().getTopic(),send_message);
+            log.error("设备[{}]发送Topic[{}]-[{}]失败",device.getName(),device.getPublishTopicParam().getTopic(),send_message);
         }
     }
 
@@ -67,6 +69,7 @@ public class MqttChannel {
         }
         try {
             client.disconnect();
+            client.close();
         } catch(MqttException ex){
             log.warn(device.getName() + "与MQTT Broker断开连接失败，因为:"+ex.getMessage());
         }

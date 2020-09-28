@@ -7,19 +7,12 @@ import cn.rh.iot.driver.IDriver;
 import cn.rh.iot.mqtt.TopicParam;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.util.concurrent.Future;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.File;
-import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
 /**
  * @Program: IOT_Controller
@@ -82,8 +75,7 @@ public class DeviceManager {
      * @Date: 2020/9/24 10:28
      */
     public ArrayList<String> getKeyList(){
-        ArrayList<String> res = new ArrayList<>(devices.keySet());
-        return res;
+        return new ArrayList<>(devices.keySet());
     }
 
     /*
@@ -95,6 +87,11 @@ public class DeviceManager {
      */
     public Device getDevice(String key){
         return devices.get(key);
+    }
+
+    public void ShutDownAllDevices(){
+        Future<?> future =group.shutdownGracefully();
+        future.syncUninterruptibly();
     }
 
     private void CreateDevice(DeviceConfigInfo info) throws Exception{
@@ -109,6 +106,10 @@ public class DeviceManager {
         device.setIp(info.getIp());
         device.setPort(info.getPort());
 
+        IDriver driver=DriverManager.getInstance().getNewDriverObject(info.getDriverClassName());
+        if(driver==null){
+            throw new Exception("未找到驱动程序："+info.getDriverClassName()+".class");
+        }
         device.setDriver(DriverManager.getInstance().getNewDriverObject(info.getDriverClassName()));
 
         ArrayList<String>  topicNames=info.getPublishTopicNameList();
@@ -128,7 +129,7 @@ public class DeviceManager {
 
         //为Device装配通信链路
         Assembler.AssembleMqttChannel(device);
-        Assembler.AssembleNetChannel(device);
+        //Assembler.AssembleNetChannel(device);
 
         if(!devices.containsKey(device.name)){
             devices.put(device.name,device);

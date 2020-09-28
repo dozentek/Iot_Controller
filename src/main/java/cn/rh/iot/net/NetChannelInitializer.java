@@ -9,9 +9,6 @@ import io.netty.channel.ChannelPipeline;
 import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import io.netty.handler.codec.FixedLengthFrameDecoder;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
-import io.netty.handler.timeout.IdleStateHandler;
-
-import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -24,7 +21,7 @@ public class NetChannelInitializer extends ChannelInitializer<Channel> {
 
     private static int MAX_LENGTH=1024;
 
-    private Device device;
+    private final Device device;
     public NetChannelInitializer(Device device) {
         this.device=device;
     }
@@ -34,15 +31,16 @@ public class NetChannelInitializer extends ChannelInitializer<Channel> {
 
         ChannelPipeline pipeline = ch.pipeline();
 
-        //注册空闲事件处理器
-        int timeout=device.getTimeout();
-        if(timeout<=0) { timeout=10; }
-        pipeline.addLast(new IdleStateHandler(timeout,0,0, TimeUnit.MILLISECONDS));
+//        //注册空闲事件处理器
+//        int timeout=device.getTimeout();
+//        if(timeout<=0) { timeout=10; }
+//        pipeline.addLast(new IdleStateHandler(timeout,0,0, TimeUnit.MILLISECONDS));
+//
+//        //装配定时发送询问报文的Handler
+//        if(device.getAskInterval()>0){
+//            pipeline.addLast(new TimeAskHandler(device));
+//        }
 
-        //装配定时发送询问报文的Handler
-        if(device.getAskInterval()>0){
-            pipeline.addLast(new TimeAskHandler(device));
-        }
         //装配解决TCP粘包的解码器
         switch (device.getDriver().getType()){
             case FixLength:
@@ -61,11 +59,11 @@ public class NetChannelInitializer extends ChannelInitializer<Channel> {
                 pipeline.addLast(decoder);
                 break;
         }
-
-        //装配报文解码器,形成json中"payload"关键字的value;
-        pipeline.addLast(new ByteToJsonDecoder(device));
-
-        //装配报文编码器
-        pipeline.addLast(new JsonToByteEncoder(device));
+//
+//        //装配报文解码器,形成json中"payload"关键字的value;
+//        pipeline.addLast(new ByteToJsonDecoder(device));
+//
+//        //装配报文编码器
+//        pipeline.addLast(new JsonToByteEncoder(device));
     }
 }

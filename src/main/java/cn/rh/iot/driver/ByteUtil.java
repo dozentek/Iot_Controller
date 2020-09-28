@@ -1,38 +1,27 @@
 package cn.rh.iot.driver;
 
 import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
 
-/**
- * @Program: IOT_Controller
- * @Description: 用于字节处理的工具类
- * @Author: Y.Y
- * @Create: 2020-09-23 08:54
- **/
 public class ByteUtil {
 
 
     public static short bytesToShort(byte[] bytes, int offset,boolean littleEndian) {
-        ByteBuffer buffer = ByteBuffer.allocate(2);
-        if(littleEndian){
-            buffer.order(ByteOrder.LITTLE_ENDIAN);
-        }else{
-            buffer.order(ByteOrder.BIG_ENDIAN);
+        short value = 0;
+        for (int i = 0; i < 2; i++) {
+            int shift= (littleEndian ? i : (1 - i)) * 8;
+            value +=(bytes[offset+i] & 0xFF) << shift;
         }
-        buffer.put(bytes,offset,2);
-        return buffer.getShort();
+        return value;
     }
 
-    public static int bytesToUShort(byte[] bytes, int offset,boolean littleEndian) {
-        ByteBuffer buffer = ByteBuffer.allocate(4);
-        if(littleEndian){
-            buffer.order(ByteOrder.LITTLE_ENDIAN);
-        }else{
-            buffer.order(ByteOrder.BIG_ENDIAN);
+    public static int bytesToUShort(byte[] bytes, int offset, boolean littleEndian) {
+        int value = 0;
+
+        for(int i = 0; i < 2; i++) {
+            int shift= (littleEndian ? i : (1 - i)) * 8;
+            value +=(bytes[offset+i] & 0xFF) << shift;
         }
-        buffer.put(new byte[]{0,0});
-        buffer.put(bytes,offset,2);
-        return buffer.getShort();
+        return value;
     }
 
     public static byte[] intToByteArray(int i) {
@@ -66,14 +55,6 @@ public class ByteUtil {
         return value;
     }
 
-    /**
-     * 将字节数组转为long<br>
-     * 如果input为null,或offset指定的剩余数组长度不足8字节则抛出异常
-     * @param input
-     * @param offset 起始偏移量
-     * @param littleEndian 输入数组是否小端模式
-     * @eturn
-     */
     public static long longFrom8Bytes(byte[] input, int offset, boolean littleEndian) {
         long value = 0;
         // 循环读取每个字节通过移位运算完成long的8个字节拼装
@@ -91,13 +72,6 @@ public class ByteUtil {
         return buffer.array();
     }
 
-    /*
-     * @Description: 将一个字节中每一个bit转为boolean值，形成bool数组,低位bit在前
-     * @Param: [b]
-     * @Return: boolean[]
-     * @Author: Y.Y
-     * @Date: 2020/9/23 21:40
-     */
     public static boolean[] byteToBit(byte b) {
 
         boolean[] value=new boolean[8];
@@ -108,16 +82,8 @@ public class ByteUtil {
         return value;
     }
 
-
     final protected static char[] hexArray = "0123456789ABCDEF".toCharArray();
 
-    /*
-     * @Description: 将字节数组转为16进制的字符串
-     * @Param: [bytes]
-     * @Return: java.lang.String
-     * @Author: Y.Y
-     * @Date: 2020/9/23 21:38
-     */
     public static String bytesToHex(byte[] bytes) {
         char[] hexChars = new char[bytes.length * 2];
         for ( int j = 0; j < bytes.length; j++ ) {
@@ -127,5 +93,6 @@ public class ByteUtil {
         }
         return new String(hexChars);
     }
+
 
 }

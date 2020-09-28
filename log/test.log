@@ -91,3 +91,519 @@ out"resources"mqtt.properties]丢失
 2020-09-27 16:15:17 [main] INFO  IotConfig:115 - 配置文件加载成功
 2020-09-27 16:16:41 [main] INFO  IotConfig:115 - 配置文件加载成功
 2020-09-27 16:18:38 [main] INFO  IotConfig:115 - 配置文件加载成功
+2020-09-27 19:20:10 [MQTT Call: BMS_1] INFO  testMqttChannel:55 - ====连接成功====
+2020-09-27 19:20:10 [main] INFO  testMqttChannel:61 - 订阅主题
+2020-09-27 19:51:27 [main] INFO  IotConfig:128 - 配置文件加载成功
+2020-09-27 19:51:28 [main] ERROR DeviceManager:50 - 加载Driver失败，原因:null
+2020-09-27 19:53:48 [main] INFO  IotConfig:128 - 配置文件加载成功
+2020-09-27 19:54:08 [main] ERROR DeviceManager:50 - 加载Driver失败，原因:null
+2020-09-27 19:54:49 [main] INFO  IotConfig:128 - 配置文件加载成功
+2020-09-27 19:55:14 [main] ERROR DeviceManager:50 - 加载Driver失败，原因:null
+2020-09-27 19:55:51 [main] INFO  IotConfig:128 - 配置文件加载成功
+2020-09-27 19:56:31 [main] ERROR DeviceManager:50 - 加载Driver失败，原因:null
+2020-09-27 19:57:41 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-27 19:58:32 [main] ERROR DeviceManager:50 - 加载Driver失败，原因:null
+2020-09-27 20:02:16 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-27 20:03:32 [main] ERROR DeviceManager:50 - 加载Driver失败，原因:null
+2020-09-27 20:03:35 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-27 20:04:15 [main] ERROR DeviceManager:50 - 加载Driver失败，原因:null
+2020-09-27 20:04:22 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-27 20:04:52 [main] ERROR DeviceManager:50 - 加载Driver失败，原因:null
+2020-09-27 20:04:56 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-27 20:05:37 [main] ERROR DeviceManager:50 - 加载Driver失败，原因:null
+2020-09-27 20:07:01 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-27 20:07:11 [main] ERROR DeviceManager:50 - 加载Driver失败，原因:null
+2020-09-27 20:07:15 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-27 20:07:35 [main] ERROR DeviceManager:50 - 加载Driver失败，原因:null
+2020-09-27 20:07:52 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-27 20:08:43 [main] ERROR DeviceManager:50 - 加载Driver失败，原因:null
+2020-09-27 20:08:49 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-27 20:10:15 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-27 20:11:29 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-27 20:13:02 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-27 20:14:32 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-27 20:19:35 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-27 20:20:04 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-27 20:20:50 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-27 20:24:46 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-27 20:25:13 [MQTT Call: BMS_null] INFO  MqttCallbackObject:45 - BMS连接tcp://dozen.tech:1883成功
+2020-09-27 20:26:51 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-27 20:26:58 [MQTT Call: BMS_null] INFO  MqttCallbackObject:45 - BMS连接tcp://dozen.tech:1883成功
+2020-09-27 20:27:23 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-27 20:27:26 [MQTT Call: BMS_null] INFO  MqttCallbackObject:45 - BMS连接tcp://dozen.tech:1883成功
+2020-09-27 20:30:30 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-27 20:30:43 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-27 20:30:46 [MQTT Call: BMS_null] INFO  MqttCallbackObject:45 - BMS连接tcp://dozen.tech:1883成功
+2020-09-27 20:30:47 [MQTT Call: Met_null] INFO  MqttCallbackObject:45 - Met连接tcp://dozen.tech:1883成功
+2020-09-28 09:12:50 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 09:13:48 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 09:17:13 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 10:37:02 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 10:37:19 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 10:43:48 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 10:44:01 [nioEventLoopGroup-2-1] WARN  ChannelInitializer:151 - Failed to initialize a channel. Closing: [id: 0x5a4f84c0]
+java.lang.NullPointerException: null
+	at cn.rh.iot.net.NetChannelInitializer.initChannel(NetChannelInitializer.java:47) ~[classes/:?]
+	at io.netty.channel.ChannelInitializer.initChannel(ChannelInitializer.java:113) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.ChannelInitializer.handlerAdded(ChannelInitializer.java:105) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAdded0(DefaultChannelPipeline.java:597) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline.access$000(DefaultChannelPipeline.java:44) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline$PendingHandlerAddedTask.execute(DefaultChannelPipeline.java:1387) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1122) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline.invokeHandlerAddedIfNeeded(DefaultChannelPipeline.java:647) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:506) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:419) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:478) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute$$$capture(AbstractEventExecutor.java:163) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:403) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:462) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:858) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:144) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_261]
+2020-09-28 10:46:48 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 10:47:50 [nioEventLoopGroup-2-1] WARN  ChannelInitializer:151 - Failed to initialize a channel. Closing: [id: 0x47b2c775]
+java.lang.NullPointerException: null
+	at cn.rh.iot.net.NetChannelInitializer.initChannel(NetChannelInitializer.java:47) ~[classes/:?]
+	at io.netty.channel.ChannelInitializer.initChannel(ChannelInitializer.java:113) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.ChannelInitializer.handlerAdded(ChannelInitializer.java:105) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAdded0(DefaultChannelPipeline.java:597) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline.access$000(DefaultChannelPipeline.java:44) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline$PendingHandlerAddedTask.execute(DefaultChannelPipeline.java:1387) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1122) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline.invokeHandlerAddedIfNeeded(DefaultChannelPipeline.java:647) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:506) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:419) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:478) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute$$$capture(AbstractEventExecutor.java:163) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:403) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:462) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:858) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:144) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_261]
+2020-09-28 10:49:36 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 10:49:56 [nioEventLoopGroup-2-1] WARN  ChannelInitializer:151 - Failed to initialize a channel. Closing: [id: 0x233e117e]
+java.lang.NullPointerException: null
+	at cn.rh.iot.net.NetChannelInitializer.initChannel(NetChannelInitializer.java:47) ~[classes/:?]
+	at io.netty.channel.ChannelInitializer.initChannel(ChannelInitializer.java:113) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.ChannelInitializer.handlerAdded(ChannelInitializer.java:105) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAdded0(DefaultChannelPipeline.java:597) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline.access$000(DefaultChannelPipeline.java:44) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline$PendingHandlerAddedTask.execute(DefaultChannelPipeline.java:1387) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1122) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline.invokeHandlerAddedIfNeeded(DefaultChannelPipeline.java:647) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:506) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:419) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:478) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute$$$capture(AbstractEventExecutor.java:163) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:403) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:462) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:858) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:144) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_261]
+2020-09-28 10:50:21 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 10:50:58 [nioEventLoopGroup-2-1] WARN  ChannelInitializer:151 - Failed to initialize a channel. Closing: [id: 0xe414af07]
+java.lang.NullPointerException: null
+	at cn.rh.iot.net.NetChannelInitializer.initChannel(NetChannelInitializer.java:47) ~[classes/:?]
+	at io.netty.channel.ChannelInitializer.initChannel(ChannelInitializer.java:113) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.ChannelInitializer.handlerAdded(ChannelInitializer.java:105) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAdded0(DefaultChannelPipeline.java:597) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline.access$000(DefaultChannelPipeline.java:44) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline$PendingHandlerAddedTask.execute(DefaultChannelPipeline.java:1387) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1122) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline.invokeHandlerAddedIfNeeded(DefaultChannelPipeline.java:647) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:506) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:419) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:478) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute$$$capture(AbstractEventExecutor.java:163) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:403) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:462) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:858) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:144) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_261]
+2020-09-28 10:51:53 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 13:21:16 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 13:22:34 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 13:22:43 [nioEventLoopGroup-2-1] INFO  TimeAskHandler:34 - class cn.rh.iot.net.TimeAskHandler--channelActive
+2020-09-28 13:22:43 [nioEventLoopGroup-2-1] WARN  DefaultChannelPipeline:151 - An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.lang.NullPointerException: null
+	at io.netty.buffer.Unpooled.copiedBuffer(Unpooled.java:386) ~[netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at cn.rh.iot.net.TimeAskHandler.channelActive(TimeAskHandler.java:38) ~[classes/:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelActive(AbstractChannelHandlerContext.java:213) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelActive(AbstractChannelHandlerContext.java:199) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelActive(AbstractChannelHandlerContext.java:192) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelActive(ChannelInboundHandlerAdapter.java:64) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.handler.timeout.IdleStateHandler.channelActive(IdleStateHandler.java:272) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelActive(AbstractChannelHandlerContext.java:213) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelActive(AbstractChannelHandlerContext.java:199) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelActive(AbstractChannelHandlerContext.java:192) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelActive(DefaultChannelPipeline.java:1322) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelActive(AbstractChannelHandlerContext.java:213) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelActive(AbstractChannelHandlerContext.java:199) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelActive(DefaultChannelPipeline.java:902) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:311) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:341) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:632) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:579) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:496) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:458) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:858) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:144) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_261]
+2020-09-28 13:23:02 [nioEventLoopGroup-2-1] INFO  NetChannel:63 - 与设备：BMS连接成功
+2020-09-28 13:24:18 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 13:24:39 [nioEventLoopGroup-2-1] INFO  NetChannel:63 - 与设备：BMS连接成功
+2020-09-28 13:25:12 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 13:25:18 [nioEventLoopGroup-2-1] INFO  NetChannel:63 - 与设备：BMS连接成功
+2020-09-28 13:25:45 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 13:26:08 [nioEventLoopGroup-2-1] INFO  NetChannel:63 - 与设备：BMS连接成功
+2020-09-28 13:38:48 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 13:39:13 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 与设备：BMS连接成功
+2020-09-28 13:46:27 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 13:46:28 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 与设备：BMS连接成功
+2020-09-28 13:47:01 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 13:47:11 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 与设备：BMS连接成功
+2020-09-28 13:47:50 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 13:49:07 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 与设备：BMS连接成功
+2020-09-28 13:53:56 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 13:54:03 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 与设备：BMS连接成功
+2020-09-28 14:01:39 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 14:01:45 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 与设备：BMS连接成功
+2020-09-28 14:04:12 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 14:04:18 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 与设备：BMS连接成功
+2020-09-28 14:05:08 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 14:05:14 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 与设备：BMS连接成功
+2020-09-28 14:05:43 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 14:05:49 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 与设备：BMS连接成功
+2020-09-28 14:07:28 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 14:07:34 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 与设备：BMS连接成功
+2020-09-28 14:10:37 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 14:10:50 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 与设备：BMS连接成功
+2020-09-28 14:10:55 [nioEventLoopGroup-2-1] INFO  NetChannel:83 - 与设备：BMS断开连接
+2020-09-28 14:38:44 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 14:38:46 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 与设备：BMS连接成功
+2020-09-28 14:38:48 [nioEventLoopGroup-2-1] INFO  NetChannel:83 - 与设备：BMS断开连接
+2020-09-28 14:39:04 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 14:39:06 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 与设备：BMS连接成功
+2020-09-28 14:39:08 [nioEventLoopGroup-2-1] INFO  NetChannel:83 - 与设备：BMS断开连接
+2020-09-28 14:39:45 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 14:39:51 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 与设备：BMS连接成功
+2020-09-28 14:40:09 [nioEventLoopGroup-2-1] INFO  NetChannel:83 - 与设备：BMS断开连接
+2020-09-28 14:40:47 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 14:41:05 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 与设备：BMS连接成功
+2020-09-28 14:41:05 [nioEventLoopGroup-2-1] INFO  directReadHandler:17 - PooledUnsafeDirectByteBuf(ridx: 0, widx: 132, cap: 1024)
+2020-09-28 14:41:06 [nioEventLoopGroup-2-1] INFO  directReadHandler:17 - PooledUnsafeDirectByteBuf(ridx: 0, widx: 12, cap: 1024)
+2020-09-28 14:41:07 [nioEventLoopGroup-2-1] INFO  directReadHandler:17 - PooledUnsafeDirectByteBuf(ridx: 0, widx: 12, cap: 512)
+2020-09-28 14:41:29 [nioEventLoopGroup-2-1] INFO  directReadHandler:17 - PooledUnsafeDirectByteBuf(ridx: 0, widx: 252, cap: 512)
+2020-09-28 14:41:30 [nioEventLoopGroup-2-1] INFO  NetChannel:83 - 与设备：BMS断开连接
+2020-09-28 14:45:30 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 14:45:36 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 与设备：BMS连接成功
+2020-09-28 14:45:37 [nioEventLoopGroup-2-1] INFO  directReadHandler:19 - PooledUnsafeDirectByteBuf(ridx: 0, widx: 36, cap: 36)
+2020-09-28 14:45:37 [nioEventLoopGroup-2-1] INFO  directReadHandler:19 - PooledUnsafeDirectByteBuf(ridx: 0, widx: 12, cap: 12)
+2020-09-28 14:45:38 [nioEventLoopGroup-2-1] INFO  directReadHandler:19 - PooledUnsafeDirectByteBuf(ridx: 0, widx: 12, cap: 12)
+2020-09-28 14:45:45 [nioEventLoopGroup-2-1] INFO  directReadHandler:19 - PooledUnsafeDirectByteBuf(ridx: 0, widx: 84, cap: 84)
+2020-09-28 14:45:45 [nioEventLoopGroup-2-1] INFO  NetChannel:83 - 与设备：BMS断开连接
+2020-09-28 14:49:40 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 14:49:43 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 与设备：BMS连接成功
+2020-09-28 14:49:45 [nioEventLoopGroup-2-1] INFO  directReadHandler:21 - hello clienthello client
+2020-09-28 14:49:45 [nioEventLoopGroup-2-1] INFO  directReadHandler:21 - hello client
+2020-09-28 14:49:46 [nioEventLoopGroup-2-1] INFO  directReadHandler:21 - hello client
+2020-09-28 14:50:06 [nioEventLoopGroup-2-1] INFO  directReadHandler:21 - hello clienthello clienthello clienthello clienthello clienthello clienthello clienthello clienthello clienthello clienthello clienthello clienthello clienthello clienthello clienthello clienthello clienthello clienthello client
+2020-09-28 14:50:13 [nioEventLoopGroup-2-1] INFO  NetChannel:83 - 与设备：BMS断开连接
+2020-09-28 16:21:25 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 16:22:34 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 16:25:42 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 16:26:25 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 16:27:19 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 16:29:47 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 18:13:33 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 18:16:42 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 18:28:43 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 18:41:48 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 18:43:27 [main] INFO  testNetChannel:84 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}}
+2020-09-28 18:49:44 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 18:51:07 [main] INFO  testNetChannel:84 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}
+}
+2020-09-28 18:51:41 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 18:52:05 [main] INFO  testNetChannel:84 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}
+}
+2020-09-28 18:52:36 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 18:53:35 [main] INFO  testNetChannel:84 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}
+}
+2020-09-28 18:55:03 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 18:56:02 [main] INFO  testNetChannel:84 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}
+}
+2020-09-28 18:56:22 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 18:56:41 [main] INFO  testNetChannel:84 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}
+}
+2020-09-28 18:58:10 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 18:58:20 [main] INFO  testNetChannel:84 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}
+}
+2020-09-28 19:01:17 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 19:04:52 [main] INFO  testNetChannel:84 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}
+}
+2020-09-28 19:04:58 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 19:05:15 [main] INFO  testNetChannel:84 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}
+}
+2020-09-28 19:15:25 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 19:15:35 [main] INFO  testNetChannel:84 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}
+}
+2020-09-28 19:16:39 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 19:16:57 [main] INFO  testNetChannel:84 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}
+}
+2020-09-28 19:18:48 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 19:18:59 [main] INFO  testNetChannel:84 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}
+}
+2020-09-28 19:20:05 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 19:20:37 [main] INFO  testNetChannel:84 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}
+}
+2020-09-28 19:23:19 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 19:23:56 [main] INFO  testNetChannel:84 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}
+}
+2020-09-28 19:25:34 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 19:26:40 [main] INFO  testNetChannel:83 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}
+}
+2020-09-28 19:31:17 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 19:32:02 [main] INFO  testNetChannel:83 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}
+}
+2020-09-28 19:38:10 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 19:38:35 [main] INFO  testNetChannel:83 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}
+}
+2020-09-28 19:40:42 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 19:40:55 [main] INFO  testNetChannel:83 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}
+}
+2020-09-28 19:46:51 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 19:47:04 [main] INFO  testNetChannel:83 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}
+}
+2020-09-28 19:49:25 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 19:49:40 [main] INFO  testNetChannel:83 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}
+}
+2020-09-28 19:49:46 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 19:50:22 [main] INFO  testNetChannel:83 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}
+}
+2020-09-28 19:52:03 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 19:55:02 [main] INFO  testNetChannel:83 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 3484.0,
+"current": 55.2
+}
+}
+2020-09-28 19:57:18 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 19:57:26 [main] INFO  testNetChannel:83 - {
+"deviceName":"BMS",
+"deviceNumber":"null",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}
+2020-09-28 19:59:16 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 19:59:25 [main] INFO  testNetChannel:83 - {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}
+2020-09-28 20:07:51 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 20:15:36 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 20:15:58 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 20:16:09 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 20:17:19 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 20:17:58 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 20:18:59 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 20:32:01 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 20:32:15 [main] INFO  testNetChannel:93 - {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}
+2020-09-28 20:52:10 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 20:52:21 [main] INFO  testNetChannel:100 - {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}
+2020-09-28 20:57:43 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-28 20:57:52 [main] INFO  testNetChannel:101 - {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}
+2020-09-28 20:57:55 [main] INFO  testNetChannel:103 - {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 3.2,
+"current": 6.4
+}
+}

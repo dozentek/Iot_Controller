@@ -39,7 +39,7 @@ public class DeviceConfigInfo {
     @Getter @Setter
     private int port;
     @Getter @Setter
-    private String DriverClassName;
+    private String driverClassName;
 
     private final ArrayList<TopicConfigInfo> topics=new ArrayList<>();
 
@@ -48,11 +48,11 @@ public class DeviceConfigInfo {
     }
 
     public ArrayList<String> getPublishTopicNameList(){
-        return getTopicNameList("out");
+        return getTopicNameList("OUT");
     }
 
     public ArrayList<String> getSubscribeTopicNameList(){
-        return getTopicNameList("in");
+        return getTopicNameList("IN");
     }
 
     private ArrayList<String> getTopicNameList(String kind){
@@ -109,6 +109,7 @@ public class DeviceConfigInfo {
                 log.error("配置文件缺少: Device/Driver配置项");
                 return false;
             }
+            driverClassName=nodes.item(0).getTextContent().trim();
         }
 
         {
@@ -133,16 +134,6 @@ public class DeviceConfigInfo {
                 role=NetRoleType.SERVER;
             }
         }
-
-        {
-            String value = ele.getAttribute("role");
-            if(value.trim().toUpperCase().equals("CLIENT")){
-                role=NetRoleType.CLIENT;
-            }else{
-                role=NetRoleType.SERVER;
-            }
-        }
-
 
         {
             String value = ele.getAttribute("protocol");
