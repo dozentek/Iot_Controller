@@ -43,8 +43,8 @@ public class MqttCallbackObject implements MqttCallbackExtended {
     @Override
     public void connectComplete(boolean reconnect, String serverURI) {
         if(!reconnect) {
-            log.info("设备[{}]连接 MQTT服务器[{}]成功", device.getName(), serverURI);
-            if (topic == null || topic.trim() == "") {
+            log.info("设备[{}]连接MQTT服务器成功", device.getName());
+            if (topic == null || topic.trim().equals("")) {
                 return;
             }
 
@@ -65,7 +65,6 @@ public class MqttCallbackObject implements MqttCallbackExtended {
         }
         log.info(device.getName()+"与MQTT Broker 断开连接");
         if(channel.getClient()!=null && channel.getClient().isConnected()){
-            return;
         }else{
             reConnect();
         }

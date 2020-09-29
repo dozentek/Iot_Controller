@@ -83,10 +83,12 @@ public class NetChannel implements IChannel {
             ChannelFuture future=netChannel.close();
             future.addListener((ChannelFutureListener) futureListener -> {
                 if(futureListener.isSuccess()){
-                    log.info("设备[{}]调用Disconnect()方法,断开连接",device.getName());
+                    log.info("设备[{}]断开连接",device.getName());
                     if(device.getMqttChannel()!=null){
                         device.getMqttChannel().SendConnectStateMessage("no");
                     }
+                }else{
+                    log.info("设备[{}]断开连接失败。原因:{}",device.getName(),futureListener.cause().getMessage());
                 }
             });
         }

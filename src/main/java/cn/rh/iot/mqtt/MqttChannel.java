@@ -96,7 +96,7 @@ public class MqttChannel {
             if(device.getId()!=null && !device.getId().equals("")){
                 clientId=clientId+"_"+device.getId();
             }
-            client = new MqttClient(host, device.getName() + "_" + device.getId(), persistence);
+            client = new MqttClient(host, clientId, persistence);
             client.setCallback(new MqttCallbackObject(device, this));
 
             client.connect(options);

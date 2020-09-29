@@ -10,6 +10,7 @@ import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import io.netty.handler.codec.FixedLengthFrameDecoder;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import io.netty.handler.timeout.IdleStateHandler;
+import lombok.Getter;
 
 import java.util.concurrent.TimeUnit;
 
@@ -25,9 +26,14 @@ public class NetChannelInitializer extends ChannelInitializer<Channel> {
     private final static int MAX_LENGTH=1024;
     private final static int DEFAULT_TIMEOUT=60000;
 
+    @Getter
     private final Device device;
-    public NetChannelInitializer(Device device) {
+    @Getter
+    private final NetChannel channel;
+
+    public NetChannelInitializer(Device device,NetChannel channel) {
         this.device=device;
+        this.channel=channel;
     }
 
     @Override
@@ -79,7 +85,5 @@ public class NetChannelInitializer extends ChannelInitializer<Channel> {
             //装配编码器
             pipeline.addLast(new JsonToByteEncoder(device));
         }
-
-
     }
 }

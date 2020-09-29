@@ -18,7 +18,9 @@ public class Assembler {
 
     public static void AssembleNetChannel(Device device){
 
-        device.setChannel(new NetChannel((NetDevice)device));
+        NetChannel channel=new NetChannel((NetDevice)device);
+        device.setChannel(channel);
+        
         Bootstrap b= device.getBootstrap();
         b.group(DeviceManager.getInstance().getGroup());
 
@@ -30,7 +32,7 @@ public class Assembler {
         b.option(ChannelOption.TCP_NODELAY, true);
         b.option(ChannelOption.SO_KEEPALIVE, true);
 
-        b.handler(new NetChannelInitializer(device));
+        b.handler(new NetChannelInitializer(device,channel));
     }
 
     public static void AssembleMqttChannel(Device device){

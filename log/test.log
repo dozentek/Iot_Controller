@@ -925,3 +925,13 @@ java.lang.NullPointerException: null
 2020-09-29 21:09:28 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 设备[BMS]连接成功
 2020-09-29 21:09:53 [nioEventLoopGroup-2-1] INFO  NetChannel:86 - 设备[BMS]调用Disconnect()方法,断开连接
 2020-09-29 21:09:53 [main] INFO  MqttChannel:84 - 设备[BMS]与MQTT服务器断开连接
+2020-09-29 21:24:43 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 21:24:45 [MQTT Call: BMS_] INFO  MqttCallbackObject:46 - 设备[BMS]连接 MQTT服务器[tcp://dozen.tech:1883]成功
+2020-09-29 21:24:45 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 设备[BMS]连接成功
+2020-09-29 21:25:06 [nioEventLoopGroup-2-1] INFO  NetChannel:86 - 设备[BMS]断开连接
+2020-09-29 21:25:06 [main] INFO  MqttChannel:84 - 设备[BMS]与MQTT服务器断开连接
+2020-09-29 21:25:28 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 21:25:29 [MQTT Call: BMS_] INFO  MqttCallbackObject:46 - 设备[BMS]连接 MQTT服务器[tcp://dozen.tech:1883]成功
+2020-09-29 21:25:32 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 设备[BMS]连接成功
+2020-09-29 21:26:01 [nioEventLoopGroup-2-1] INFO  NetChannel:86 - 设备[BMS]断开连接
+2020-09-29 21:26:01 [main] INFO  MqttChannel:84 - 设备[BMS]与MQTT服务器断开连接
