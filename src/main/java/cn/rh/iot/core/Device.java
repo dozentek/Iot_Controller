@@ -66,8 +66,8 @@ public abstract class Device {
 
     public void Stop(){
         if(mqttChannel!=null && channel!=null){
-            mqttChannel.Disconnect();
             channel.Disconnect();
+            mqttChannel.Disconnect();
         }
     }
 

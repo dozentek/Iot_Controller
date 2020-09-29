@@ -35,40 +35,51 @@ public class NetChannelInitializer extends ChannelInitializer<Channel> {
 
         ChannelPipeline pipeline = ch.pipeline();
 
-        //装配信道通断探测处理器
-        int timeout=device.getTimeout();
-        if(timeout<=0) { timeout=DEFAULT_TIMEOUT; }
-        pipeline.addLast(new IdleStateHandler(timeout,0,0, TimeUnit.MILLISECONDS));
-        pipeline.addLast(new HeartbeatHandler(device));
-
-        //装配定时发送询问报文的Handler
-        if(device.getAskInterval()>0){
-            pipeline.addLast(new TimeAskHandler(device));
+        {
+            //装配信道通断探测处理器
+            int timeout = device.getTimeout();
+            if (timeout <= 0) {
+                timeout = DEFAULT_TIMEOUT;
+            }
+            pipeline.addLast(new IdleStateHandler(timeout, 0, 0, TimeUnit.MILLISECONDS));
+            pipeline.addLast(new HeartbeatHandler(device));
         }
 
-        //装配解决TCP粘包的解码器
-        switch (device.getDriver().getType()){
-            case FixLength:
-                pipeline.addLast(new FixedLengthFrameDecoder(device.getDriver().getMessageLength()));
-                break;
-            case Delimiter:
-                ByteBuf delimiter= Unpooled.copiedBuffer(device.getDriver().getTrailer());
-                pipeline.addLast(new DelimiterBasedFrameDecoder(MAX_LENGTH, delimiter));
-                break;
-            case LengthField:
-                int lFieldOffset=device.getDriver().getLengthFieldOffset();
-                int lFieldLength= device.getDriver().getLengthFieldLength();
-                int lAdjustment= device.getDriver().getLengthAdjustment();
-                LengthFieldBasedFrameDecoder decoder=
-                        new LengthFieldBasedFrameDecoder(MAX_LENGTH,lFieldOffset,lFieldLength,lAdjustment,0);
-                pipeline.addLast(decoder);
-                break;
+        {
+            //装配定时发送询问报文的Handler
+            if (device.getAskInterval() > 0) {
+                pipeline.addLast(new TimeAskHandler(device));
+            }
         }
 
-        //装配解码器,形成json中"payload"关键字的value;
-        pipeline.addLast(new ByteToJsonDecoder(device));
+        {
+            //装配解决TCP粘包的解码器
+            switch (device.getDriver().getType()) {
+                case FixLength:
+                    pipeline.addLast(new FixedLengthFrameDecoder(device.getDriver().getMessageLength()));
+                    break;
+                case Delimiter:
+                    ByteBuf delimiter = Unpooled.copiedBuffer(device.getDriver().getTrailer());
+                    pipeline.addLast(new DelimiterBasedFrameDecoder(MAX_LENGTH, delimiter));
+                    break;
+                case LengthField:
+                    int lFieldOffset = device.getDriver().getLengthFieldOffset();
+                    int lFieldLength = device.getDriver().getLengthFieldLength();
+                    int lAdjustment = device.getDriver().getLengthAdjustment();
+                    LengthFieldBasedFrameDecoder decoder =
+                            new LengthFieldBasedFrameDecoder(MAX_LENGTH, lFieldOffset, lFieldLength, lAdjustment, 0);
+                    pipeline.addLast(decoder);
+                    break;
+            }
+        }
 
-        //装配编码器
-        pipeline.addLast(new JsonToByteEncoder(device));
+        {
+            //装配解码器,形成json中"payload"关键字的value;
+            pipeline.addLast(new ByteToJsonDecoder(device));
+            //装配编码器
+            pipeline.addLast(new JsonToByteEncoder(device));
+        }
+
+
     }
 }

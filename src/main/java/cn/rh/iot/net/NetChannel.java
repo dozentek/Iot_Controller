@@ -62,11 +62,14 @@ public class NetChannel implements IChannel {
             if(futureListener.isSuccess()){
                 netChannel=(SocketChannel)futureListener.channel();
                 log.info("设备[{}]连接成功",device.getName());
+                if(device.getMqttChannel()!=null){
+                    device.getMqttChannel().SendConnectStateMessage("ok");
+                }
             }else{
                 futureListener.channel().eventLoop().schedule(new Runnable() {
                     @Override
                     public void run() {
-                        log.info("连接失败，尝试重接设备[{}]...",device.getName());
+                        log.info("设备[{}]连接失败，尝试重连...",device.getName());
                         Connect();
                     }
                 },RECONNECT_INTERVAL, TimeUnit.MILLISECONDS);
@@ -80,7 +83,10 @@ public class NetChannel implements IChannel {
             ChannelFuture future=netChannel.close();
             future.addListener((ChannelFutureListener) futureListener -> {
                 if(futureListener.isSuccess()){
-                    log.info("设备[{}]断开连接",device.getName());
+                    log.info("设备[{}]调用Disconnect()方法,断开连接",device.getName());
+                    if(device.getMqttChannel()!=null){
+                        device.getMqttChannel().SendConnectStateMessage("no");
+                    }
                 }
             });
         }

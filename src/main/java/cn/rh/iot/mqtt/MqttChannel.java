@@ -3,6 +3,7 @@ package cn.rh.iot.mqtt;
 import cn.rh.iot.config.IotConfig;
 import cn.rh.iot.core.Device;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
@@ -24,11 +25,15 @@ public class MqttChannel {
     private final MqttConnectOptions options;
     private final MqttClientPersistence persistence;
 
+    @Getter
     private MqttClient client;
 
     @Getter
     private final Device device;
     private final String host;
+
+    @Setter
+    private boolean isInitiativeDisconnecting=false;
 
     public MqttChannel(Device device) {
         this.device=device;
@@ -43,6 +48,10 @@ public class MqttChannel {
         options.setPassword(IotConfig.getInstance().getMqtt().getPassword().toCharArray());
         options.setConnectionTimeout(IotConfig.getInstance().getMqtt().getConnectionTimeout());
         options.setKeepAliveInterval(IotConfig.getInstance().getMqtt().getKeepAliveInterval());
+    }
+
+    public boolean isInitiativeDisconnecting(){
+        return this.isInitiativeDisconnecting;
     }
 
     public void Write(String send_message) {
@@ -69,8 +78,10 @@ public class MqttChannel {
             return;
         }
         try {
+            isInitiativeDisconnecting=true;
             client.disconnect();
             client.close();
+            log.info("设备[{}]与MQTT服务器断开连接",device.getName());
         } catch(MqttException ex){
             log.warn(device.getName() + "与MQTT Broker断开连接失败，因为:"+ex.getMessage());
         }
@@ -86,9 +97,11 @@ public class MqttChannel {
                 clientId=clientId+"_"+device.getId();
             }
             client = new MqttClient(host, device.getName() + "_" + device.getId(), persistence);
-            client.setCallback(new MqttCallbackObject(device, client));
+            client.setCallback(new MqttCallbackObject(device, this));
+
             client.connect(options);
         } catch(MqttException ex) {
+            //如果第一次连接不到服务器，则不断尝试连接
             log.error(device.getName() + "连接MQTT Broker失败，错误码：" + ex.getMessage());
             new Timer().schedule(new TimerTask() {
                 @Override
@@ -126,8 +139,9 @@ public class MqttChannel {
         msg.setPayload(connStateJson.getBytes(StandardCharsets.UTF_8));
         try {
             client.publish(device.getPublishTopicParam().getTopic(), msg);
+            //TODO log
         }catch (MqttException ex) {
-            log.error("设备[{}]发送信道连通状态[{}]报文失败，",device.getName(),state);
+            log.error("设备[{}]发送信道状态[{}]报文失败，",device.getName(),state);
         }
     }
 }
