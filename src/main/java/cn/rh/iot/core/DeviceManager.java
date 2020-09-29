@@ -129,7 +129,7 @@ public class DeviceManager {
 
         //为Device装配通信链路
         Assembler.AssembleMqttChannel(device);
-        //Assembler.AssembleNetChannel(device);
+        Assembler.AssembleNetChannel(device);
 
         if(!devices.containsKey(device.name)){
             devices.put(device.name,device);

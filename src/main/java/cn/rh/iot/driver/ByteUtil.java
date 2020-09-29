@@ -46,6 +46,18 @@ public class ByteUtil {
         return Float.intBitsToFloat(byteArrayToInt(bytes,offset));
     }
 
+    /*
+     * @Description: 将前后16位调换位置后，遵循IEEE 754浮点标准，尽心转换
+     * @Param: [bytes, offset]
+     * @Return: float
+     * @Author: Y.Y
+     * @Date: 2020/9/29 16:13
+     */
+    public static float byteArrayToFloatExchange16Bit(byte[] bytes, int offset) {
+        byte[] realBytes=new byte[]{bytes[offset+2],bytes[offset+3],bytes[offset],bytes[offset+1]};
+        return Float.intBitsToFloat(byteArrayToInt(realBytes,0));
+    }
+
     public static int byteArrayToInt(byte[] bytes,int offset, boolean littleEndian) {
         int value=0;
         for(int i = 0; i < 4; i++) {
@@ -85,11 +97,14 @@ public class ByteUtil {
     final protected static char[] hexArray = "0123456789ABCDEF".toCharArray();
 
     public static String bytesToHex(byte[] bytes) {
-        char[] hexChars = new char[bytes.length * 2];
+        char[] hexChars = new char[bytes.length * 3-1];
         for ( int j = 0; j < bytes.length; j++ ) {
             int v = bytes[j] & 0xFF;
-            hexChars[j * 2] = hexArray[v >>> 4];
-            hexChars[j * 2 + 1] = hexArray[v & 0x0F];
+            hexChars[j * 3] = hexArray[v >>> 4];
+            hexChars[j * 3 + 1] = hexArray[v & 0x0F];
+            if((j+1)!=bytes.length) {
+                hexChars[j * 3 + 2] = 0x20;   //空格符
+            }
         }
         return new String(hexChars);
     }

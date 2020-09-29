@@ -14,8 +14,11 @@ public class LiftDriver implements IDriver {
 
     private final byte READ_HOLDING_REGISTER=0x03;                      //读保持寄存器
     private final byte WRITE_SINGLE_REGISTER=0x06;                      //写单个保持寄存器
-    private final byte[] INFO_Address=new byte[]{0x00,(byte)0xD6};      //读取数据地址
-    private final byte[] COMMAND_Address=new byte[]{0x01,(byte)0xD5};   //发送指令地址
+    private final byte[] INFO_Address=new byte[]{(byte)0xD6,0x00};      //读取数据地址
+    private final byte[] COMMAND_Address=new byte[]{(byte)0xD5,0x01};   //发送指令地址
+
+    private final int INFO_FRAME_LENGTH=11;                             //信息报文长度
+    private final static int CTRL_FRAME_MSG_NUMBER=03;
 
     private final String MSG_ID="msgId";
     private final String PAYLOAD="payload";
@@ -24,10 +27,12 @@ public class LiftDriver implements IDriver {
 
     private int serialNumber=0;
 
+    private final Object lock=new Object();
+
     //读取数据指令
     private final byte[] askMessage=new byte[]{0x00,0x00,0x00,0x00,0x00,0x06,0x01,0x04,INFO_Address[0],INFO_Address[1],0x00,0x01};
     private final byte[] ctrlMessage=new byte[]{0x00,0x00,0x00,0x06,0x01,0x06,COMMAND_Address[0],COMMAND_Address[1]};
-    private HashMap<Integer,String>  infoMap=new HashMap<>();
+    private final HashMap<Integer,String>  infoMap=new HashMap<>();
     public LiftDriver() {
 
         infoMap.put(0x0800,"上电状态");
@@ -43,7 +48,6 @@ public class LiftDriver implements IDriver {
 
     @Override
     public void InjectParams(HashMap<String, Object> params) {
-
     }
 
     @Override
@@ -52,11 +56,11 @@ public class LiftDriver implements IDriver {
         JSONObject jsonObject=JSONObject.parseObject(jData);
         Integer msgId= jsonObject.getInteger(MSG_ID);
         if(msgId==null){ return null;}
-        if(msgId.intValue()!=3){return null;}
+        if(msgId !=CTRL_FRAME_MSG_NUMBER){return null;}
 
         JSONObject payload=jsonObject.getJSONObject(PAYLOAD);
         if(payload==null){return null;}
-        String msg=payload.getString("MSG_TAG");
+        String msg=payload.getString(MSG_TAG);
         if(msg==null){return null;}
 
         byte sn=payload.getByte(SN_TAG);
@@ -66,16 +70,14 @@ public class LiftDriver implements IDriver {
         data[1]=sn;
 
         int le=ctrlMessage.length;
-        for(int i=0;i<le;i++){
-            data[2+i]=ctrlMessage[i];
-        }
+        System.arraycopy(ctrlMessage, 0, data, 2, le);
 
-        if(msg.toUpperCase()=="UP"){
+        if(msg.toUpperCase().equals("UP")){
             data[2+le]=0x04;
             data[2+le+1]=0x00;
             return data;
         }
-        if(msg.toUpperCase()=="DOWN"){
+        if(msg.toUpperCase().equals("DOWN")){
             data[2+le]=0x08;
             data[2+le+1]=0x00;
             return data;
@@ -85,16 +87,15 @@ public class LiftDriver implements IDriver {
 
     @Override
     public String decode(byte[] data) {
-        if(data.length<12){
+        if(data.length<INFO_FRAME_LENGTH){
             return null;
         }
-
         if(data[7]==READ_HOLDING_REGISTER){
-            int returnSn=ByteUtil.bytesToUShort(data,0,false);
-            if(returnSn!=serialNumber){
-                //返回的数据报文不是当前询问的应答报文，丢弃
-                return null;
-            }
+//            int returnSn=ByteUtil.bytesToUShort(data,0,false);
+//            if(returnSn!=serialNumber){
+//                //返回的数据报文不是当前询问的应答报文，丢弃
+//                return null;
+//            }
             byte[] byteState=new byte[4];
             byteState[0]=0x00;
             byteState[1]=0x00;
@@ -107,21 +108,19 @@ public class LiftDriver implements IDriver {
                 info="未知状态";
             }
 
-            StringBuilder sb=new StringBuilder();
-            sb.append("\"msgId\":").append(02).append(",").append(System.lineSeparator());
-            sb.append("\"payload\":{").append(System.lineSeparator());
-            sb.append("\"stateNumber\":").append(Integer.toHexString(stateNumber)+",").append(System.lineSeparator());
-            sb.append("\"info\":").append(info).append(System.lineSeparator());
-            sb.append("}");
-            return sb.toString();
+            String sb = "\"msgId\":" + 02 + "," + System.lineSeparator() +
+                    "\"payload\":{" + System.lineSeparator() +
+                    "\"stateNumber\":" + Integer.toHexString(stateNumber) + "," + System.lineSeparator() +
+                    "\"info\":" + info + System.lineSeparator() +
+                    "}";
+            return sb;
 
         }else if(data[7]==WRITE_SINGLE_REGISTER){
-            StringBuilder sb=new StringBuilder();
-            sb.append("\"msgId\":").append(04).append(",").append(System.lineSeparator());
-            sb.append("\"payload\":{").append(System.lineSeparator());
-            sb.append("\"serialNumber\":").append(serialNumber);
-            sb.append("}");
-            return sb.toString();
+            String sb = "\"msgId\":" + 04 + "," + System.lineSeparator() +
+                    "\"payload\":{" + System.lineSeparator() +
+                    "\"serialNumber\":" + serialNumber +
+                    "}";
+            return sb;
         }else{
             return null;
         }
@@ -129,8 +128,11 @@ public class LiftDriver implements IDriver {
 
     @Override
     public byte[] getAskMessage() {
-        askMessage[1]=getSerialNumber();
-        return askMessage;
+        byte[] reMessage=askMessage.clone();
+        synchronized(lock) {
+            reMessage[1] = getSerialNumber();
+        }
+        return reMessage;
     }
 
     @Override

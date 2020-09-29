@@ -42,7 +42,7 @@ public class MqttChannel {
         options.setUserName(IotConfig.getInstance().getMqtt().getUsername());
         options.setPassword(IotConfig.getInstance().getMqtt().getPassword().toCharArray());
         options.setConnectionTimeout(IotConfig.getInstance().getMqtt().getConnectionTimeout());
-        options.setKeepAliveInterval(IotConfig.getInstance().getMqtt().getKeepAliveInterval());  //心跳时间，单位秒，每隔固定时间发送心跳包
+        options.setKeepAliveInterval(IotConfig.getInstance().getMqtt().getKeepAliveInterval());
     }
 
     public void Write(String send_message) {
@@ -53,10 +53,11 @@ public class MqttChannel {
         if(device.getPublishTopicParam()==null){
             return;
         }
+
+        MqttMessage msg=new MqttMessage();
+        msg.setQos(device.getPublishTopicParam().getQos());
+        msg.setPayload(send_message.getBytes(StandardCharsets.UTF_8));
         try {
-            MqttMessage msg=new MqttMessage();
-            msg.setQos(device.getPublishTopicParam().getQos());
-            msg.setPayload(send_message.getBytes(StandardCharsets.UTF_8));
             client.publish(device.getPublishTopicParam().getTopic(),msg);
          }catch (MqttException ex) {
             log.error("设备[{}]发送Topic[{}]-[{}]失败",device.getName(),device.getPublishTopicParam().getTopic(),send_message);
@@ -80,6 +81,10 @@ public class MqttChannel {
             return;
         }
         try {
+            String clientId=device.getName();
+            if(device.getId()!=null && !device.getId().equals("")){
+                clientId=clientId+"_"+device.getId();
+            }
             client = new MqttClient(host, device.getName() + "_" + device.getId(), persistence);
             client.setCallback(new MqttCallbackObject(device, client));
             client.connect(options);
@@ -100,5 +105,29 @@ public class MqttChannel {
             return client.isConnected();
         }
         return false;
+    }
+
+    public void SendConnectStateMessage(String state){
+
+        if(!isConnected()) {
+            return;
+        }
+
+        String connStateJson="{\n" +
+                "\"deviceName\": \""+device.getName()+"\",\n" +
+                "\"deviceNumber\":\""+device.getId()+"\",\n" +
+                "\"msgId\":01,\n" +
+                "\"payload\":{ \n" +
+                "\"connectState\":\""+state+"\"\n" +
+                "\t}\n" +
+                "}";
+        MqttMessage msg=new MqttMessage();
+        msg.setQos(device.getPublishTopicParam().getQos());
+        msg.setPayload(connStateJson.getBytes(StandardCharsets.UTF_8));
+        try {
+            client.publish(device.getPublishTopicParam().getTopic(), msg);
+        }catch (MqttException ex) {
+            log.error("设备[{}]发送信道连通状态[{}]报文失败，",device.getName(),state);
+        }
     }
 }

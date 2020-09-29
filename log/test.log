@@ -629,3 +629,275 @@ java.lang.NullPointerException: null
 "qos":4
 }
 }
+2020-09-29 09:58:45 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 09:59:41 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 10:00:53 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 10:07:28 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 10:08:46 [main] INFO  testNetChannel:170 - {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+}
+2020-09-29 10:09:47 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 10:09:59 [main] INFO  testNetChannel:170 - {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+}
+2020-09-29 10:10:45 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 10:10:49 [main] INFO  testNetChannel:170 - {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+}
+2020-09-29 10:11:36 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 10:11:37 [main] INFO  testNetChannel:169 - {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+}
+2020-09-29 10:20:37 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 10:20:38 [main] INFO  testNetChannel:169 - {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+}
+2020-09-29 10:22:01 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 10:22:02 [main] INFO  testNetChannel:169 - {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+}
+2020-09-29 10:23:26 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 10:23:27 [main] INFO  testNetChannel:168 - {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+}
+2020-09-29 10:24:57 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 10:24:58 [main] INFO  testNetChannel:168 - {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+}
+2020-09-29 10:25:41 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 10:25:42 [main] INFO  testNetChannel:168 - {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+}
+2020-09-29 10:27:08 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 10:27:09 [main] INFO  testNetChannel:168 - {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+}
+2020-09-29 10:27:32 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 10:27:33 [main] INFO  testNetChannel:168 - {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+}
+2020-09-29 10:28:50 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 10:28:51 [main] INFO  testNetChannel:168 - {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+}
+2020-09-29 10:30:38 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 10:30:39 [main] INFO  testNetChannel:169 - {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+}
+2020-09-29 10:36:41 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 10:36:42 [main] INFO  testNetChannel:169 - {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+}
+2020-09-29 10:36:58 [main] INFO  testNetChannel:179 - 0001000000060106D5010400
+2020-09-29 10:44:09 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 10:44:10 [main] INFO  testNetChannel:169 - {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+}
+2020-09-29 10:44:17 [main] INFO  testNetChannel:179 - 00 01 00 00 00 06 01 06 D5 01 04 00
+2020-09-29 16:15:21 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 16:16:25 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 16:19:04 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 16:19:22 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 16:19:36 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 16:26:34 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 16:28:05 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 16:28:40 [main] INFO  testNetChannel:220 - {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42848E-40,
+"hr":7.34684E-40,
+"wind":4.59177E-40,
+"rainfall":1.102026E-39,
+}
+}
+2020-09-29 16:34:40 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 16:35:21 [main] INFO  testNetChannel:221 - {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42848E-40,
+"hr":7.34684E-40,
+"wind":4.59177E-40,
+"rainfall":1.102026E-39,
+}
+}
+2020-09-29 16:35:31 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 16:36:32 [main] INFO  testNetChannel:221 - {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42848E-40,
+"hr":7.34684E-40,
+"wind":4.59177E-40,
+"rainfall":1.102026E-39,
+}
+}
+2020-09-29 16:36:43 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 16:36:56 [main] INFO  testNetChannel:221 - {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42848E-40,
+"hr":7.34684E-40,
+"wind":2.2869E-41,
+"rainfall":1.102026E-39,
+}
+}
+2020-09-29 16:37:01 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 16:37:05 [main] INFO  testNetChannel:222 - {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42848E-40,
+"hr":7.34684E-40,
+"wind":2.2869E-41,
+"rainfall":1.102026E-39,
+}
+}
+2020-09-29 16:37:54 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 16:37:56 [main] INFO  testNetChannel:222 - {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42848E-40,
+"hr":7.34684E-40,
+"wind":1.5,
+"rainfall":1.102026E-39,
+}
+}
+2020-09-29 16:38:29 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 16:38:32 [main] INFO  testNetChannel:222 - {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":1.5,
+"hr":1.6,
+"wind":1.5,
+"rainfall":1.6,
+}
+}
+2020-09-29 19:18:54 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 19:20:02 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 19:20:06 [MQTT Call: BMS_] INFO  MqttCallbackObject:45 - BMS连接tcp://dozen.tech:1883成功
+2020-09-29 19:20:27 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 与设备：BMS连接成功
+2020-09-29 19:20:27 [MQTT Rec: BMS_] INFO  MqttCallbackObject:45 - BMS连接tcp://dozen.tech:1883成功
+2020-09-29 19:20:27 [MQTT Rec: BMS_] INFO  MqttCallbackObject:61 - BMS与MQTT Broker 断开连接
+2020-09-29 19:20:27 [MQTT Rec: BMS_] INFO  MqttCallbackObject:84 - BMS重连MQTT Broker 成功
+2020-09-29 19:20:28 [MQTT Call: BMS_] INFO  MqttCallbackObject:45 - BMS连接tcp://dozen.tech:1883成功
+2020-09-29 19:21:48 [MQTT Rec: BMS_] INFO  MqttCallbackObject:61 - BMS与MQTT Broker 断开连接
+2020-09-29 19:21:48 [MQTT Rec: BMS_] INFO  MqttCallbackObject:84 - BMS重连MQTT Broker 成功
+2020-09-29 19:21:48 [main] WARN  MqttChannel:75 - BMS与MQTT Broker断开连接失败，因为:客户机正在断开连接
+2020-09-29 19:21:48 [nioEventLoopGroup-2-1] INFO  NetChannel:83 - 与设备：BMS断开连接
+2020-09-29 19:42:41 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 19:42:57 [MQTT Call: BMS_] INFO  MqttCallbackObject:45 - BMS连接tcp://dozen.tech:1883成功
+2020-09-29 19:43:15 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 设备[BMS]连接成功
+2020-09-29 19:43:15 [MQTT Rec: BMS_] INFO  MqttCallbackObject:45 - BMS连接tcp://dozen.tech:1883成功
+2020-09-29 19:43:15 [MQTT Rec: BMS_] INFO  MqttCallbackObject:61 - BMS与MQTT Broker 断开连接
+2020-09-29 19:43:15 [MQTT Rec: BMS_] INFO  MqttCallbackObject:84 - BMS重连MQTT Broker 成功
+2020-09-29 19:43:15 [MQTT Call: BMS_] INFO  MqttCallbackObject:45 - BMS连接tcp://dozen.tech:1883成功
+2020-09-29 19:43:47 [MQTT Rec: BMS_] INFO  MqttCallbackObject:45 - BMS连接tcp://dozen.tech:1883成功
+2020-09-29 19:43:47 [MQTT Rec: BMS_] INFO  MqttCallbackObject:61 - BMS与MQTT Broker 断开连接
+2020-09-29 19:43:47 [MQTT Rec: BMS_] INFO  MqttCallbackObject:84 - BMS重连MQTT Broker 成功
+2020-09-29 19:43:47 [main] WARN  MqttChannel:75 - BMS与MQTT Broker断开连接失败，因为:客户机正在断开连接
+2020-09-29 19:43:47 [nioEventLoopGroup-2-1] INFO  NetChannel:83 - 设备[BMS]断开连接
+2020-09-29 19:46:08 [main] INFO  IotConfig:126 - 配置文件加载成功
+2020-09-29 19:46:24 [MQTT Call: BMS_] INFO  MqttCallbackObject:45 - BMS连接tcp://dozen.tech:1883成功
+2020-09-29 19:46:29 [nioEventLoopGroup-2-1] INFO  NetChannel:64 - 设备[BMS]连接成功

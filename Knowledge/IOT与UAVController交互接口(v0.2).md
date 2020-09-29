@@ -72,7 +72,7 @@
     "deviceNumber":"6F9619FF-8B86-D011-B42D-00C04FC964FF",
     "msgId":01,
     "payload":{               
-    	"connectstate":"ok"   //ok:连通，no:断开
+    	"connectState":"ok"   //ok:连通，no:断开
 	}
 }
 ```

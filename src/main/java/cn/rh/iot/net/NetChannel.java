@@ -61,12 +61,12 @@ public class NetChannel implements IChannel {
         future.addListener((ChannelFutureListener) futureListener -> {
             if(futureListener.isSuccess()){
                 netChannel=(SocketChannel)futureListener.channel();
-                log.info("与设备："+device.getName()+"连接成功");
+                log.info("设备[{}]连接成功",device.getName());
             }else{
                 futureListener.channel().eventLoop().schedule(new Runnable() {
                     @Override
                     public void run() {
-                        log.info(device.getName()+"连接失败，尝试重接...");
+                        log.info("连接失败，尝试重接设备[{}]...",device.getName());
                         Connect();
                     }
                 },RECONNECT_INTERVAL, TimeUnit.MILLISECONDS);
@@ -80,7 +80,7 @@ public class NetChannel implements IChannel {
             ChannelFuture future=netChannel.close();
             future.addListener((ChannelFutureListener) futureListener -> {
                 if(futureListener.isSuccess()){
-                    log.info("与设备："+device.getName()+"断开连接");
+                    log.info("设备[{}]断开连接",device.getName());
                 }
             });
         }

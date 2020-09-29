@@ -20,7 +20,7 @@ public abstract class Device {
     @Getter @Setter
     protected String name;
     @Getter @Setter
-    protected String id;
+    protected String id="";
     @Getter @Setter
     protected String introduction;
     @Getter @Setter
@@ -59,14 +59,14 @@ public abstract class Device {
 
     public void Start(){
         if(mqttChannel!=null && channel!=null){
-            //mqttChannel.Connect();
+            mqttChannel.Connect();
             channel.Connect();
         }
     }
 
     public void Stop(){
         if(mqttChannel!=null && channel!=null){
-            //mqttChannel.Disconnect();
+            mqttChannel.Disconnect();
             channel.Disconnect();
         }
     }

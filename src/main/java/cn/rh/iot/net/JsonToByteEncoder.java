@@ -4,20 +4,19 @@ import cn.rh.iot.core.Device;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
-import io.netty.util.CharsetUtil;
 
 /**
- * @program: IOT_Controller
- * @description: 将Json字符串编码为Byte指令
- * @author: Y.Y
- * @create: 2020-09-22 14:07
+ * @Program: IOT_Controller
+ * @Description: 将Json字符串编码为Byte指令
+ * @Author: Y.Y
+ * @Create: 2020-09-22 14:07
  **/
 public class JsonToByteEncoder extends MessageToByteEncoder<String> {
 
-    private Device device;
+    private final static int CTRL_FRAME_MSG_NUMBER=3;
+    private final Device device;
 
     public JsonToByteEncoder(Device device) {
         this.device = device;
@@ -27,11 +26,20 @@ public class JsonToByteEncoder extends MessageToByteEncoder<String> {
     protected void encode(ChannelHandlerContext ctx, String msg, ByteBuf out) throws Exception {
 
         JSONObject obj= JSON.parseObject(msg);
-        String payloadJson=obj.getString("payload");
+        int msgNumber=obj.getInteger("msgId");
 
-        byte[] data=device.getDriver().encode(payloadJson);
-        if(data.length>0) {
-            out.writeBytes(data);
+        if(device.getDriver()==null){
+            throw new Exception(device.getName()+"没有加载驱动");
+        }
+
+        if(msgNumber==CTRL_FRAME_MSG_NUMBER) {
+            byte[] data = device.getDriver().encode(msg);
+            if (data!=null && data.length > 0) {
+                out.writeBytes(data);
+//            if(device.getChannel()!=null){
+//                device.getChannel().Write(data);
+//            }
+            }
         }
     }
 }

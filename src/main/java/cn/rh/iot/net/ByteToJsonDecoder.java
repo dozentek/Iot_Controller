@@ -37,22 +37,20 @@ public class ByteToJsonDecoder extends ByteToMessageDecoder {
             }
             out.add(Pack(msg));
 
-//            if(device!=null && device.getMqttChannel()!=null){
-//                device.getMqttChannel().Write(Pack(msg));
-//            }
+            if(device!=null && device.getMqttChannel()!=null){
+                device.getMqttChannel().Write(Pack(msg));
+            }
         }
     }
 
     private String Pack(String msg){
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("{");
-        sb.append(System.lineSeparator());
-        sb.append("\"deviceName\":\"").append(device.getName()).append("\",").append(System.lineSeparator());
-        sb.append("\"deviceNumber\":\"").append(device.getId()==null?"":device.getId()).append("\",").append(System.lineSeparator());
-        sb.append(msg).append(System.lineSeparator());
-        sb.append("}");
-
-        return sb.toString();
+        String sb = "{" +
+                System.lineSeparator() +
+                "\"deviceName\":\"" + device.getName() + "\"," + System.lineSeparator() +
+                "\"deviceNumber\":\"" + (device.getId() == null ? "\"" : device.getId()) + "\"," + System.lineSeparator() +
+                msg + System.lineSeparator() +
+                "}";
+        return sb;
     }
 }
