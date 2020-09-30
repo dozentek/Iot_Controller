@@ -43,7 +43,7 @@ public class NetChannelInitializer extends ChannelInitializer<Channel> {
 
         ChannelPipeline pipeline = ch.pipeline();
 
-        //----装配信道连通探测处理器
+        //----装配信道连通状态判断及处理Handler
         {
             int timeout = device.getTimeout();
             if (timeout <= 0) {
@@ -57,6 +57,8 @@ public class NetChannelInitializer extends ChannelInitializer<Channel> {
         {
             if (device.getAskInterval() > 0) {
                 pipeline.addLast(new TimeAskHandler(device));
+
+                //这个OutboundHandler是用于定时发送询问报文。
                 pipeline.addLast("askFrameHandler",new ChannelOutboundHandlerAdapter());
             }
         }
@@ -81,7 +83,7 @@ public class NetChannelInitializer extends ChannelInitializer<Channel> {
             }
         }
 
-        //----装配解码器,形成json中"payload"关键字的value;
+        //----装配解码器
         //----装配编码器
         {
             pipeline.addLast(new ByteToJsonDecoder(device));

@@ -35,10 +35,11 @@ public class ByteToJsonDecoder extends ByteToMessageDecoder {
             if(msg==null || msg.equals("")){
                 return;
             }
-            out.add(Pack(msg));
+            String realJson=Pack(msg);
+            out.add(realJson);         //这行代码没有用
 
             if(device.getMqttChannel()!=null){
-                device.getMqttChannel().Write(Pack(msg));
+                device.getMqttChannel().Write(realJson);
             }
         }
     }

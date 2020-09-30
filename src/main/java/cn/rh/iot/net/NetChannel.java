@@ -82,7 +82,7 @@ public class NetChannel implements IChannel {
     public void Disconnect(Object lock) {
         if(netChannel!=null && netChannel.isOpen()){
             ChannelFuture future=netChannel.close();
-            future.addListener(new ChannelFutureListenerWithLock(device,lock));
+            future.addListener(new ChannelCloseListenerWithLock(device,lock));
         }
     }
 }

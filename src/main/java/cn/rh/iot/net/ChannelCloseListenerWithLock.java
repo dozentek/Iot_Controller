@@ -7,17 +7,17 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * @Program: Iot_Controller
- * @Description: 带输入锁的网络Channel操作结果监听类
+ * @Description: 带输入锁的网络Channel关闭操作结果监听类
  * @Author: Y.Y
  * @Create: 2020-09-30 12:04
  **/
 @Slf4j
-public class ChannelFutureListenerWithLock implements ChannelFutureListener {
+public class ChannelCloseListenerWithLock implements ChannelFutureListener {
 
     private final Object lock;
     private final Device device;
 
-    public ChannelFutureListenerWithLock(Device device,Object lock) {
+    public ChannelCloseListenerWithLock(Device device, Object lock) {
         this.lock = lock;
         this.device=device;
     }
