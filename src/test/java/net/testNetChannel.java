@@ -27,7 +27,7 @@ import static org.junit.Assert.assertTrue;
 @Slf4j
 public class testNetChannel {
 
-    private static String filepath = System.getProperty("user.dir") + "\\out\\production\\resources\\ConfigReal.xml";
+    private static final String filepath = System.getProperty("user.dir") + "\\out\\production\\resources\\ConfigReal.xml";
 
     @Test
     public void testChannelWrite(){
@@ -43,7 +43,6 @@ public class testNetChannel {
         try {
             Thread.sleep(2000);
         }catch (Exception ex){
-            ;
         }
         device.Stop();
     }
@@ -60,7 +59,6 @@ public class testNetChannel {
         try {
             Thread.sleep(2000);
         }catch (Exception ex){
-            ;
         }
         device.Stop();
     }
@@ -112,8 +110,7 @@ public class testNetChannel {
 
         assertTrue(channel.writeInbound(data));
         assertTrue(channel.finish());
-        String json=(String)channel.readInbound();
-        log.info(json);
+        log.info((String)channel.readInbound());
 
         //测试粘包（多个报文），多次读取数据
 //        json=(String)channel.readInbound();
@@ -238,7 +235,60 @@ public class testNetChannel {
         }catch (Exception ex){
             ;
         }
+        device.Stop();
+    }
 
+    @Test
+    public void testRTK(){
+        IotConfig.getInstance().load(filepath);
+        DriverManager.getInstance().load(IotConfig.getInstance().getDriverFilePath());
+        DeviceManager.getInstance().load(IotConfig.getInstance());
+
+        Device device=DeviceManager.getInstance().getDevice("RTK");
+        device.setDriver(new RTKDriver());   //测试时，避免从文件加载的类文件与代码不一致
+
+        device.Start();
+        try {
+            Thread.sleep(20000);
+        }catch (Exception ex){
+            ;
+        }
+        device.Stop();
+    }
+
+    @Test
+    public void testLift(){
+        IotConfig.getInstance().load(filepath);
+        DriverManager.getInstance().load(IotConfig.getInstance().getDriverFilePath());
+        DeviceManager.getInstance().load(IotConfig.getInstance());
+
+        Device device=DeviceManager.getInstance().getDevice("Lift");
+        device.setDriver(new LiftDriver());   //测试时，避免从文件加载的类文件与代码不一致
+
+        device.Start();
+        try {
+            Thread.sleep(10000);
+        }catch (Exception ex){
+            ;
+        }
+        device.Stop();
+    }
+
+    @Test
+    public void testMet(){
+        IotConfig.getInstance().load(filepath);
+        DriverManager.getInstance().load(IotConfig.getInstance().getDriverFilePath());
+        DeviceManager.getInstance().load(IotConfig.getInstance());
+
+        Device device=DeviceManager.getInstance().getDevice("Met");
+        device.setDriver(new MetDriver());   //测试时，避免从文件加载的类文件与代码不一致
+
+        device.Start();
+        try {
+            Thread.sleep(10000);
+        }catch (Exception ex){
+            ;
+        }
         device.Stop();
     }
 }

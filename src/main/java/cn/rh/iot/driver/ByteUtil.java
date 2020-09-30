@@ -41,11 +41,6 @@ public class ByteUtil {
         }
         return value;
     }
-
-    public static float byteArrayToFloat(byte[] bytes, int offset) {
-        return Float.intBitsToFloat(byteArrayToInt(bytes,offset));
-    }
-
     /*
      * @Description: 将前后16位调换位置后，遵循IEEE 754浮点标准，尽心转换
      * @Param: [bytes, offset]

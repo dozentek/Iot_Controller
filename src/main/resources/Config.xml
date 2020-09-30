@@ -49,4 +49,5 @@
         <Username> </Username>
         <Password> </Password>
     </Mqtt>
+    <NetChannel defaultTimeout="30000"/>
 </Config>

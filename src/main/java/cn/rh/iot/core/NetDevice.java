@@ -7,8 +7,6 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.net.InetSocketAddress;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -19,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  **/
 public class NetDevice extends Device {
 
-    private static int RECONNECT_INTERVAL=3000;  //ms
+    private final static int RECONNECT_INTERVAL=3000;  //ms
 
     @Getter @Setter
     private NetRoleType role;
@@ -30,7 +28,7 @@ public class NetDevice extends Device {
     @Getter @Setter
     private int port;
 
-    private EventLoopGroup group;
+    private final EventLoopGroup group;
 
     public NetDevice(EventLoopGroup group) {
         this.group=group;

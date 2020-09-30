@@ -6,6 +6,7 @@ import cn.rh.iot.mqtt.TopicParam;
 import io.netty.bootstrap.Bootstrap;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 import java.util.HashMap;
@@ -16,6 +17,7 @@ import java.util.HashMap;
  * @Author: Y.Y
  * @Create: 2020-09-18 11:51
  **/
+@Slf4j
 public abstract class Device {
     @Getter @Setter
     protected String name;
@@ -48,7 +50,9 @@ public abstract class Device {
     @Getter
     protected boolean isStarted=false;
 
-    public void MessageArrived(String topic, MqttMessage message){
+    private final Object lock = new Object();
+
+    public void MessageArrived(MqttMessage message){
         if(this.driver!=null) {
             byte[] outData= driver.encode(new String(message.getPayload()));
             if(channel!=null && outData.length>0 ) {
@@ -66,7 +70,15 @@ public abstract class Device {
 
     public void Stop(){
         if(mqttChannel!=null && channel!=null){
-            channel.Disconnect();
+            channel.Disconnect(lock);
+            try {
+                synchronized (lock) {
+                    lock.wait();
+                }
+            }catch (InterruptedException e)
+            {
+                log.error("设备[{}]关闭网络连接失败,原因：{}",this.name,e.getMessage());
+            }
             mqttChannel.Disconnect();
         }
     }

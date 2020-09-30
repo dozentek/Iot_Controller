@@ -14,18 +14,13 @@ import java.util.HashMap;
 public class MetDriver implements IDriver{
 
     private final byte READ_HOLDING_REGISTER=0x03;                      //读保持寄存器
-    private final byte WRITE_SINGLE_REGISTER=0x06;                      //写单个保持寄存器
-    private final byte[] INFO_Address=new byte[]{0x00,(byte)0x00};      //读取数据地址
-
-    private final String MSG_ID="msgId";
-    private final String PAYLOAD="payload";
+    private final byte[] INFO_Address=new byte[]{0x00,(byte)0x01};      //读取数据地址
 
     private int serialNumber=0;
-
     private final Object lock=new Object();
 
     //读取数据指令(只读了16个寄存器）
-    private final byte[] askMessage=new byte[]{0x00,0x00,0x00,0x00,0x00,0x06,0x01,0x04,INFO_Address[0],INFO_Address[1],0x00,0x10};
+    private final byte[] askMessage=new byte[]{0x00,0x00,0x00,0x00,0x00,0x06,0x01,READ_HOLDING_REGISTER,INFO_Address[0],INFO_Address[1],0x00,0x10};
 
 
     @Override
@@ -50,14 +45,13 @@ public class MetDriver implements IDriver{
             float hr=ByteUtil.byteArrayToFloatExchange16Bit(data,iStartIndex+3*4);
             float rainfall=ByteUtil.byteArrayToFloatExchange16Bit(data,iStartIndex+7*4);
 
-            String sb = "\"msgId\":" + 02 + "," + System.lineSeparator() +
+            return "\"msgId\":" + 2 + "," + System.lineSeparator() +
                     "\"payload\":{" + System.lineSeparator() +
                     "\"temp\":" + temp + "," + System.lineSeparator() +
                     "\"hr\":" + hr + "," + System.lineSeparator() +
                     "\"wind\":" + wind + "," + System.lineSeparator() +
                     "\"rainfall\":" + rainfall + System.lineSeparator() +
                     "}";
-            return sb;
 
         }catch (Exception ex) {
             return null;

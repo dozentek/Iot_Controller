@@ -6,7 +6,7 @@ import io.netty.handler.codec.MessageToByteEncoder;
 
 /**
  * @Program: Iot_Controller
- * @Description: 测试用数据处理Handler
+ * @Description: 测试用数据处理Handler（单元测试用）
  * @Author: Y.Y
  * @Create: 2020-09-28 13:43
  **/

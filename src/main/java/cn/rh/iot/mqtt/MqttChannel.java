@@ -69,7 +69,8 @@ public class MqttChannel {
         try {
             client.publish(device.getPublishTopicParam().getTopic(),msg);
          }catch (MqttException ex) {
-            log.error("设备[{}]发送Topic[{}]-[{}]失败",device.getName(),device.getPublishTopicParam().getTopic(),send_message);
+            log.error("设备[{}]发送Topic[{}]-[{}]失败",device.getName(),
+                    device.getPublishTopicParam().getTopic(),send_message);
         }
     }
 
@@ -81,9 +82,9 @@ public class MqttChannel {
             isInitiativeDisconnecting=true;
             client.disconnect();
             client.close();
-            log.info("设备[{}]与MQTT服务器断开连接",device.getName());
+            log.info("设备[{}]与MQTT服务器主动断开连接",device.getName());
         } catch(MqttException ex){
-            log.warn(device.getName() + "与MQTT Broker断开连接失败，因为:"+ex.getMessage());
+            log.warn(device.getName() + "与MQTT服务器断开连接失败，因为:"+ex.getMessage());
         }
     }
 
@@ -102,11 +103,11 @@ public class MqttChannel {
             client.connect(options);
         } catch(MqttException ex) {
             //如果第一次连接不到服务器，则不断尝试连接
-            log.error(device.getName() + "连接MQTT Broker失败，错误码：" + ex.getMessage());
+            log.error("设备[{}]连接MQTT服务器失败，错误码：{}",device.getName() , ex.getReasonCode());
             new Timer().schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    log.error(device.getName() + "重连 MQTT Broker..." );
+                    log.error("设备[{}]重连MQTT服务器...",device.getName());
                     Connect();
                 }
             }, RECONNECT_INTERVAL);

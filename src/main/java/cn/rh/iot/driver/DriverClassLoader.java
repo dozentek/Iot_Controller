@@ -7,10 +7,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
- * @program: IOT_Controller
- * @description: 通过文件加载类对象
- * @author: Y.Y
- * @create: 2020-09-21 08:42
+ * @Program: IOT_Controller
+ * @Description: 通过文件加载类对象
+ * @Author: Y.Y
+ * @Create: 2020-09-21 08:42
  **/
 public class DriverClassLoader extends ClassLoader{
 
@@ -26,7 +26,7 @@ public class DriverClassLoader extends ClassLoader{
         try {
             FileInputStream is = new FileInputStream(file);
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            int len = 0;
+            int len;
             try {
                 while ((len = is.read()) != -1) {
                     bos.write(len);

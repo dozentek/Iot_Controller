@@ -27,10 +27,8 @@ public class RTKDriver implements IDriver {
 
         try{
             if(data.length<5){return null;}
-
             String s=new String(data, StandardCharsets.US_ASCII);
             String[] valueList=s.split(",");
-
             if(!valueList[0].toUpperCase().equals("$GPGGA")){
                 return null;
             }
@@ -54,14 +52,13 @@ public class RTKDriver implements IDriver {
             quality=Integer.parseInt(valueList[6]);
             alt=Double.parseDouble(valueList[9]);
 
-            String sb = "\"msgId\":" + 02 + "," + System.lineSeparator() +
+            return  "\"msgId\":" + 2 + "," + System.lineSeparator() +
                     "\"payload\":{" + System.lineSeparator() +
                     "\"lon\":" + lon + "," + System.lineSeparator() +
                     "\"lat\":" + lat + "," + System.lineSeparator() +
                     "\"alt\":" + alt + "," + System.lineSeparator() +
                     "\"qos\":" + quality + System.lineSeparator() +
                     "}";
-            return sb;
 
         }catch (Exception ex){
             return null;

@@ -10,6 +10,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 /**
  * @Program: Iot_Controller
@@ -26,6 +27,10 @@ public class IotConfig {
     private MqttConfigInfo mqtt;
     @Getter
     private String driverFilePath;
+
+    @Getter
+    private int netDefaultTimeout;
+
     @Getter
     private boolean isLoaded;
 
@@ -90,6 +95,22 @@ public class IotConfig {
                 driverFilePath = ((Element) (nodes.item(0))).getTextContent().trim();
             }
 
+            //获取DriverFilePath
+            {
+                NodeList nodes = document.getDocumentElement().getElementsByTagName("NetChannel");
+                if (nodes.getLength() <= 0) {
+                    log.error("配置文件缺少配置项：“+”NetChannel");
+                    return false;
+                }
+                String value=((Element) (nodes.item(0))).getAttribute("defaultTimeout");
+                if(value==null || !isInteger(value.trim())){
+                    netDefaultTimeout=30000;
+                }else {
+                    netDefaultTimeout = Integer.parseInt(value.trim());
+                }
+            }
+
+
             //获取Mqtt配置信息
             {
                 NodeList nodes = document.getDocumentElement().getElementsByTagName("Mqtt");
@@ -131,5 +152,10 @@ public class IotConfig {
             log.error("配置文件加载失败，错误："+ex.toString());
             return false;
         }
+    }
+
+    private static boolean isInteger(String str) {
+        Pattern pattern = Pattern.compile("^[-\\+]?[\\d]*$");
+        return pattern.matcher(str).matches();
     }
 }

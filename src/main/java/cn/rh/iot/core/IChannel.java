@@ -7,8 +7,9 @@ package cn.rh.iot.core;
  * @Create: 2020-09-25 11:34
  **/
 public interface IChannel {
-    public boolean isConnected();
-    public void Write(byte[] data);
-    public void Connect();
-    public void Disconnect();
+    boolean isConnected();
+    void Write(byte[] data);
+    void Connect();
+    void Disconnect();
+    void Disconnect(Object lock);
 }

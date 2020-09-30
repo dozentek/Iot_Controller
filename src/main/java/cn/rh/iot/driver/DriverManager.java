@@ -1,28 +1,27 @@
 package cn.rh.iot.driver;
 
-import cn.rh.iot.config.IotConfig;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
 import java.util.HashMap;
 
-@Slf4j
+
 /**
- * @program: IOT_Controller
- * @description: 加载并管理驱动程序类对象。
- *               根据构造函数传入的驱动程序类文件存储的目录地址，加载目录内全部的驱动程序类对象
- * @author: Y.Y
- * @create: 2020-09-18 12:22
+ * @Program: IOT_Controller
+ * @Description: 加载并管理驱动程序类对象。根据构造函数传入的驱动程序类文件存储的目录地址，加载目录内全部的驱动程序类对象
+ * @Author: Y.Y
+ * @Create: 2020-09-18 12:22
  **/
+@Slf4j
 public class DriverManager {
 
     private final DriverClassLoader classLoader;
-    private final HashMap<String,Class> driverMap=new HashMap<String,Class>();
+    private final HashMap<String,Class> driverMap=new HashMap<>();
     @Getter
     private boolean isLoaded=false;
 
-    private static DriverManager _instance=new DriverManager();
+    private final static DriverManager _instance=new DriverManager();
 
     public static DriverManager getInstance(){
         return _instance;
@@ -79,8 +78,7 @@ public class DriverManager {
         }
         else{
             try {
-                IDriver driver = (IDriver) c.newInstance();
-                return driver;
+                return (IDriver) c.newInstance();
             }catch ( InstantiationException| IllegalAccessException e) {
                 e.printStackTrace();
                 return null;

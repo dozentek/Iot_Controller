@@ -1,10 +1,12 @@
 package cn.rh.iot.net;
 
+import cn.rh.iot.config.IotConfig;
 import cn.rh.iot.core.Device;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOutboundHandlerAdapter;
 import io.netty.channel.ChannelPipeline;
 import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import io.netty.handler.codec.FixedLengthFrameDecoder;
@@ -16,15 +18,15 @@ import java.util.concurrent.TimeUnit;
 
 
 /**
- * @program: IOT_Controller
- * @description: 为Channel装配Handler链
- * @author: Y.Y
- * @create: 2020-09-22 08:34
+ * @Program: IOT_Controller
+ * @Description: 为Channel装配Handler链
+ * @Author: Y.Y
+ * @Create: 2020-09-22 08:34
  **/
 public class NetChannelInitializer extends ChannelInitializer<Channel> {
 
     private final static int MAX_LENGTH=1024;
-    private final static int DEFAULT_TIMEOUT=60000;
+    private final static int DEFAULT_TIMEOUT=20000;
 
     @Getter
     private final Device device;
@@ -37,29 +39,30 @@ public class NetChannelInitializer extends ChannelInitializer<Channel> {
     }
 
     @Override
-    protected void initChannel(Channel ch) throws Exception {
+    protected void initChannel(Channel ch) {
 
         ChannelPipeline pipeline = ch.pipeline();
 
+        //----装配信道连通探测处理器
         {
-            //装配信道通断探测处理器
             int timeout = device.getTimeout();
             if (timeout <= 0) {
-                timeout = DEFAULT_TIMEOUT;
+                timeout = IotConfig.getInstance().getNetDefaultTimeout();
             }
             pipeline.addLast(new IdleStateHandler(timeout, 0, 0, TimeUnit.MILLISECONDS));
             pipeline.addLast(new HeartbeatHandler(device));
         }
 
+        //----装配定时发送询问报文的Handler
         {
-            //装配定时发送询问报文的Handler
             if (device.getAskInterval() > 0) {
                 pipeline.addLast(new TimeAskHandler(device));
+                pipeline.addLast("askFrameHandler",new ChannelOutboundHandlerAdapter());
             }
         }
 
+        //----装配解决TCP粘包的解码器
         {
-            //装配解决TCP粘包的解码器
             switch (device.getDriver().getType()) {
                 case FixLength:
                     pipeline.addLast(new FixedLengthFrameDecoder(device.getDriver().getMessageLength()));
@@ -72,18 +75,17 @@ public class NetChannelInitializer extends ChannelInitializer<Channel> {
                     int lFieldOffset = device.getDriver().getLengthFieldOffset();
                     int lFieldLength = device.getDriver().getLengthFieldLength();
                     int lAdjustment = device.getDriver().getLengthAdjustment();
-                    LengthFieldBasedFrameDecoder decoder =
-                            new LengthFieldBasedFrameDecoder(MAX_LENGTH, lFieldOffset, lFieldLength, lAdjustment, 0);
-                    pipeline.addLast(decoder);
+                    pipeline.addLast(new LengthFieldBasedFrameDecoder(MAX_LENGTH, lFieldOffset,
+                                         lFieldLength, lAdjustment, 0));
                     break;
             }
         }
 
+        //----装配解码器,形成json中"payload"关键字的value;
+        //----装配编码器
         {
-            //装配解码器,形成json中"payload"关键字的value;
             pipeline.addLast(new ByteToJsonDecoder(device));
-            //装配编码器
-            pipeline.addLast(new JsonToByteEncoder(device));
+            pipeline.addLast("",new JsonToByteEncoder(device));
         }
     }
 }

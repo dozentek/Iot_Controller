@@ -8,10 +8,10 @@ import io.netty.handler.codec.ByteToMessageDecoder;
 import java.util.List;
 
 /**
- * @program: IOT_Controller
- * @description: 将字节数据解码为json信息
- * @author: Y.Y
- * @create: 2020-09-22 08:44
+ * @Program: IOT_Controller
+ * @Description: 将字节数据解码为json信息
+ * @Author: Y.Y
+ * @Create: 2020-09-22 08:44
  **/
 public class ByteToJsonDecoder extends ByteToMessageDecoder {
 
@@ -22,7 +22,7 @@ public class ByteToJsonDecoder extends ByteToMessageDecoder {
     }
 
     @Override
-    protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
+    protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out){
         if(device.getDriver()==null){
             return;
         }
@@ -37,20 +37,24 @@ public class ByteToJsonDecoder extends ByteToMessageDecoder {
             }
             out.add(Pack(msg));
 
-            if(device!=null && device.getMqttChannel()!=null){
+            if(device.getMqttChannel()!=null){
                 device.getMqttChannel().Write(Pack(msg));
             }
         }
     }
 
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        super.exceptionCaught(ctx, cause);
+    }
+
     private String Pack(String msg){
 
-        String sb = "{" +
+        return "{" +
                 System.lineSeparator() +
                 "\"deviceName\":\"" + device.getName() + "\"," + System.lineSeparator() +
                 "\"deviceNumber\":\"" + (device.getId() == null ? "\"" : device.getId()) + "\"," + System.lineSeparator() +
                 msg + System.lineSeparator() +
                 "}";
-        return sb;
     }
 }

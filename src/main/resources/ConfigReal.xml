@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Config>
     <Devices>
         <Device intro="升降台" name="Lift" role="Server" protocol="TCP" askInterval="1000" timeout="10000">
             <Net>
@@ -49,4 +49,5 @@
         <Username> </Username>
         <Password> </Password>
     </Mqtt>
+    <NetChannel defaultTimeout="30000"/>
 </Config>

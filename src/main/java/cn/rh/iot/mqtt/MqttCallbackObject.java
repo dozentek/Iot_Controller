@@ -50,9 +50,9 @@ public class MqttCallbackObject implements MqttCallbackExtended {
 
             try {
                  channel.getClient().subscribe(topic, qos);
-                log.info(device.getName() + "订阅Topic[" + topic + "] 成功");
+                log.info(device.getName() + "订阅Topic[" + topic + "]成功");
             } catch (MqttException ex) {
-                log.error(device.getName() + "订阅Topic[" + topic + "]失败，问题：" + ex.toString());
+                log.error(device.getName() + "订阅Topic[" + topic + "]失败，问题：" + ex.getMessage());
             }
         }
     }
@@ -63,17 +63,17 @@ public class MqttCallbackObject implements MqttCallbackExtended {
             channel.setInitiativeDisconnecting(false);
             return;
         }
-        log.info(device.getName()+"与MQTT Broker 断开连接");
-        if(channel.getClient()!=null && channel.getClient().isConnected()){
-        }else{
+
+        if(channel.getClient()!=null && !channel.getClient().isConnected()){
+            log.info("设备[{}]与MQTT服务器断开连接，重连...",device.getName());
             reConnect();
         }
     }
 
     @Override
-    public void messageArrived(String topic, MqttMessage message) throws Exception {
+    public void messageArrived(String topic, MqttMessage message) {
         if(channel.getClient()!=null && channel.getClient().isConnected() && device!=null){
-            device.MessageArrived(topic,message);
+            device.MessageArrived(message);
         }
     }
 
@@ -85,10 +85,10 @@ public class MqttCallbackObject implements MqttCallbackExtended {
         try {
             if(!channel.getClient().isConnected()) {
                 channel.getClient().reconnect();
-                log.info(device.getName()+"重连MQTT Broker 成功");
+                log.info("设备[{}]重连MQTT服务器成功",device.getName());
             }
         } catch (MqttException e) {
-            log.error(device.getName()+"重连MQTT Broker 失败", e.toString());
+            log.error(device.getName()+"重连MQTT服务器失败", e.toString());
             new Timer().schedule(new TimerTask() {
                 @Override
                 public void run() {

@@ -1,16 +1,10 @@
 package cn.rh.iot.net;
 
 import cn.rh.iot.core.Device;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelFutureListener;
-import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.channel.*;
 import io.netty.util.concurrent.ScheduledFuture;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.TimeUnit;
 
@@ -23,8 +17,8 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class TimeAskHandler extends ChannelInboundHandlerAdapter {
 
-    Logger logger= LoggerFactory.getLogger(TimeAskHandler.class);
-
+    //为什么是ChannelInboundHandler，而不是ChannelOutboundHandler？
+    //因为只有InboundHandler才能感知channel是否Active
     private final Device device;
     private volatile ScheduledFuture<?> askFuture;
 
@@ -33,25 +27,12 @@ public class TimeAskHandler extends ChannelInboundHandlerAdapter {
     }
 
     @Override
-    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+    public void channelActive(ChannelHandlerContext ctx) {
         int interval = device.getAskInterval();
-        ctx.writeAndFlush(Unpooled.copiedBuffer(device.getDriver().getAskMessage()));
-        byte[] askMessage = device.getDriver().getAskMessage();
-        askFuture = ctx.executor().scheduleAtFixedRate(new TimerSendMessageTask(ctx, askMessage), 0, interval, TimeUnit.MILLISECONDS);
-    }
-
-    @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        if (askFuture != null){
-            askFuture.cancel(true);
-            askFuture = null;
+        if (interval > 0) {
+            byte[] askMessage = device.getDriver().getAskMessage();
+            askFuture = ctx.executor().scheduleAtFixedRate(new TimerSendMessageTask(ctx, askMessage), 0, interval, TimeUnit.MILLISECONDS);
         }
-        ctx.fireExceptionCaught(cause);
-    }
-
-    @Override
-    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        super.channelInactive(ctx);
     }
 
     private class TimerSendMessageTask implements Runnable {
@@ -67,14 +48,17 @@ public class TimeAskHandler extends ChannelInboundHandlerAdapter {
         @Override
         public void run() {
             if(ctx.channel().isActive()) {
-                ChannelFuture future=ctx.writeAndFlush(Unpooled.copiedBuffer(message));
-                future.addListener((ChannelFutureListener) futureListener -> {
-                    if(futureListener.isSuccess()){
-                        log.info("设备："+device.getName()+"发送数据获取报文成功");
-                    }else{
-                        log.info("设备："+device.getName()+"发送数据获取报文失败");
-                    }
-                });
+                ChannelHandlerContext askFrameHandlerContext=ctx.pipeline().context("askFrameHandler");
+                if(askFrameHandlerContext!=null) {
+                    ChannelFuture future = askFrameHandlerContext.writeAndFlush(Unpooled.copiedBuffer(message));
+                    future.addListener((ChannelFutureListener) futureListener -> {
+                        if (futureListener.isSuccess()) {
+                            log.info("设备[{}]发送数据获取报文成功", device.getName());
+                        } else {
+                            log.info("设备[{}]发送数据获取报文失败", device.getName());
+                        }
+                    });
+                }
             }
         }
     }

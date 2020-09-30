@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * @Program: Iot_Controller
- * @Description: 直接读取测试类
+ * @Description: 直接读取测试类（单元测试用）
  * @Author: Y.Y
  * @Create: 2020-09-28 14:21
  **/

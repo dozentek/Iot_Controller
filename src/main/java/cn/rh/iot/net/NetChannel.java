@@ -7,7 +7,6 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.socket.SocketChannel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -60,18 +59,15 @@ public class NetChannel implements IChannel {
         ChannelFuture future=device.getBootstrap().connect(ip, port);
         future.addListener((ChannelFutureListener) futureListener -> {
             if(futureListener.isSuccess()){
-                netChannel=(SocketChannel)futureListener.channel();
+                netChannel= futureListener.channel();
                 log.info("设备[{}]连接成功",device.getName());
                 if(device.getMqttChannel()!=null){
                     device.getMqttChannel().SendConnectStateMessage("ok");
                 }
             }else{
-                futureListener.channel().eventLoop().schedule(new Runnable() {
-                    @Override
-                    public void run() {
-                        log.info("设备[{}]连接失败，尝试重连...",device.getName());
-                        Connect();
-                    }
+                futureListener.channel().eventLoop().schedule(() -> {
+                    log.info("设备[{}]连接失败，尝试重连...",device.getName());
+                    Connect();
                 },RECONNECT_INTERVAL, TimeUnit.MILLISECONDS);
             }
         });
@@ -79,18 +75,14 @@ public class NetChannel implements IChannel {
 
     @Override
     public void Disconnect() {
+        Disconnect(null);
+    }
+
+    @Override
+    public void Disconnect(Object lock) {
         if(netChannel!=null && netChannel.isOpen()){
             ChannelFuture future=netChannel.close();
-            future.addListener((ChannelFutureListener) futureListener -> {
-                if(futureListener.isSuccess()){
-                    log.info("设备[{}]断开连接",device.getName());
-                    if(device.getMqttChannel()!=null){
-                        device.getMqttChannel().SendConnectStateMessage("no");
-                    }
-                }else{
-                    log.info("设备[{}]断开连接失败。原因:{}",device.getName(),futureListener.cause().getMessage());
-                }
-            });
+            future.addListener(new ChannelFutureListenerWithLock(device,lock));
         }
     }
 }

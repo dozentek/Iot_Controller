@@ -9,10 +9,10 @@ import io.netty.channel.socket.nio.NioDatagramChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
 /**
- * @program: IOT_Controller
- * @description: 对设备Channel进行各种设置与装配
- * @author: Y.Y
- * @create: 2020-09-22 17:29
+ * @Program: IOT_Controller
+ * @Description: 对设备Channel进行各种设置与装配
+ * @Author: Y.Y
+ * @Create: 2020-09-22 17:29
  **/
 public class Assembler {
 
