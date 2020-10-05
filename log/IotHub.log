@@ -6283,3 +6283,3308 @@ io.netty.util.concurrent.BlockingOperationException: DefaultChannelPromise@4e6b7
 2020-10-05 10:09:29.896 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[Lift]与MQTT服务器断开连接
 2020-10-05 10:09:29.898 [nioEventLoopGroup-2-7] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
 2020-10-05 10:09:29.901 [JavaFX Application Thread] INFO  MainWindow:67 - -----系统关闭-----
+2020-10-05 10:37:28.893 [Thread-6] INFO  MainWindow:86 - -----系统启动-----
+2020-10-05 10:37:28.950 [Thread-6] INFO  IotConfig:167 - 配置文件加载成功
+2020-10-05 10:37:30.070 [MQTT Call: RTK] INFO  MqttCallbackObject:46 - 设备[RTK]连接MQTT服务器成功
+2020-10-05 10:37:31.994 [nioEventLoopGroup-2-1] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 10:37:32.357 [MQTT Call: BMS] INFO  MqttCallbackObject:46 - 设备[BMS]连接MQTT服务器成功
+2020-10-05 10:37:33.360 [nioEventLoopGroup-2-2] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 10:37:33.720 [MQTT Call: Met] INFO  MqttCallbackObject:46 - 设备[Met]连接MQTT服务器成功
+2020-10-05 10:37:34.725 [nioEventLoopGroup-2-3] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:37:35.087 [MQTT Call: Lift] INFO  MqttCallbackObject:46 - 设备[Lift]连接MQTT服务器成功
+2020-10-05 10:37:35.123 [MQTT Call: Lift] INFO  MqttCallbackObject:53 - Lift订阅[Lift/Ctrl]成功
+2020-10-05 10:37:36.090 [nioEventLoopGroup-2-4] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:37:38.000 [nioEventLoopGroup-2-5] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 10:37:38.366 [nioEventLoopGroup-2-6] INFO  NetChannel:88 - 与设备[BMS]连接成功
+2020-10-05 10:37:38.369 [nioEventLoopGroup-2-6] INFO  MqttChannel:145 - 设备[BMS]发送信道状态报文成功,状态[ok]
+2020-10-05 10:37:40.729 [nioEventLoopGroup-2-7] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:37:40.941 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:37:41.928 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:37:42.094 [nioEventLoopGroup-2-8] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:37:42.942 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:37:43.958 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:37:44.003 [nioEventLoopGroup-2-9] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 10:37:44.973 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:37:45.988 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:37:46.734 [nioEventLoopGroup-2-10] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:37:47.005 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:37:48.029 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:37:48.099 [nioEventLoopGroup-2-11] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:37:49.037 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:37:50.015 [nioEventLoopGroup-2-12] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 10:37:50.051 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:37:51.068 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:37:52.084 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:37:52.743 [nioEventLoopGroup-2-13] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:37:53.100 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:37:54.104 [nioEventLoopGroup-2-14] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:37:54.114 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:37:55.129 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:37:56.019 [nioEventLoopGroup-2-15] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 10:37:56.146 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:37:58.292 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:37:58.748 [nioEventLoopGroup-2-16] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:37:59.303 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:00.107 [nioEventLoopGroup-2-1] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:38:00.317 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:01.333 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:02.022 [nioEventLoopGroup-2-2] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 10:38:02.349 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:03.364 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:04.381 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:04.750 [nioEventLoopGroup-2-3] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:38:05.396 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:06.112 [nioEventLoopGroup-2-4] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:38:06.411 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:07.427 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:08.028 [nioEventLoopGroup-2-5] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 10:38:08.442 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:09.458 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:10.474 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:10.754 [nioEventLoopGroup-2-6] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:38:11.489 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:12.115 [nioEventLoopGroup-2-7] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:38:12.505 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:13.520 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:14.032 [nioEventLoopGroup-2-8] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 10:38:14.536 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:15.551 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:16.759 [nioEventLoopGroup-2-9] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:38:16.760 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:17.583 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:18.118 [nioEventLoopGroup-2-10] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:38:18.599 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:19.614 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:20.035 [nioEventLoopGroup-2-11] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 10:38:20.629 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:21.646 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:22.667 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:22.764 [nioEventLoopGroup-2-12] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:38:23.675 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:24.120 [nioEventLoopGroup-2-13] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:38:24.692 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:25.708 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:26.038 [nioEventLoopGroup-2-14] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 10:38:26.724 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:27.740 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:28.756 [nioEventLoopGroup-2-6] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:38:28.768 [nioEventLoopGroup-2-15] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:38:30.122 [nioEventLoopGroup-2-16] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:38:32.043 [nioEventLoopGroup-2-1] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 10:38:34.771 [nioEventLoopGroup-2-2] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:38:36.124 [nioEventLoopGroup-2-3] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:38:36.158 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[RTK]与MQTT服务器断开连接
+2020-10-05 10:38:36.161 [nioEventLoopGroup-2-6] INFO  ChannelCloseListenerWithLock:26 - 与设备[BMS]断开连接
+2020-10-05 10:38:36.163 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[BMS]与MQTT服务器断开连接
+2020-10-05 10:38:36.166 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[Met]与MQTT服务器断开连接
+2020-10-05 10:38:36.170 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[Lift]与MQTT服务器断开连接
+2020-10-05 10:38:36.171 [JavaFX Application Thread] INFO  MainWindow:67 - -----系统关闭-----
+2020-10-05 10:40:04.642 [Thread-6] INFO  MainWindow:86 - -----系统启动-----
+2020-10-05 10:40:04.698 [Thread-6] INFO  IotConfig:167 - 配置文件加载成功
+2020-10-05 10:40:05.818 [MQTT Call: RTK] INFO  MqttCallbackObject:46 - 设备[RTK]连接MQTT服务器成功
+2020-10-05 10:40:07.803 [nioEventLoopGroup-2-1] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 10:40:08.163 [MQTT Call: BMS] INFO  MqttCallbackObject:46 - 设备[BMS]连接MQTT服务器成功
+2020-10-05 10:40:08.170 [nioEventLoopGroup-2-2] INFO  NetChannel:88 - 与设备[BMS]连接成功
+2020-10-05 10:40:08.176 [nioEventLoopGroup-2-2] INFO  MqttChannel:145 - 设备[BMS]发送信道状态报文成功,状态[ok]
+2020-10-05 10:40:08.533 [MQTT Call: Met] INFO  MqttCallbackObject:46 - 设备[Met]连接MQTT服务器成功
+2020-10-05 10:40:09.538 [nioEventLoopGroup-2-3] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:40:09.897 [MQTT Call: Lift] INFO  MqttCallbackObject:46 - 设备[Lift]连接MQTT服务器成功
+2020-10-05 10:40:09.927 [MQTT Call: Lift] INFO  MqttCallbackObject:53 - Lift订阅[Lift/Ctrl]成功
+2020-10-05 10:40:10.901 [nioEventLoopGroup-2-4] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:40:13.309 [nioEventLoopGroup-2-5] INFO  NetChannel:88 - 与设备[RTK]连接成功
+2020-10-05 10:40:13.311 [nioEventLoopGroup-2-5] INFO  MqttChannel:145 - 设备[RTK]发送信道状态报文成功,状态[ok]
+2020-10-05 10:40:15.541 [nioEventLoopGroup-2-6] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:40:16.904 [nioEventLoopGroup-2-7] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:40:18.172 [nioEventLoopGroup-2-2] INFO  ByteToJsonDecoder:87 - 设备[BMS]发送数据超时，尝试重连...
+2020-10-05 10:40:18.173 [nioEventLoopGroup-2-2] INFO  MqttChannel:145 - 设备[BMS]发送信道状态报文成功,状态[no]
+2020-10-05 10:40:18.177 [nioEventLoopGroup-2-8] INFO  NetChannel:88 - 与设备[BMS]连接成功
+2020-10-05 10:40:18.179 [nioEventLoopGroup-2-8] INFO  MqttChannel:145 - 设备[BMS]发送信道状态报文成功,状态[ok]
+2020-10-05 10:40:21.546 [nioEventLoopGroup-2-9] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:40:21.869 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:22.879 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:22.908 [nioEventLoopGroup-2-10] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:40:23.896 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:24.912 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:25.926 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:26.943 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:27.549 [nioEventLoopGroup-2-11] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:40:27.959 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:28.914 [nioEventLoopGroup-2-12] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:40:28.974 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:29.990 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:31.006 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:32.020 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:33.036 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:33.555 [nioEventLoopGroup-2-13] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:40:34.053 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:34.918 [nioEventLoopGroup-2-14] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:40:35.067 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:36.083 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:37.098 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:38.115 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:39.130 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:39.559 [nioEventLoopGroup-2-15] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:40:40.146 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:40.923 [nioEventLoopGroup-2-16] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:40:41.161 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:42.178 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:43.192 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:44.208 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:45.223 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:45.562 [nioEventLoopGroup-2-1] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:40:46.239 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:46.927 [nioEventLoopGroup-2-2] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:40:47.255 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:48.271 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:49.286 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:50.301 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:51.317 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:51.565 [nioEventLoopGroup-2-3] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:40:52.333 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:52.929 [nioEventLoopGroup-2-4] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:40:53.349 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:54.364 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:55.379 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:56.395 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:57.411 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:57.569 [nioEventLoopGroup-2-5] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:40:58.426 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:40:58.933 [nioEventLoopGroup-2-6] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:40:59.443 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:41:00.458 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:41:01.473 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:41:02.863 [nioEventLoopGroup-2-8] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:41:03.572 [nioEventLoopGroup-2-7] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:41:04.936 [nioEventLoopGroup-2-8] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:41:05.418 [nioEventLoopGroup-2-5] INFO  ChannelCloseListenerWithLock:26 - 与设备[RTK]断开连接
+2020-10-05 10:41:05.421 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[RTK]与MQTT服务器断开连接
+2020-10-05 10:41:05.423 [nioEventLoopGroup-2-8] INFO  ChannelCloseListenerWithLock:26 - 与设备[BMS]断开连接
+2020-10-05 10:41:05.425 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[BMS]与MQTT服务器断开连接
+2020-10-05 10:41:05.428 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[Met]与MQTT服务器断开连接
+2020-10-05 10:41:05.432 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[Lift]与MQTT服务器断开连接
+2020-10-05 10:41:05.434 [JavaFX Application Thread] INFO  MainWindow:67 - -----系统关闭-----
+2020-10-05 10:42:17.976 [Thread-6] INFO  MainWindow:86 - -----系统启动-----
+2020-10-05 10:42:18.023 [Thread-6] INFO  IotConfig:167 - 配置文件加载成功
+2020-10-05 10:42:19.117 [MQTT Call: RTK] INFO  MqttCallbackObject:46 - 设备[RTK]连接MQTT服务器成功
+2020-10-05 10:42:20.075 [nioEventLoopGroup-2-1] INFO  NetChannel:88 - 与设备[RTK]连接成功
+2020-10-05 10:42:20.081 [nioEventLoopGroup-2-1] INFO  MqttChannel:145 - 设备[RTK]发送信道状态报文成功,状态[ok]
+2020-10-05 10:42:20.432 [MQTT Call: BMS] INFO  MqttCallbackObject:46 - 设备[BMS]连接MQTT服务器成功
+2020-10-05 10:42:21.438 [nioEventLoopGroup-2-2] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 10:42:21.798 [MQTT Call: Met] INFO  MqttCallbackObject:46 - 设备[Met]连接MQTT服务器成功
+2020-10-05 10:42:22.805 [nioEventLoopGroup-2-3] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:42:23.163 [MQTT Call: Lift] INFO  MqttCallbackObject:46 - 设备[Lift]连接MQTT服务器成功
+2020-10-05 10:42:23.193 [MQTT Call: Lift] INFO  MqttCallbackObject:53 - Lift订阅[Lift/Ctrl]成功
+2020-10-05 10:42:24.166 [nioEventLoopGroup-2-4] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:42:27.444 [nioEventLoopGroup-2-5] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 10:42:28.810 [nioEventLoopGroup-2-6] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:42:30.171 [nioEventLoopGroup-2-7] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:42:33.447 [nioEventLoopGroup-2-8] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 10:42:34.815 [nioEventLoopGroup-2-9] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:42:36.175 [nioEventLoopGroup-2-10] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:42:39.452 [nioEventLoopGroup-2-11] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 10:42:40.821 [nioEventLoopGroup-2-12] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:42:42.180 [nioEventLoopGroup-2-13] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:42:45.456 [nioEventLoopGroup-2-14] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 10:42:46.827 [nioEventLoopGroup-2-15] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:42:48.185 [nioEventLoopGroup-2-16] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:42:51.458 [nioEventLoopGroup-2-1] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 10:42:52.830 [nioEventLoopGroup-2-2] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:42:54.188 [nioEventLoopGroup-2-3] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:42:57.463 [nioEventLoopGroup-2-4] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 10:42:58.834 [nioEventLoopGroup-2-5] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:43:00.191 [nioEventLoopGroup-2-6] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:43:03.466 [nioEventLoopGroup-2-7] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 10:43:04.837 [nioEventLoopGroup-2-8] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:43:06.196 [nioEventLoopGroup-2-9] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:43:09.469 [nioEventLoopGroup-2-10] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 10:43:10.839 [nioEventLoopGroup-2-11] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:43:12.200 [nioEventLoopGroup-2-12] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:43:13.323 [nioEventLoopGroup-2-1] INFO  ByteToJsonDecoder:87 - 设备[RTK]发送数据超时，尝试重连...
+2020-10-05 10:43:13.324 [nioEventLoopGroup-2-1] INFO  MqttChannel:145 - 设备[RTK]发送信道状态报文成功,状态[no]
+2020-10-05 10:43:13.327 [nioEventLoopGroup-2-13] INFO  NetChannel:88 - 与设备[RTK]连接成功
+2020-10-05 10:43:13.329 [nioEventLoopGroup-2-13] INFO  MqttChannel:145 - 设备[RTK]发送信道状态报文成功,状态[ok]
+2020-10-05 10:43:15.487 [nioEventLoopGroup-2-14] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 10:43:16.843 [nioEventLoopGroup-2-15] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:43:18.202 [nioEventLoopGroup-2-16] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:43:21.491 [nioEventLoopGroup-2-1] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 10:43:22.845 [nioEventLoopGroup-2-2] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:43:23.327 [nioEventLoopGroup-2-13] INFO  ByteToJsonDecoder:87 - 设备[RTK]发送数据超时，尝试重连...
+2020-10-05 10:43:23.329 [nioEventLoopGroup-2-13] INFO  MqttChannel:145 - 设备[RTK]发送信道状态报文成功,状态[no]
+2020-10-05 10:43:23.332 [nioEventLoopGroup-2-4] INFO  NetChannel:88 - 与设备[RTK]连接成功
+2020-10-05 10:43:23.333 [nioEventLoopGroup-2-4] INFO  MqttChannel:145 - 设备[RTK]发送信道状态报文成功,状态[ok]
+2020-10-05 10:43:24.205 [nioEventLoopGroup-2-3] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:43:27.495 [nioEventLoopGroup-2-5] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 10:43:28.850 [nioEventLoopGroup-2-6] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:43:29.550 [nioEventLoopGroup-2-4] INFO  ByteToJsonDecoder:87 - 设备[RTK]失去连接，尝试重连...
+2020-10-05 10:43:29.551 [nioEventLoopGroup-2-4] INFO  MqttChannel:145 - 设备[RTK]发送信道状态报文成功,状态[no]
+2020-10-05 10:43:30.209 [nioEventLoopGroup-2-7] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:43:30.554 [nioEventLoopGroup-2-8] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 10:43:33.499 [nioEventLoopGroup-2-9] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 10:43:34.853 [nioEventLoopGroup-2-10] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:43:36.212 [nioEventLoopGroup-2-11] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:43:36.557 [nioEventLoopGroup-2-12] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 10:43:39.502 [nioEventLoopGroup-2-13] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 10:43:40.395 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[RTK]与MQTT服务器断开连接
+2020-10-05 10:43:40.397 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[BMS]与MQTT服务器断开连接
+2020-10-05 10:43:40.400 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[Met]与MQTT服务器断开连接
+2020-10-05 10:43:40.403 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[Lift]与MQTT服务器断开连接
+2020-10-05 10:43:40.405 [nioEventLoopGroup-2-14] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:43:40.405 [JavaFX Application Thread] INFO  MainWindow:67 - -----系统关闭-----
+2020-10-05 10:49:22.090 [Thread-6] INFO  MainWindow:86 - -----系统启动-----
+2020-10-05 10:49:22.147 [Thread-6] INFO  IotConfig:167 - 配置文件加载成功
+2020-10-05 10:49:23.261 [MQTT Call: RTK] INFO  MqttCallbackObject:46 - 设备[RTK]连接MQTT服务器成功
+2020-10-05 10:49:24.185 [nioEventLoopGroup-2-1] INFO  NetChannel:88 - 与设备[RTK]连接成功
+2020-10-05 10:49:24.190 [nioEventLoopGroup-2-1] INFO  MqttChannel:145 - 设备[RTK]发送信道状态报文成功,状态[ok]
+2020-10-05 10:49:24.543 [MQTT Call: BMS] INFO  MqttCallbackObject:46 - 设备[BMS]连接MQTT服务器成功
+2020-10-05 10:49:24.546 [nioEventLoopGroup-2-2] INFO  NetChannel:88 - 与设备[BMS]连接成功
+2020-10-05 10:49:24.548 [nioEventLoopGroup-2-2] INFO  MqttChannel:145 - 设备[BMS]发送信道状态报文成功,状态[ok]
+2020-10-05 10:49:24.918 [MQTT Call: Met] INFO  MqttCallbackObject:46 - 设备[Met]连接MQTT服务器成功
+2020-10-05 10:49:25.930 [nioEventLoopGroup-2-3] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:49:26.287 [MQTT Call: Lift] INFO  MqttCallbackObject:46 - 设备[Lift]连接MQTT服务器成功
+2020-10-05 10:49:26.317 [MQTT Call: Lift] INFO  MqttCallbackObject:53 - Lift订阅[Lift/Ctrl]成功
+2020-10-05 10:49:27.290 [nioEventLoopGroup-2-4] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:49:28.331 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功-[{
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+}]
+2020-10-05 10:49:29.319 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功-[{
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+}]
+2020-10-05 10:49:30.335 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功-[{
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+}]
+2020-10-05 10:49:31.350 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功-[{
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+}]
+2020-10-05 10:49:31.704 [nioEventLoopGroup-2-2] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:49:31.934 [nioEventLoopGroup-2-5] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:49:32.364 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功-[{
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+}]
+2020-10-05 10:49:32.723 [nioEventLoopGroup-2-2] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:49:33.295 [nioEventLoopGroup-2-6] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:49:33.379 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功-[{
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+}]
+2020-10-05 10:49:33.739 [nioEventLoopGroup-2-2] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:49:34.396 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功-[{
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+}]
+2020-10-05 10:49:34.754 [nioEventLoopGroup-2-2] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:49:35.411 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功-[{
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+}]
+2020-10-05 10:49:35.771 [nioEventLoopGroup-2-2] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:49:36.427 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功-[{
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+}]
+2020-10-05 10:49:36.786 [nioEventLoopGroup-2-2] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:49:37.442 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功-[{
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+}]
+2020-10-05 10:49:37.803 [nioEventLoopGroup-2-2] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:49:37.941 [nioEventLoopGroup-2-7] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:49:38.458 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功-[{
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+}]
+2020-10-05 10:49:38.817 [nioEventLoopGroup-2-2] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:49:39.299 [nioEventLoopGroup-2-8] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:49:39.475 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功-[{
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+}]
+2020-10-05 10:49:39.834 [nioEventLoopGroup-2-2] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:49:40.489 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功-[{
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+}]
+2020-10-05 10:49:40.849 [nioEventLoopGroup-2-2] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:49:41.505 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功-[{
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+}]
+2020-10-05 10:49:41.862 [nioEventLoopGroup-2-2] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:49:42.522 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功-[{
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+}]
+2020-10-05 10:49:42.879 [nioEventLoopGroup-2-2] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:49:43.537 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功-[{
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+}]
+2020-10-05 10:49:43.897 [nioEventLoopGroup-2-2] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功-[{
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+}]
+2020-10-05 10:49:43.946 [nioEventLoopGroup-2-9] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:49:44.552 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功-[{
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+}]
+2020-10-05 10:49:44.730 [nioEventLoopGroup-2-1] INFO  ChannelCloseListenerWithLock:26 - 与设备[RTK]断开连接
+2020-10-05 10:49:44.733 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[RTK]与MQTT服务器断开连接
+2020-10-05 10:49:44.734 [nioEventLoopGroup-2-2] INFO  ChannelCloseListenerWithLock:26 - 与设备[BMS]断开连接
+2020-10-05 10:49:44.736 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[BMS]与MQTT服务器断开连接
+2020-10-05 10:49:44.739 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[Met]与MQTT服务器断开连接
+2020-10-05 10:49:44.742 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[Lift]与MQTT服务器断开连接
+2020-10-05 10:49:44.745 [nioEventLoopGroup-2-10] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:49:44.745 [JavaFX Application Thread] INFO  MainWindow:67 - -----系统关闭-----
+2020-10-05 10:56:08.124 [Thread-6] INFO  MainWindow:86 - -----系统启动-----
+2020-10-05 10:56:08.185 [Thread-6] INFO  IotConfig:167 - 配置文件加载成功
+2020-10-05 10:56:09.263 [MQTT Call: RTK] INFO  MqttCallbackObject:46 - 设备[RTK]连接MQTT服务器成功
+2020-10-05 10:56:10.184 [nioEventLoopGroup-2-1] INFO  NetChannel:88 - 与设备[RTK]连接成功
+2020-10-05 10:56:10.189 [nioEventLoopGroup-2-1] INFO  MqttChannel:145 - 设备[RTK]发送信道状态报文成功,状态[ok]
+2020-10-05 10:56:10.544 [MQTT Call: BMS] INFO  MqttCallbackObject:46 - 设备[BMS]连接MQTT服务器成功
+2020-10-05 10:56:10.549 [nioEventLoopGroup-2-2] INFO  NetChannel:88 - 与设备[BMS]连接成功
+2020-10-05 10:56:10.552 [nioEventLoopGroup-2-2] INFO  MqttChannel:145 - 设备[BMS]发送信道状态报文成功,状态[ok]
+2020-10-05 10:56:10.910 [MQTT Call: Met] INFO  MqttCallbackObject:46 - 设备[Met]连接MQTT服务器成功
+2020-10-05 10:56:10.917 [nioEventLoopGroup-2-3] INFO  NetChannel:88 - 与设备[Met]连接成功
+2020-10-05 10:56:10.918 [nioEventLoopGroup-2-3] INFO  MqttChannel:145 - 设备[Met]发送信道状态报文成功,状态[ok]
+2020-10-05 10:56:10.949 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:10.995 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:11.278 [MQTT Call: Lift] INFO  MqttCallbackObject:46 - 设备[Lift]连接MQTT服务器成功
+2020-10-05 10:56:11.281 [nioEventLoopGroup-2-4] INFO  NetChannel:88 - 与设备[Lift]连接成功
+2020-10-05 10:56:11.310 [MQTT Call: Lift] INFO  MqttCallbackObject:53 - Lift订阅[Lift/Ctrl]成功
+2020-10-05 10:56:11.310 [nioEventLoopGroup-2-4] INFO  MqttChannel:145 - 设备[Lift]发送信道状态报文成功,状态[ok]
+2020-10-05 10:56:11.313 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:11.325 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:12.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:12.938 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:13.313 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:13.315 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:14.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:14.945 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:15.312 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:15.317 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:16.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:16.950 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:17.313 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:17.320 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:18.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:18.942 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:19.314 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:19.320 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:19.634 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:20.551 [nioEventLoopGroup-2-2] INFO  ByteToJsonDecoder:87 - 设备[BMS]发送数据超时，尝试重连...
+2020-10-05 10:56:20.552 [nioEventLoopGroup-2-2] INFO  MqttChannel:145 - 设备[BMS]发送信道状态报文成功,状态[no]
+2020-10-05 10:56:20.558 [nioEventLoopGroup-2-5] INFO  NetChannel:88 - 与设备[BMS]连接成功
+2020-10-05 10:56:20.559 [nioEventLoopGroup-2-5] INFO  MqttChannel:145 - 设备[BMS]发送信道状态报文成功,状态[ok]
+2020-10-05 10:56:20.646 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:20.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:20.958 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:21.313 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:21.319 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:21.661 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:22.677 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:22.826 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:22.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:22.944 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:23.313 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:23.320 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:23.692 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:23.832 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:24.709 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:24.849 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:24.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:24.946 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:25.312 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:25.318 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:25.723 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:25.864 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:26.740 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:26.880 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:26.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:26.933 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:27.313 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:27.318 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:27.757 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:27.896 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:28.771 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:28.910 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:28.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:28.935 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:29.313 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:29.320 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:29.785 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:29.925 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:30.801 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:30.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:30.934 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:30.941 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:31.312 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:31.320 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:31.817 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:31.958 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:32.834 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:32.918 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:32.935 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:32.973 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:33.313 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:33.318 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:33.848 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:33.990 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:34.863 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:34.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:34.933 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:35.004 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:35.313 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:35.318 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:35.879 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:36.020 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:36.896 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:36.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:36.934 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:37.036 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:37.312 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:37.319 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:37.910 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:38.053 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:38.918 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:38.926 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:38.933 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:39.068 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:39.313 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:39.318 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:39.943 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:40.084 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:40.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:40.939 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:40.958 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:41.099 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:41.313 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:41.318 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:41.973 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:42.115 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:42.918 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:42.938 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:42.989 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:43.129 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:43.314 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:43.320 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:44.004 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:44.146 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:44.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:44.935 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:45.020 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:45.161 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:45.314 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:45.320 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:46.037 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:46.176 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:46.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:46.934 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:47.052 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:47.192 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:47.312 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:47.317 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:48.067 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:48.207 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:48.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:48.936 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:49.082 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:49.223 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:49.313 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:49.319 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:50.098 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:50.239 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:50.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:50.935 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:51.115 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:51.254 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:51.312 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:51.317 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:52.131 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:52.271 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:52.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:52.933 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:53.146 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:53.285 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:53.313 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:53.318 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:54.160 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:54.301 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:54.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:54.932 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:55.176 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:55.313 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:55.316 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:55.317 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:56.193 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:56.334 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:56.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:56.933 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:57.208 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:57.313 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:57.320 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:57.348 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:58.224 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:58.362 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:56:58.918 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:56:58.934 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:56:59.239 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:56:59.313 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:56:59.320 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:56:59.380 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:00.255 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:57:00.397 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:00.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:57:00.933 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:57:01.270 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:57:01.314 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 10:57:01.319 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 10:57:01.410 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:02.286 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:57:02.426 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:02.428 [nioEventLoopGroup-2-4] WARN  DefaultChannelPipeline:151 - An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method) ~[?:1.8.0_261]
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43) ~[?:1.8.0_261]
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223) ~[?:1.8.0_261]
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192) ~[?:1.8.0_261]
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:378) ~[?:1.8.0_261]
+	at io.netty.buffer.PooledUnsafeDirectByteBuf.setBytes(PooledUnsafeDirectByteBuf.java:288) ~[netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1100) ~[netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:372) ~[netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:123) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:644) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:579) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:496) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:458) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:858) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:144) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_261]
+2020-10-05 10:57:02.445 [nioEventLoopGroup-2-4] INFO  ByteToJsonDecoder:87 - 设备[Lift]失去连接，尝试重连...
+2020-10-05 10:57:02.446 [nioEventLoopGroup-2-4] INFO  MqttChannel:145 - 设备[Lift]发送信道状态报文成功,状态[no]
+2020-10-05 10:57:02.917 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:57:02.931 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:57:03.300 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:57:03.442 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:03.451 [nioEventLoopGroup-2-6] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:57:04.317 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:57:04.457 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:04.916 [nioEventLoopGroup-2-3] INFO  TimeAskHandler:56 - 设备[Met]发送数据获取报文成功
+2020-10-05 10:57:04.932 [nioEventLoopGroup-2-3] INFO  MqttChannel:71 - 设备[Met]发送Topic[Met/Info]成功，内容( {
+"deviceName":"Met",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"temp":6.42857E-40,
+"hr":8.2653E-40,
+"wind":2.75509E-40,
+"rainfall":1.561226E-39
+}
+} )
+2020-10-05 10:57:05.333 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:57:05.473 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:06.348 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:57:06.489 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:06.652 [nioEventLoopGroup-2-3] WARN  DefaultChannelPipeline:151 - An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method) ~[?:1.8.0_261]
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43) ~[?:1.8.0_261]
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223) ~[?:1.8.0_261]
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192) ~[?:1.8.0_261]
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:378) ~[?:1.8.0_261]
+	at io.netty.buffer.PooledUnsafeDirectByteBuf.setBytes(PooledUnsafeDirectByteBuf.java:288) ~[netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1100) ~[netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:372) ~[netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:123) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:644) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:579) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:496) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:458) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:858) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:144) [netty-all-4.1.10.Final.jar:4.1.10.Final]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_261]
+2020-10-05 10:57:06.653 [nioEventLoopGroup-2-3] INFO  ByteToJsonDecoder:87 - 设备[Met]失去连接，尝试重连...
+2020-10-05 10:57:06.654 [nioEventLoopGroup-2-3] INFO  MqttChannel:145 - 设备[Met]发送信道状态报文成功,状态[no]
+2020-10-05 10:57:07.363 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:57:07.505 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:07.663 [nioEventLoopGroup-2-7] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:57:08.378 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:57:08.520 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:09.395 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:57:09.455 [nioEventLoopGroup-2-8] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:57:09.536 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:10.411 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:57:10.551 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:11.427 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:57:11.567 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:12.441 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:57:12.582 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:13.457 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:57:13.598 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:13.669 [nioEventLoopGroup-2-9] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:57:14.473 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:57:14.614 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:15.458 [nioEventLoopGroup-2-10] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:57:15.490 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:57:15.629 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:16.505 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:57:16.644 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:17.521 [nioEventLoopGroup-2-1] INFO  MqttChannel:71 - 设备[RTK]发送Topic[RTK/Info]成功，内容( {
+"deviceName":"RTK",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"lon":12.662165699333332,
+"lat":3.2855557728333333,
+"alt":6.571,
+"qos":4
+}
+} )
+2020-10-05 10:57:17.660 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:18.284 [nioEventLoopGroup-2-1] INFO  ByteToJsonDecoder:87 - 设备[RTK]失去连接，尝试重连...
+2020-10-05 10:57:18.285 [nioEventLoopGroup-2-1] INFO  MqttChannel:145 - 设备[RTK]发送信道状态报文成功,状态[no]
+2020-10-05 10:57:18.677 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:19.293 [nioEventLoopGroup-2-11] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 10:57:19.673 [nioEventLoopGroup-2-12] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:57:19.692 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:20.707 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:21.462 [nioEventLoopGroup-2-13] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:57:21.725 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:22.738 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:23.753 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:24.771 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:25.301 [nioEventLoopGroup-2-14] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 10:57:25.677 [nioEventLoopGroup-2-15] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:57:25.785 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:26.833 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:27.468 [nioEventLoopGroup-2-16] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:57:27.849 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:28.192 [nioEventLoopGroup-2-5] INFO  ByteToJsonDecoder:87 - 设备[BMS]失去连接，尝试重连...
+2020-10-05 10:57:28.193 [nioEventLoopGroup-2-5] INFO  MqttChannel:145 - 设备[BMS]发送信道状态报文成功,状态[no]
+2020-10-05 10:57:29.196 [nioEventLoopGroup-2-1] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 10:57:31.304 [nioEventLoopGroup-2-2] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 10:57:31.681 [nioEventLoopGroup-2-3] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:57:33.471 [nioEventLoopGroup-2-4] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:57:34.199 [nioEventLoopGroup-2-5] INFO  NetChannel:88 - 与设备[BMS]连接成功
+2020-10-05 10:57:34.200 [nioEventLoopGroup-2-5] INFO  MqttChannel:145 - 设备[BMS]发送信道状态报文成功,状态[ok]
+2020-10-05 10:57:36.116 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:37.129 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:37.306 [nioEventLoopGroup-2-6] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 10:57:37.684 [nioEventLoopGroup-2-7] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:57:38.161 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:39.193 [nioEventLoopGroup-2-5] INFO  MqttChannel:71 - 设备[BMS]发送Topic[BMS/Info]成功，内容( {
+"deviceName":"BMS",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"voltage": 1.6,
+"current": 3.2
+}
+} )
+2020-10-05 10:57:39.474 [nioEventLoopGroup-2-8] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:57:43.308 [nioEventLoopGroup-2-9] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 10:57:43.688 [nioEventLoopGroup-2-10] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:57:43.784 [nioEventLoopGroup-2-5] INFO  ByteToJsonDecoder:87 - 设备[BMS]失去连接，尝试重连...
+2020-10-05 10:57:43.785 [nioEventLoopGroup-2-5] INFO  MqttChannel:145 - 设备[BMS]发送信道状态报文成功,状态[no]
+2020-10-05 10:57:44.788 [nioEventLoopGroup-2-11] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 10:57:45.476 [nioEventLoopGroup-2-12] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:57:49.310 [nioEventLoopGroup-2-13] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 10:57:49.691 [nioEventLoopGroup-2-14] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 10:57:50.790 [nioEventLoopGroup-2-15] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 10:57:51.480 [nioEventLoopGroup-2-16] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 10:57:51.870 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[RTK]与MQTT服务器断开连接
+2020-10-05 10:57:51.872 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[BMS]与MQTT服务器断开连接
+2020-10-05 10:57:51.874 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[Met]与MQTT服务器断开连接
+2020-10-05 10:57:51.876 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[Lift]与MQTT服务器断开连接
+2020-10-05 10:57:51.878 [JavaFX Application Thread] INFO  MainWindow:67 - -----系统关闭-----
+2020-10-05 11:03:40.062 [Thread-6] INFO  MainWindow:86 - -----系统启动-----
+2020-10-05 11:03:40.117 [Thread-6] INFO  IotConfig:167 - 配置文件加载成功
+2020-10-05 11:03:41.249 [MQTT Call: RTK] INFO  MqttCallbackObject:46 - 设备[RTK]连接MQTT服务器成功
+2020-10-05 11:03:43.143 [nioEventLoopGroup-2-1] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 11:03:43.514 [MQTT Call: BMS] INFO  MqttCallbackObject:46 - 设备[BMS]连接MQTT服务器成功
+2020-10-05 11:03:44.519 [nioEventLoopGroup-2-2] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 11:03:44.880 [MQTT Call: Met] INFO  MqttCallbackObject:46 - 设备[Met]连接MQTT服务器成功
+2020-10-05 11:03:45.887 [nioEventLoopGroup-2-3] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 11:03:46.261 [MQTT Call: Lift] INFO  MqttCallbackObject:46 - 设备[Lift]连接MQTT服务器成功
+2020-10-05 11:03:46.275 [nioEventLoopGroup-2-4] INFO  NetChannel:88 - 与设备[Lift]连接成功
+2020-10-05 11:03:46.307 [MQTT Call: Lift] INFO  MqttCallbackObject:53 - Lift订阅[Lift/Ctrl]成功
+2020-10-05 11:03:46.308 [nioEventLoopGroup-2-4] INFO  MqttChannel:145 - 设备[Lift]发送信道状态报文成功,状态[ok]
+2020-10-05 11:03:46.337 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 11:03:46.355 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 11:03:48.311 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 11:03:48.313 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 11:03:49.146 [nioEventLoopGroup-2-5] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 11:03:50.311 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 11:03:50.315 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 11:03:50.523 [nioEventLoopGroup-2-6] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 11:03:51.891 [nioEventLoopGroup-2-7] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 11:03:52.311 [nioEventLoopGroup-2-4] INFO  TimeAskHandler:56 - 设备[Lift]发送数据获取报文成功
+2020-10-05 11:03:52.314 [nioEventLoopGroup-2-4] INFO  MqttChannel:71 - 设备[Lift]发送Topic[Lift/Info]成功，内容( {
+"deviceName":"Lift",
+"deviceNumber":"",
+"msgId":2,
+"payload":{
+"stateNumber":8280,
+"info":天窗已开启/平台上升到位
+}
+} )
+2020-10-05 11:03:54.083 [nioEventLoopGroup-2-4] INFO  ByteToJsonDecoder:71 - 设备[Lift]连接异常，原因：远程主机强迫关闭了一个现有的连接。
+2020-10-05 11:03:54.084 [nioEventLoopGroup-2-4] INFO  ByteToJsonDecoder:87 - 设备[Lift]失去连接，尝试重连...
+2020-10-05 11:03:54.085 [nioEventLoopGroup-2-4] INFO  MqttChannel:145 - 设备[Lift]发送信道状态报文成功,状态[no]
+2020-10-05 11:03:55.092 [nioEventLoopGroup-2-8] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 11:03:55.151 [nioEventLoopGroup-2-9] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 11:03:56.537 [nioEventLoopGroup-2-10] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 11:03:57.899 [nioEventLoopGroup-2-11] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 11:04:01.096 [nioEventLoopGroup-2-12] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 11:04:01.154 [nioEventLoopGroup-2-13] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 11:04:02.541 [nioEventLoopGroup-2-14] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 11:04:03.904 [nioEventLoopGroup-2-15] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 11:04:04.880 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[RTK]与MQTT服务器断开连接
+2020-10-05 11:04:04.883 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[BMS]与MQTT服务器断开连接
+2020-10-05 11:04:04.885 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[Met]与MQTT服务器断开连接
+2020-10-05 11:04:04.888 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[Lift]与MQTT服务器断开连接
+2020-10-05 11:04:04.892 [JavaFX Application Thread] INFO  MainWindow:67 - -----系统关闭-----

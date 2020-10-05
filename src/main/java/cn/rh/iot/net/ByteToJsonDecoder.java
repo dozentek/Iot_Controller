@@ -67,8 +67,8 @@ public class ByteToJsonDecoder extends ByteToMessageDecoder {
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        super.exceptionCaught(ctx, cause);
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+        log.info("设备[{}]连接异常，原因：{}",device.getName(),cause.getMessage());
     }
 
     private String Pack(String msg){

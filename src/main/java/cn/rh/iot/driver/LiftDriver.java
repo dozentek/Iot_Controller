@@ -37,10 +37,11 @@ public class LiftDriver implements IDriver {
 
         infoMap.put(0x0800,"上电状态");
         infoMap.put(0x8180,"天窗开启中");
-        infoMap.put(0x8280,"天窗已开启/平台上升到位");
+        infoMap.put(0x8280,"天窗已开启/平台下降到位");
         infoMap.put(0x8480,"天窗关闭中");
         infoMap.put(0x8880,"天窗已关闭/平台准备就绪");
         infoMap.put(0x1202,"平台上升中");
+        infoMap.put(0x2280,"平台上升到位");
         infoMap.put(0x4202,"平台下降中");
         infoMap.put(0x0001,"急停被按下");
         infoMap.put(0x0200,"急停被释放");

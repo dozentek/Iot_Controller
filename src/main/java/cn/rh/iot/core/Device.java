@@ -52,10 +52,13 @@ public abstract class Device {
 
     public void MessageArrived(MqttMessage message){
         if(this.driver!=null) {
-            byte[] outData= driver.encode(new String(message.getPayload()));
+            String strData=new String(message.getPayload());
+            log.info("设备[{}]收到控制报文-{}",this.getName(),strData);
+            byte[] outData= driver.encode(strData);
             if(channel!=null && outData.length>0 ) {
                 channel.Write(outData);
             }
+
         }
     }
 
