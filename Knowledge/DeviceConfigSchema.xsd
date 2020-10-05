@@ -14,11 +14,13 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="DriverFilePath" type="xs:string" minOccurs="0">
+				<xs:element name="DriverFilePath" type="xs:string">
 					<xs:annotation>
 						<xs:documentation>驱动程序存放的目录</xs:documentation>
 					</xs:annotation>
 				</xs:element>
+				<xs:element name="Mqtt" type="MqttType"/>
+				<xs:element name="NetChannel" type="NetChannelType"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
@@ -153,4 +155,19 @@
 			<xs:enumeration value="UDP"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="MqttType">
+		<xs:sequence>
+			<xs:element name="ServerURI" type="xs:string"/>
+			<xs:element name="Username" type="xs:string"/>
+			<xs:element name="Password" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="reconnectInterval" type="xs:int" use="required"/>
+		<xs:attribute name="connectionTimeout" type="xs:int" use="required"/>
+		<xs:attribute name="keepAliveInterval" type="xs:int" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="NetChannelType">
+		<xs:attribute name="defaultTimeout" type="xs:int" use="required"/>
+		<xs:attribute name="reconnectInterval" type="xs:int" use="required"/>
+		<xs:attribute name="connectTimeout" type="xs:int" use="required"/>
+	</xs:complexType>
 </xs:schema>
