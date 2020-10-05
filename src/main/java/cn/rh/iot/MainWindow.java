@@ -5,13 +5,12 @@ import cn.rh.iot.core.DeviceManager;
 import cn.rh.iot.driver.DriverManager;
 import cn.rh.iot.log.TextAreaAppender;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Appender;
@@ -40,14 +39,12 @@ public class MainWindow extends Application {
             {
                 primaryStage.setTitle("设备监控窗口");
                 primaryStage.setScene(new Scene(root, 800, 600));
+                primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/mainIcon.png")));
                 primaryStage.show();
 
-                primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-                   @Override
-                   public void handle(WindowEvent event) {
-                       closeHandler();
-                       System.exit(0);
-                   }
+                primaryStage.setOnCloseRequest(event -> {
+                    closeHandler();
+                    System.exit(0);
                 });
             }
 

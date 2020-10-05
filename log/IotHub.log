@@ -9588,3 +9588,22 @@ java.io.IOException: 远程主机强迫关闭了一个现有的连接。
 2020-10-05 11:04:04.885 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[Met]与MQTT服务器断开连接
 2020-10-05 11:04:04.888 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[Lift]与MQTT服务器断开连接
 2020-10-05 11:04:04.892 [JavaFX Application Thread] INFO  MainWindow:67 - -----系统关闭-----
+2020-10-05 11:33:55.110 [JavaFX Application Thread] ERROR MainWindow:59 - 软件启动失败,原因:Input stream must not be null
+2020-10-05 11:35:57.119 [JavaFX Application Thread] ERROR MainWindow:59 - 软件启动失败,原因:Input stream must not be null
+2020-10-05 12:09:16.872 [Thread-6] INFO  MainWindow:88 - -----系统启动-----
+2020-10-05 12:09:16.932 [Thread-6] INFO  IotConfig:167 - 配置文件加载成功
+2020-10-05 12:09:18.290 [MQTT Call: RTK] INFO  MqttCallbackObject:46 - 设备[RTK]连接MQTT服务器成功
+2020-10-05 12:09:20.274 [nioEventLoopGroup-2-1] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 12:09:20.634 [MQTT Call: BMS] INFO  MqttCallbackObject:46 - 设备[BMS]连接MQTT服务器成功
+2020-10-05 12:09:21.637 [nioEventLoopGroup-2-2] INFO  NetChannel:94 - 与设备[BMS]连接失败，尝试重连...
+2020-10-05 12:09:21.997 [MQTT Call: Met] INFO  MqttCallbackObject:46 - 设备[Met]连接MQTT服务器成功
+2020-10-05 12:09:23.003 [nioEventLoopGroup-2-3] INFO  NetChannel:94 - 与设备[Met]连接失败，尝试重连...
+2020-10-05 12:09:23.362 [MQTT Call: Lift] INFO  MqttCallbackObject:46 - 设备[Lift]连接MQTT服务器成功
+2020-10-05 12:09:23.394 [MQTT Call: Lift] INFO  MqttCallbackObject:53 - Lift订阅[Lift/Ctrl]成功
+2020-10-05 12:09:24.366 [nioEventLoopGroup-2-4] INFO  NetChannel:94 - 与设备[Lift]连接失败，尝试重连...
+2020-10-05 12:09:26.265 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[RTK]与MQTT服务器断开连接
+2020-10-05 12:09:26.268 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[BMS]与MQTT服务器断开连接
+2020-10-05 12:09:26.270 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[Met]与MQTT服务器断开连接
+2020-10-05 12:09:26.273 [JavaFX Application Thread] INFO  MqttChannel:87 - 设备[Lift]与MQTT服务器断开连接
+2020-10-05 12:09:26.275 [nioEventLoopGroup-2-5] INFO  NetChannel:94 - 与设备[RTK]连接失败，尝试重连...
+2020-10-05 12:09:26.277 [JavaFX Application Thread] INFO  MainWindow:69 - -----系统关闭-----
