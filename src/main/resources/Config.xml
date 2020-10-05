@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Config>
     <Devices>
-        <Device intro="升降台" name="Lift" role="Server" protocol="TCP" askInterval="1000" timeout="6000">
+        <Device intro="升降台" name="Lift" role="Server" protocol="TCP" askInterval="2000" timeout="10000">
             <Net>
-                <IP>192.168.200.3</IP>
-                <Port>4096</Port>
+                <IP>127.0.0.1</IP>
+                <Port>4001</Port>
             </Net>
             <Driver>cn.rh.iot.driver.LiftDriver</Driver>
             <Topics>
@@ -12,30 +12,30 @@
                 <Topic kind="out">Lift/Info</Topic>
             </Topics>
         </Device>
-        <Device intro="车载BMS" name="BMS" role="Server" protocol="TCP" askInterval="1000" timeout="6000">
+        <Device intro="车载BMS" name="BMS" role="Server" protocol="TCP"  timeout="10000">
             <Net>
-                <IP>192.168.200.4</IP>
-                <Port>50023</Port>
+                <IP>127.0.0.1</IP>
+                <Port>4002</Port>
             </Net>
             <Driver>cn.rh.iot.driver.BmsDriver</Driver>
             <Topics>
                 <Topic kind="out">BMS/Info</Topic>
             </Topics>
         </Device>
-        <Device intro="车载RTK" name="RTK" role="Server" protocol="TCP"  timeout="6000">
+        <Device intro="车载RTK" name="RTK" role="Server" protocol="TCP"  timeout="10000">
             <Net>
-                <IP>192.168.200.5</IP>
-                <Port>23</Port>
+                <IP>127.0.0.1</IP>
+                <Port>4008</Port>
             </Net>
             <Driver>cn.rh.iot.driver.RTKDriver</Driver>
             <Topics>
                 <Topic kind="out">RTK/Info</Topic>
             </Topics>
         </Device>
-        <Device intro="气象站" name="Met" role="Server" protocol="TCP" askInterval="1000" timeout="6000">
+        <Device intro="气象站" name="Met" role="Server" protocol="TCP" askInterval="2000" timeout="10000">
             <Net>
-                <IP>192.168.200.6</IP>
-                <Port>502</Port>
+                <IP>127.0.0.1</IP>
+                <Port>4004</Port>
             </Net>
             <Driver>cn.rh.iot.driver.MetDriver</Driver>
             <Topics>
@@ -44,10 +44,10 @@
         </Device>
     </Devices>
     <DriverFilePath>Driver</DriverFilePath>
-    <Mqtt reconnectInterval="5" connectionTimeout="10" keepAliveInterval="20">
+    <Mqtt reconnectInterval="5" connectionTimeout="20" keepAliveInterval="8">
         <ServerURI>tcp://dozen.tech:1883</ServerURI>
         <Username> </Username>
         <Password> </Password>
     </Mqtt>
-    <NetChannel defaultTimeout="30000"/>
+    <NetChannel defaultTimeout="30000" reconnectInterval="5000" connectTimeout="1000"/>
 </Config>

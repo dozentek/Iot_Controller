@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="361.0" prefWidth="553.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="cn.rh.iot.MainWindow">
+   <children>
+      <TextArea id="txtLogViewer" editable="false" style="-fx-background-color: blue; -fx-text-fill: green;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="Microsoft Sans Serif" size="16.0" />
+         </font>
+      </TextArea>
+   </children>
+</AnchorPane>

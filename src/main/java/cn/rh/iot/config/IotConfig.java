@@ -32,6 +32,12 @@ public class IotConfig {
     private int netDefaultTimeout;
 
     @Getter
+    private int reconnectInterval;
+
+    @Getter
+    private int connectTimeout;
+
+    @Getter
     private boolean isLoaded;
 
     private final ArrayList<DeviceConfigInfo> devices=new ArrayList<>();
@@ -107,6 +113,20 @@ public class IotConfig {
                     netDefaultTimeout=30000;
                 }else {
                     netDefaultTimeout = Integer.parseInt(value.trim());
+                }
+
+                value=((Element) (nodes.item(0))).getAttribute("reconnectInterval");
+                if(value==null || !isInteger(value.trim())){
+                    reconnectInterval=8000;
+                }else {
+                    reconnectInterval = Integer.parseInt(value.trim());
+                }
+
+                value=((Element) (nodes.item(0))).getAttribute("connectTimeout");
+                if(value==null || !isInteger(value.trim())){
+                    connectTimeout=1000;
+                }else {
+                    connectTimeout = Integer.parseInt(value.trim());
                 }
             }
 

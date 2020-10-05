@@ -6,7 +6,6 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOutboundHandlerAdapter;
 import io.netty.channel.ChannelPipeline;
 import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import io.netty.handler.codec.FixedLengthFrameDecoder;
@@ -49,17 +48,13 @@ public class NetChannelInitializer extends ChannelInitializer<Channel> {
             if (timeout <= 0) {
                 timeout = IotConfig.getInstance().getNetDefaultTimeout();
             }
-            pipeline.addLast(new IdleStateHandler(timeout, 0, 0, TimeUnit.MILLISECONDS));
-            pipeline.addLast(new HeartbeatHandler(device));
+            pipeline.addLast("HeartListener",new IdleStateHandler(timeout, 0, 0, TimeUnit.MILLISECONDS));
         }
 
         //----装配定时发送询问报文的Handler
         {
             if (device.getAskInterval() > 0) {
                 pipeline.addLast(new TimeAskHandler(device));
-
-                //这个OutboundHandler是用于定时发送询问报文。
-                pipeline.addLast("askFrameHandler",new ChannelOutboundHandlerAdapter());
             }
         }
 
@@ -83,11 +78,10 @@ public class NetChannelInitializer extends ChannelInitializer<Channel> {
             }
         }
 
-        //----装配解码器
-        //----装配编码器
+        //----装配解码器、装配编码器
         {
-            pipeline.addLast(new ByteToJsonDecoder(device));
-            pipeline.addLast("",new JsonToByteEncoder(device));
+            pipeline.addLast("B2J",new ByteToJsonDecoder(device));
+            pipeline.addLast("J2B",new JsonToByteEncoder(device));
         }
     }
 }

@@ -14,28 +14,21 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ChannelCloseListenerWithLock implements ChannelFutureListener {
 
-    private final Object lock;
     private final Device device;
 
-    public ChannelCloseListenerWithLock(Device device, Object lock) {
-        this.lock = lock;
+    public ChannelCloseListenerWithLock(Device device) {
         this.device=device;
     }
 
     @Override
     public void operationComplete(ChannelFuture future){
         if(future.isSuccess()) {
-            log.info("设备[{}]断开连接",device.getName());
+            log.info("与设备[{}]断开连接",device.getName());
             if(device.getMqttChannel()!=null){
                 device.getMqttChannel().SendConnectStateMessage("no");
             }
         }else{
             log.info("设备[{}]断开连接失败。原因:{}",device.getName(),future.cause().getMessage());
-        }
-        if(lock!=null) {
-            synchronized (lock) {
-                lock.notify();
-            }
         }
     }
 

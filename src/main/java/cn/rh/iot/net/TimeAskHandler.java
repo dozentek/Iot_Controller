@@ -48,7 +48,7 @@ public class TimeAskHandler extends ChannelInboundHandlerAdapter {
         @Override
         public void run() {
             if(ctx.channel().isActive()) {
-                ChannelHandlerContext askFrameHandlerContext=ctx.pipeline().context("askFrameHandler");
+                ChannelHandlerContext askFrameHandlerContext=ctx.pipeline().context("J2B");
                 if(askFrameHandlerContext!=null) {
                     ChannelFuture future = askFrameHandlerContext.writeAndFlush(Unpooled.copiedBuffer(message));
                     future.addListener((ChannelFutureListener) futureListener -> {

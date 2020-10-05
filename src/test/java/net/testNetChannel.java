@@ -27,7 +27,7 @@ import static org.junit.Assert.assertTrue;
 @Slf4j
 public class testNetChannel {
 
-    private static final String filepath = System.getProperty("user.dir") + "\\out\\production\\resources\\ConfigReal.xml";
+    private static final String filepath = System.getProperty("user.dir") + "\\out\\production\\resources\\Config.xml";
 
     @Test
     public void testChannelWrite(){

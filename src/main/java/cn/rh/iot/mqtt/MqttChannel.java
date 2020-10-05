@@ -68,8 +68,10 @@ public class MqttChannel {
         msg.setPayload(send_message.getBytes(StandardCharsets.UTF_8));
         try {
             client.publish(device.getPublishTopicParam().getTopic(),msg);
+            log.info("设备[{}]发送Topic[{}]成功-[{}]",device.getName(),
+                    device.getPublishTopicParam().getTopic(),send_message);
          }catch (MqttException ex) {
-            log.error("设备[{}]发送Topic[{}]-[{}]失败",device.getName(),
+            log.error("设备[{}]发送Topic[{}]失败-[{}]",device.getName(),
                     device.getPublishTopicParam().getTopic(),send_message);
         }
     }
@@ -82,7 +84,7 @@ public class MqttChannel {
             isInitiativeDisconnecting=true;
             client.disconnect();
             client.close();
-            log.info("设备[{}]与MQTT服务器主动断开连接",device.getName());
+            log.info("设备[{}]与MQTT服务器断开连接",device.getName());
         } catch(MqttException ex){
             log.warn(device.getName() + "与MQTT服务器断开连接失败，因为:"+ex.getMessage());
         }
@@ -140,9 +142,10 @@ public class MqttChannel {
         msg.setPayload(connStateJson.getBytes(StandardCharsets.UTF_8));
         try {
             client.publish(device.getPublishTopicParam().getTopic(), msg);
-            //TODO log
+            log.info("设备[{}]发送信道状态报文成功,状态[{}]",device.getName(),state);
+
         }catch (MqttException ex) {
-            log.error("设备[{}]发送信道状态[{}]报文失败，",device.getName(),state);
+            log.error("设备[{}]发送信道状态报文失败,状态[{}]",device.getName(),state);
         }
     }
 }

@@ -1,12 +1,15 @@
 package cn.rh.iot.net;
 
-import cn.rh.iot.core.Device;
-import cn.rh.iot.core.IChannel;
-import cn.rh.iot.core.NetDevice;
+import cn.rh.iot.config.IotConfig;
+import cn.rh.iot.core.*;
+import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
+import io.netty.channel.ChannelOption;
+import io.netty.channel.socket.nio.NioDatagramChannel;
+import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -22,12 +25,13 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class NetChannel implements IChannel {
 
-    private static final int RECONNECT_INTERVAL=3000;  //ms
-
     @Getter @Setter
     private Channel netChannel;
     @Getter
     private final Device device;
+
+    @Getter @Setter
+    private boolean initiativeClose=false;
 
     public NetChannel(NetDevice device) {
         this.device = device;
@@ -50,39 +54,61 @@ public class NetChannel implements IChannel {
 
     @Override
     public void Connect(){
-        if(device==null ||(netChannel!=null && netChannel.isActive())){
-            return;
-        }
-        String ip=((NetDevice)device).getIp();
-        int port=((NetDevice)device).getPort();
 
-        ChannelFuture future=device.getBootstrap().connect(ip, port);
+        if(netChannel!=null){
+            netChannel.close();
+            netChannel=null;
+        }
+
+        Bootstrap b=new Bootstrap();
+        {
+            device.setBootstrap(b);
+            b.group(DeviceManager.getInstance().getGroup());
+
+            if (((NetDevice) device).getProtocol() == NetProtocolType.UDP) {
+                b.channel(NioDatagramChannel.class);
+            } else {
+                b.channel(NioSocketChannel.class);
+            }
+            //连接超时设定，其将在connect()上应用
+            b.option(ChannelOption.CONNECT_TIMEOUT_MILLIS,IotConfig.getInstance().getConnectTimeout());
+            b.option(ChannelOption.TCP_NODELAY, true);
+            b.option(ChannelOption.SO_KEEPALIVE, true);
+
+            String ip = ((NetDevice) device).getIp();
+            int port = ((NetDevice) device).getPort();
+            b.remoteAddress(ip, port);
+
+            b.handler(new NetChannelInitializer(device, this));
+        }
+        ChannelFuture future=device.getBootstrap().connect().awaitUninterruptibly();
         future.addListener((ChannelFutureListener) futureListener -> {
-            if(futureListener.isSuccess()){
+            if(futureListener.isSuccess()) {
                 netChannel= futureListener.channel();
-                log.info("设备[{}]连接成功",device.getName());
+                log.info("与设备[{}]连接成功", device.getName());
                 if(device.getMqttChannel()!=null){
                     device.getMqttChannel().SendConnectStateMessage("ok");
                 }
+                initiativeClose=false;
             }else{
+                log.info("与设备[{}]连接失败，尝试重连...",device.getName());
                 futureListener.channel().eventLoop().schedule(() -> {
-                    log.info("设备[{}]连接失败，尝试重连...",device.getName());
                     Connect();
-                },RECONNECT_INTERVAL, TimeUnit.MILLISECONDS);
+                }, IotConfig.getInstance().getReconnectInterval(), TimeUnit.MILLISECONDS);
             }
         });
     }
 
     @Override
     public void Disconnect() {
-        Disconnect(null);
-    }
-
-    @Override
-    public void Disconnect(Object lock) {
         if(netChannel!=null && netChannel.isOpen()){
+            initiativeClose=true;
             ChannelFuture future=netChannel.close();
-            future.addListener(new ChannelCloseListenerWithLock(device,lock));
+            future.addListener(new ChannelCloseListenerWithLock(device));
+            try{
+                future.await(500,TimeUnit.MILLISECONDS);
+            }catch (Exception ignored){
+            }
         }
     }
 }

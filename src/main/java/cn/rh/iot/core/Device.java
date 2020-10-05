@@ -43,14 +43,12 @@ public abstract class Device {
     protected IChannel channel;
 
     @Getter @Setter
-    protected Bootstrap bootstrap=new Bootstrap();
+    protected Bootstrap bootstrap;
     @Getter
     protected HashMap<String ,Object> injectParams=new HashMap<>();
 
     @Getter
     protected boolean isStarted=false;
-
-    private final Object lock = new Object();
 
     public void MessageArrived(MqttMessage message){
         if(this.driver!=null) {
@@ -70,15 +68,7 @@ public abstract class Device {
 
     public void Stop(){
         if(mqttChannel!=null && channel!=null){
-            channel.Disconnect(lock);
-            try {
-                synchronized (lock) {
-                    lock.wait();
-                }
-            }catch (InterruptedException e)
-            {
-                log.error("设备[{}]关闭网络连接失败,原因：{}",this.name,e.getMessage());
-            }
+            channel.Disconnect();
             mqttChannel.Disconnect();
         }
     }

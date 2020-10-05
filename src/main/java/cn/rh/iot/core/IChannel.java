@@ -11,5 +11,4 @@ public interface IChannel {
     void Write(byte[] data);
     void Connect();
     void Disconnect();
-    void Disconnect(Object lock);
 }

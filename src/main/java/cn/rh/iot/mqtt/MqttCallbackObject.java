@@ -50,9 +50,9 @@ public class MqttCallbackObject implements MqttCallbackExtended {
 
             try {
                  channel.getClient().subscribe(topic, qos);
-                log.info(device.getName() + "订阅Topic[" + topic + "]成功");
+                log.info(device.getName() + "订阅[" + topic + "]成功");
             } catch (MqttException ex) {
-                log.error(device.getName() + "订阅Topic[" + topic + "]失败，问题：" + ex.getMessage());
+                log.error(device.getName() + "订阅[" + topic + "]失败，问题：" + ex.getMessage());
             }
         }
     }

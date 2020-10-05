@@ -1,0 +1,17 @@
+在close channel的时候:
+
+Netty会先判断当前channel是否处于connected状态，即是否已经成功地与远程地址建立了连接，
+
+如果是的话，就触发channelDisconnected事件; 最后，再统一触发channelClosed事件。
+
+也就是说，任何对close(NioSocketChannel channel, ChannelFuture future)方法的调用都会触发channelClosed事件，
+
+这些事件可能包括如下几种：
+
+1. 已经与远程主机建立的连接，远程主机主动关闭连接，或者网络异常连接被断开的情况
+
+2. 已经与远程主机建立的连接，本地客户机主动关闭连接的情况
+
+3. 本地客户机在试图与远程主机建立连接时，遇到类似与connection refused这样的异常，未能连接成功时
+
+而只有当本地客户机已经成功的与远程主机建立连接（connected）时，连接断开的时候才会触发channelDisconnected事件，即对应上述的1和2两种情况。
