@@ -14,10 +14,10 @@ public class LiftDriver implements IDriver {
 
     private final byte READ_HOLDING_REGISTER=0x03;                      //读保持寄存器
     private final byte WRITE_SINGLE_REGISTER=0x06;                      //写单个保持寄存器
-    private final byte[] INFO_Address=new byte[]{0x02,0x58};            //读取寄存器地址,D601（假设寄存器编号从1开始）
-    private final byte[] COMMAND_Address=new byte[]{0x01,(byte)0xF5};   //写入寄存器地址,D501（假设寄存器编号从1开始）
+    private final byte[] INFO_Address=new byte[]{0x02,0x57};            //读取寄存器地址,D600（假设寄存器编号从1开始）
+    private final byte[] COMMAND_Address=new byte[]{0x01,(byte)0xF4};   //写入寄存器地址,D501（假设寄存器编号从1开始）
 
-    private final int INFO_FRAME_LENGTH=11;                             //信息报文长度
+    private final int INFO_FRAME_LENGTH=2;                             //信息报文长度
     private final static int CTRL_FRAME_MSG_NUMBER=3;
 
     private final String MSG_ID="msgId";
@@ -30,8 +30,6 @@ public class LiftDriver implements IDriver {
     private final Object lock=new Object();
 
     //读取数据指令
-    private final byte[] askMessage=new byte[]{0x00,0x00,0x00,0x00,0x00,0x06,0x01,READ_HOLDING_REGISTER,INFO_Address[0],INFO_Address[1],0x00,0x01};
-    private final byte[] ctrlMessage=new byte[]{0x00,0x00,0x00,0x06,0x01,WRITE_SINGLE_REGISTER,COMMAND_Address[0],COMMAND_Address[1]};
     private final HashMap<Integer,String>  infoMap=new HashMap<>();
     public LiftDriver() {
 
@@ -66,21 +64,18 @@ public class LiftDriver implements IDriver {
 
         byte sn=payload.getByte(SN_TAG);
 
-        byte[] data=new byte[ctrlMessage.length+2];
-        data[0]=0x00;
-        data[1]=sn;
-
-        int le=ctrlMessage.length;
-        System.arraycopy(ctrlMessage, 0, data, 2, le);
+        byte[] data=new byte[2];
 
         if(msg.toUpperCase().equals("UP")){
-            data[2+le]=0x04;
-            data[2+le+1]=0x00;
+            //使用的是小端模式
+            data[0]=0x00;
+            data[1]=0x04;
             return data;
         }
         if(msg.toUpperCase().equals("DOWN")){
-            data[2+le]=0x08;
-            data[2+le+1]=0x00;
+            //使用的是小端模式
+            data[0]=0x00;
+            data[1]=0x08;
             return data;
         }
         return null;
@@ -88,65 +83,42 @@ public class LiftDriver implements IDriver {
 
     @Override
     public String decode(byte[] data) {
-        //信息报文的长度为11，控制报文的反馈报文长度为12
         if(data.length<INFO_FRAME_LENGTH){
             return null;
         }
         String sb;
-        if(data[7]==READ_HOLDING_REGISTER){
-//            int returnSn=ByteUtil.bytesToUShort(data,0,false);
-//            if(returnSn!=serialNumber){
-//                //返回的数据报文不是当前询问的应答报文，丢弃
-//                return null;
-//            }
-            byte[] byteState=new byte[4];
-            byteState[0]=0x00;
-            byteState[1]=0x00;
-            byteState[2]=data[9];
-            byteState[3]=data[10];
+        byte[] byteState=new byte[4];
+        byteState[0]=0x00;
+        byteState[1]=0x00;
+        byteState[2]=data[0];
+        byteState[3]=data[1];
 
-            int stateNumber=ByteUtil.byteArrayToInt(byteState,0,false);
-            String info=infoMap.get(stateNumber);
-            if(info==null){
-                info="未知状态";
-            }
-               sb = "\"msgId\":" + 2 + "," + System.lineSeparator() +
-                    "\"payload\":{" + System.lineSeparator() +
-                    "\"stateNumber\":" + Integer.toHexString(stateNumber) + "," + System.lineSeparator() +
-                    "\"info\":" + info + System.lineSeparator() +
-                    "}";
-            return sb;
-
-        }else{
-            if(data[7]==WRITE_SINGLE_REGISTER){
-                sb =    "\"msgId\":" + 4 + "," + System.lineSeparator() +
-                        "\"payload\":{" + System.lineSeparator() +
-                        "\"serialNumber\":" + serialNumber +
-                        "}";
-                return sb;
-            }else{
-                return null;
-            }
+        int stateNumber=ByteUtil.byteArrayToInt(byteState,0,false);
+        String info=infoMap.get(stateNumber);
+        if(info==null){
+            info="未知状态";
         }
+        sb = "\"msgId\":" + 2 + "," + System.lineSeparator() +
+                "\"payload\":{" + System.lineSeparator() +
+                "\"stateNumber\":" + Integer.toHexString(stateNumber) + "," + System.lineSeparator() +
+                "\"info\":" + info + System.lineSeparator() +
+                "}";
+        return sb;
     }
 
     @Override
     public byte[] getAskMessage() {
-        byte[] reMessage=askMessage.clone();
-        synchronized(lock) {
-            reMessage[1] = getSerialNumber();
-        }
-        return reMessage;
+        return null;
     }
 
     @Override
     public FrameType getType() {
-        return FrameType.LengthField;
+        return FrameType.FixLength;
     }
 
     @Override
     public int getMessageLength() {
-        return -1;
+        return 2;
     }
 
     @Override
@@ -161,22 +133,17 @@ public class LiftDriver implements IDriver {
 
     @Override
     public int getLengthFieldOffset() {
-        return 4;
+        return -1;
     }
 
     @Override
     public int getLengthFieldLength() {
-        return 2;
+        return -1;
     }
 
     @Override
     public int getLengthAdjustment() {
-        return 0;
-    }
-
-    private byte getSerialNumber(){
-        serialNumber=(serialNumber+1)/255;
-        return (byte)serialNumber;
+        return -1;
     }
 
 }

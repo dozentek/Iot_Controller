@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Config>
     <Devices>
-        <Device intro="升降台" name="Lift" role="Server" protocol="TCP" askInterval="2000" timeout="10000">
+        <Device intro="升降台" name="Lift" role="Server" protocol="TCP"  timeout="10000">
             <Net>
-                <IP>127.0.0.1</IP>
-                <Port>4001</Port>
+                <IP>192.168.200.3</IP>
+                <Port>4096</Port>
             </Net>
             <Driver>cn.rh.iot.driver.LiftDriver</Driver>
             <Topics>
@@ -14,8 +14,8 @@
         </Device>
         <Device intro="车载BMS" name="BMS" role="Server" protocol="TCP"  timeout="10000">
             <Net>
-                <IP>127.0.0.1</IP>
-                <Port>4002</Port>
+                <IP>192.168.200.4</IP>
+                <Port>50023</Port>
             </Net>
             <Driver>cn.rh.iot.driver.BmsDriver</Driver>
             <Topics>
@@ -24,8 +24,8 @@
         </Device>
         <Device intro="车载RTK" name="RTK" role="Server" protocol="TCP"  timeout="10000">
             <Net>
-                <IP>127.0.0.1</IP>
-                <Port>4008</Port>
+                <IP>192.168.200.5</IP>
+                <Port>23</Port>
             </Net>
             <Driver>cn.rh.iot.driver.RTKDriver</Driver>
             <Topics>
@@ -34,8 +34,8 @@
         </Device>
         <Device intro="气象站" name="Met" role="Server" protocol="TCP" askInterval="2000" timeout="10000">
             <Net>
-                <IP>127.0.0.1</IP>
-                <Port>4004</Port>
+                <IP>192.168.200.6</IP>
+                <Port>502</Port>
             </Net>
             <Driver>cn.rh.iot.driver.MetDriver</Driver>
             <Topics>

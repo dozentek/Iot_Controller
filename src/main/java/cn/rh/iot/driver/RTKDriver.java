@@ -39,13 +39,13 @@ public class RTKDriver implements IDriver {
             int quality;
 
             String sV=valueList[2];
-            lat=Integer.parseInt(sV.substring(0,1))+Double.parseDouble(sV.substring(2))/60;
+            lat=Integer.parseInt(sV.substring(0,2))+Double.parseDouble(sV.substring(2))/60;
             if(valueList[3].equals("S")){
                 lat=-lat;
             }
 
             sV=valueList[4];
-            lon=Integer.parseInt(sV.substring(0,2))+Double.parseDouble(sV.substring(3))/60;
+            lon=Integer.parseInt(sV.substring(0,3))+Double.parseDouble(sV.substring(3))/60;
             if(valueList[5].equals("W")){
                 lon=-lon;
             }

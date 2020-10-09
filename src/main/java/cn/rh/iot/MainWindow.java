@@ -1,8 +1,9 @@
 package cn.rh.iot;
 
 import cn.rh.iot.config.IotConfig;
+import cn.rh.iot.core.Device;
 import cn.rh.iot.core.DeviceManager;
-import cn.rh.iot.driver.DriverManager;
+import cn.rh.iot.driver.*;
 import cn.rh.iot.log.TextAreaAppender;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -89,6 +90,17 @@ public class MainWindow extends Application {
                 DriverManager.getInstance().load(IotConfig.getInstance().getDriverFilePath());
                 DeviceManager.getInstance().load(IotConfig.getInstance());
                 ArrayList<String> deviceKeyList = DeviceManager.getInstance().getKeyList();
+
+                {
+                    Device device = DeviceManager.getInstance().getDevice("BMS");
+                    device.setDriver(new BmsDriver());
+                    device = DeviceManager.getInstance().getDevice("Met");
+                    device.setDriver(new MetDriver());
+                    device = DeviceManager.getInstance().getDevice("Lift");
+                    device.setDriver(new LiftDriver());
+                    device = DeviceManager.getInstance().getDevice("RTK");
+                    device.setDriver(new RTKDriver());
+                }
 
                 for (String s : deviceKeyList) {
                     DeviceManager.getInstance().getDevice(s).Start();

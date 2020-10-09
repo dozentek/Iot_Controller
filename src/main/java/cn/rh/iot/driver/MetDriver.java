@@ -14,7 +14,7 @@ import java.util.HashMap;
 public class MetDriver implements IDriver{
 
     private final byte READ_HOLDING_REGISTER=0x03;                      //读保持寄存器
-    private final byte[] INFO_Address=new byte[]{0x00,(byte)0x01};      //读取数据地址
+    private final byte[] INFO_Address=new byte[]{0x00,(byte)0x00};      //读取数据地址
 
     private int serialNumber=0;
     private final Object lock=new Object();

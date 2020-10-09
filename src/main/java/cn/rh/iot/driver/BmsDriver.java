@@ -47,11 +47,15 @@ public class BmsDriver implements IDriver {
         if(id==ID_V_C){
             double  voltage=ByteUtil.bytesToUShort(data,5,false)*0.1;
             double  current=ByteUtil.bytesToShort(data,5+2,false)*0.1;
+            double  SOC=ByteUtil.bytesToUShort(data,5+4,false)*0.1;
+            double  SOH=ByteUtil.bytesToUShort(data,5+6,false)*0.1;
 
             jsonStr = "\"msgId\":" + 2 + "," + System.lineSeparator() +
                     "\"payload\":{" + System.lineSeparator() +
                     "\"voltage\": " + voltage + "," + System.lineSeparator() +
-                    "\"current\": " + current + System.lineSeparator() +
+                    "\"current\": " + current +"," +System.lineSeparator() +
+                    "\"SOC\": " + SOC +"," +System.lineSeparator() +
+                    "\"SOH\": " + SOH + System.lineSeparator() +
                     "}";
             return jsonStr;
 
