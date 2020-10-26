@@ -91,6 +91,8 @@
     "payload":{               
     	"voltage":24.5,		  //电压。单位：V
         "current":10.2,       //电流。单位：A
+        "SOC":80.8,           //%  SOC
+        "SOH":100.0,		  //%  SOH
         "DTC": "0xFFFFFFFF",  //64位，16进制
     	"warning":"放电温度高|总压低"   //报警信息
 	}
