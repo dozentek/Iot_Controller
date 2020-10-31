@@ -1,9 +1,8 @@
 package cn.rh.iot;
 
 import cn.rh.iot.config.IotConfig;
-import cn.rh.iot.core.Device;
 import cn.rh.iot.core.DeviceManager;
-import cn.rh.iot.driver.*;
+import cn.rh.iot.driver.DriverManager;
 import cn.rh.iot.log.TextAreaAppender;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -27,12 +26,15 @@ public class MainWindow extends Application {
         launch(args);
     }
 
+    private boolean isInitialSuccess=true;
+
     @Override
     public void start(Stage primaryStage) {
         try {
 
             //添加shutdown hook处理函数
             Runtime.getRuntime().addShutdownHook(new Thread(this::closeHandler));
+
 
             //加载主窗口FXML配置
             Parent root =FXMLLoader.load(getClass().getResource("/MainWindow.fxml"));
@@ -65,7 +67,7 @@ public class MainWindow extends Application {
         log.info("-----系统关闭-----");
     }
 
-    private void initial(Parent root){
+    private void initial(Parent root) {
         new Thread(() -> {
             //初始化重定向Appender(log4j的）,以便能够在主窗口监控日志信息
             {
@@ -85,25 +87,32 @@ public class MainWindow extends Application {
 
             //加载配置文件，启动各个设备
             {
-                String filePath=getClass().getResource("/Config.xml").getFile();
-                IotConfig.getInstance().load(filePath);
-                DriverManager.getInstance().load(IotConfig.getInstance().getDriverFilePath());
-                DeviceManager.getInstance().load(IotConfig.getInstance());
-                ArrayList<String> deviceKeyList = DeviceManager.getInstance().getKeyList();
+//                String filePath=getClass().getResource("/Config.xml").getFile();
+                String appPath=System.getProperty("user.dir");
+                String filePath=appPath+"\\Config.xml";
 
-                {
-                    Device device = DeviceManager.getInstance().getDevice("BMS");
-                    device.setDriver(new BmsDriver());
-                    device = DeviceManager.getInstance().getDevice("Met");
-                    device.setDriver(new MetDriver());
-                    device = DeviceManager.getInstance().getDevice("Lift");
-                    device.setDriver(new LiftDriver());
-                    device = DeviceManager.getInstance().getDevice("RTK");
-                    device.setDriver(new RTKDriver());
-                }
+                boolean isOk=IotConfig.getInstance().load(filePath);
+                if(isOk){
+                    String driverClassPath=appPath+"\\"+IotConfig.getInstance().getDriverFilePath();
+                    DriverManager.getInstance().load(driverClassPath);
+//
+//                    DeviceManager.getInstance().load(IotConfig.getInstance());
+                    ArrayList<String> deviceKeyList = DeviceManager.getInstance().getKeyList();
 
-                for (String s : deviceKeyList) {
-                    DeviceManager.getInstance().getDevice(s).Start();
+//                    {
+//                        Device device = DeviceManager.getInstance().getDevice("BMS");
+//                        device.setDriver(new BmsDriver());
+//                        device = DeviceManager.getInstance().getDevice("Met");
+//                        device.setDriver(new MetDriver());
+//                        device = DeviceManager.getInstance().getDevice("Lift");
+//                        device.setDriver(new LiftDriver());
+//                        device = DeviceManager.getInstance().getDevice("RTK");
+//                        device.setDriver(new RTKDriver());
+//                    }
+
+                    for (String s : deviceKeyList) {
+                        DeviceManager.getInstance().getDevice(s).Start();
+                    }
                 }
             }
 
