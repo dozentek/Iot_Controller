@@ -1,7 +1,7 @@
 package driver;
 
 import cn.rh.iot.config.IotConfig;
-import cn.rh.iot.driver.DriverManager;
+import cn.rh.iot.driver.base.DriverManager;
 import org.junit.Assert;
 import org.junit.Test;
 

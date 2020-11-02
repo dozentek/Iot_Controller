@@ -1,5 +1,9 @@
 package cn.rh.iot.driver;
 
+import cn.rh.iot.driver.base.ByteUtil;
+import cn.rh.iot.driver.base.FrameType;
+import cn.rh.iot.driver.base.IDriver;
+
 import java.util.HashMap;
 
 /**
@@ -103,7 +107,7 @@ public class BmsDriver implements IDriver {
         //二级告警
         needAddTopic=(errorValues[2]!=0) ||(errorValues[3]!=0);
         bitValues1=ByteUtil.byteToBit(errorValues[2]);
-        bitValues2=ByteUtil.byteToBit(errorValues[3]);
+        bitValues2= ByteUtil.byteToBit(errorValues[3]);
         fillErrorString(DTC_LEVEL_2,needAddTopic,bitValues1,bitValues2,errorString,WARN_STRING);
 
         //三级告警

@@ -1,5 +1,8 @@
 package cn.rh.iot.driver;
 
+import cn.rh.iot.driver.base.ByteUtil;
+import cn.rh.iot.driver.base.FrameType;
+import cn.rh.iot.driver.base.IDriver;
 import com.alibaba.fastjson.JSONObject;
 
 import java.util.HashMap;
@@ -93,7 +96,7 @@ public class LiftDriver implements IDriver {
         byteState[2]=data[0];
         byteState[3]=data[1];
 
-        int stateNumber=ByteUtil.byteArrayToInt(byteState,0,false);
+        int stateNumber= ByteUtil.byteArrayToInt(byteState,0,false);
         String info=infoMap.get(stateNumber);
         if(info==null){
             info="未知状态";

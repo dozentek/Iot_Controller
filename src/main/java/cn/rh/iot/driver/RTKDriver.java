@@ -1,5 +1,8 @@
 package cn.rh.iot.driver;
 
+import cn.rh.iot.driver.base.FrameType;
+import cn.rh.iot.driver.base.IDriver;
+
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 

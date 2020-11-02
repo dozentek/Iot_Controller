@@ -2,8 +2,8 @@ package cn.rh.iot.core;
 
 import cn.rh.iot.config.DeviceConfigInfo;
 import cn.rh.iot.config.IotConfig;
-import cn.rh.iot.driver.DriverManager;
-import cn.rh.iot.driver.IDriver;
+import cn.rh.iot.driver.base.DriverManager;
+import cn.rh.iot.driver.base.IDriver;
 import cn.rh.iot.mqtt.TopicParam;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;

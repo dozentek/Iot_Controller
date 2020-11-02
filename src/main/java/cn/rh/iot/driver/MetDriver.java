@@ -1,5 +1,8 @@
 package cn.rh.iot.driver;
 
+import cn.rh.iot.driver.base.ByteUtil;
+import cn.rh.iot.driver.base.FrameType;
+import cn.rh.iot.driver.base.IDriver;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashMap;
@@ -11,7 +14,7 @@ import java.util.HashMap;
  * @Create: 2020-09-23 19:21
  **/
 @Slf4j
-public class MetDriver implements IDriver{
+public class MetDriver implements IDriver {
 
     private final byte READ_HOLDING_REGISTER=0x03;                      //读保持寄存器
     private final byte[] INFO_Address=new byte[]{0x00,(byte)0x00};      //读取数据地址
@@ -40,7 +43,7 @@ public class MetDriver implements IDriver{
             int iStartIndex=9;
 
             //转换前需要高低16bit调换位置，返回0x01,0x02,0x03,0x04，实际为0x03,0x04,0x01,0x02。
-            float wind=ByteUtil.byteArrayToFloatExchange16Bit(data,iStartIndex);
+            float wind= ByteUtil.byteArrayToFloatExchange16Bit(data,iStartIndex);
             float temp=ByteUtil.byteArrayToFloatExchange16Bit(data,iStartIndex+2*4);
             float hr=ByteUtil.byteArrayToFloatExchange16Bit(data,iStartIndex+3*4);
             float rainfall=ByteUtil.byteArrayToFloatExchange16Bit(data,iStartIndex+7*4);

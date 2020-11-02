@@ -2,7 +2,7 @@ package core;
 
 import cn.rh.iot.config.IotConfig;
 import cn.rh.iot.core.DeviceManager;
-import cn.rh.iot.driver.DriverManager;
+import cn.rh.iot.driver.base.DriverManager;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 

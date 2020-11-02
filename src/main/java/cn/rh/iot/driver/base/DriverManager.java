@@ -1,4 +1,4 @@
-package cn.rh.iot.driver;
+package cn.rh.iot.driver.base;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -64,7 +64,7 @@ public class DriverManager {
     /*
      * @Description: 获取类的新实例
      * @Param: [classname]  类的名称（全称）
-     * @Return: cn.rh.iot.driver.IDriver
+     * @Return: cn.rh.iot.driver.base.IDriver
      * @Author: Y.Y
      * @Date: 2020/9/24 9:03
      */

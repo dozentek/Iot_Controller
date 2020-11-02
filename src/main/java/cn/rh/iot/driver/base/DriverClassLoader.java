@@ -1,4 +1,4 @@
-package cn.rh.iot.driver;
+package cn.rh.iot.driver.base;
 
 
 import java.io.ByteArrayOutputStream;

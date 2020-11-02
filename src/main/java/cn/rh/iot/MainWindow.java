@@ -2,7 +2,7 @@ package cn.rh.iot;
 
 import cn.rh.iot.config.IotConfig;
 import cn.rh.iot.core.DeviceManager;
-import cn.rh.iot.driver.DriverManager;
+import cn.rh.iot.driver.base.DriverManager;
 import cn.rh.iot.log.TextAreaAppender;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -87,16 +87,20 @@ public class MainWindow extends Application {
 
             //加载配置文件，启动各个设备
             {
-//                String filePath=getClass().getResource("/Config.xml").getFile();
                 String appPath=System.getProperty("user.dir");
-                String filePath=appPath+"\\Config.xml";
+
+                // String filePath=appPath+"\\Config.xml";
+                String filePath=getClass().getResource("/Config.xml").getFile();
 
                 boolean isOk=IotConfig.getInstance().load(filePath);
+//                String driverClassPath=appPath+"\\"+IotConfig.getInstance().getDriverFilePath();
+
+                String driverClassPath=IotConfig.getInstance().getDriverFilePath();
+
                 if(isOk){
-                    String driverClassPath=appPath+"\\"+IotConfig.getInstance().getDriverFilePath();
                     DriverManager.getInstance().load(driverClassPath);
-//
-//                    DeviceManager.getInstance().load(IotConfig.getInstance());
+                    DeviceManager.getInstance().load(IotConfig.getInstance());
+
                     ArrayList<String> deviceKeyList = DeviceManager.getInstance().getKeyList();
 
 //                    {

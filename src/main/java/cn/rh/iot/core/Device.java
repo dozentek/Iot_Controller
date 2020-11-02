@@ -1,6 +1,6 @@
 package cn.rh.iot.core;
 
-import cn.rh.iot.driver.IDriver;
+import cn.rh.iot.driver.base.IDriver;
 import cn.rh.iot.mqtt.MqttChannel;
 import cn.rh.iot.mqtt.TopicParam;
 import io.netty.bootstrap.Bootstrap;
