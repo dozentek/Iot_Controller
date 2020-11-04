@@ -132,7 +132,7 @@ public class MqttChannel {
         String connStateJson="{\n" +
                 "\"deviceName\": \""+device.getName()+"\",\n" +
                 "\"deviceNumber\":\""+device.getId()+"\",\n" +
-                "\"msgId\":01,\n" +
+                "\"msgId\":1,\n" +
                 "\"payload\":{ \n" +
                 "\"connectState\":\""+state+"\"\n" +
                 "\t}\n" +

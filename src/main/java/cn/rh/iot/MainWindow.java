@@ -1,7 +1,12 @@
 package cn.rh.iot;
 
 import cn.rh.iot.config.IotConfig;
+import cn.rh.iot.core.Device;
 import cn.rh.iot.core.DeviceManager;
+import cn.rh.iot.driver.BmsDriver;
+import cn.rh.iot.driver.LiftDriver;
+import cn.rh.iot.driver.MetDriver;
+import cn.rh.iot.driver.RTKDriver;
 import cn.rh.iot.driver.base.DriverManager;
 import cn.rh.iot.log.TextAreaAppender;
 import javafx.application.Application;
@@ -34,7 +39,6 @@ public class MainWindow extends Application {
 
             //添加shutdown hook处理函数
             Runtime.getRuntime().addShutdownHook(new Thread(this::closeHandler));
-
 
             //加载主窗口FXML配置
             Parent root =FXMLLoader.load(getClass().getResource("/MainWindow.fxml"));
@@ -103,16 +107,16 @@ public class MainWindow extends Application {
 
                     ArrayList<String> deviceKeyList = DeviceManager.getInstance().getKeyList();
 
-//                    {
-//                        Device device = DeviceManager.getInstance().getDevice("BMS");
-//                        device.setDriver(new BmsDriver());
-//                        device = DeviceManager.getInstance().getDevice("Met");
-//                        device.setDriver(new MetDriver());
-//                        device = DeviceManager.getInstance().getDevice("Lift");
-//                        device.setDriver(new LiftDriver());
-//                        device = DeviceManager.getInstance().getDevice("RTK");
-//                        device.setDriver(new RTKDriver());
-//                    }
+                    {
+                        Device device = DeviceManager.getInstance().getDevice("BMS");
+                        device.setDriver(new BmsDriver());
+                        device = DeviceManager.getInstance().getDevice("Met");
+                        device.setDriver(new MetDriver());
+                        device = DeviceManager.getInstance().getDevice("Lift");
+                        device.setDriver(new LiftDriver());
+                        device = DeviceManager.getInstance().getDevice("RTK");
+                        device.setDriver(new RTKDriver());
+                    }
 
                     for (String s : deviceKeyList) {
                         DeviceManager.getInstance().getDevice(s).Start();
