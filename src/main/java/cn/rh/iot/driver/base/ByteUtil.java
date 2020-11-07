@@ -104,5 +104,19 @@ public class ByteUtil {
         return new String(hexChars);
     }
 
+    public static String getFixLengthHexString(String str,int length){
+
+        if(str.length()>=length){
+            return str;
+        }else{
+            int iCount=length-str.length();
+            StringBuilder rtn = new StringBuilder();
+            for(int i=0;i<iCount;i++){
+                rtn.append("0");
+            }
+            return rtn.append(str).toString();
+        }
+
+    }
 
 }

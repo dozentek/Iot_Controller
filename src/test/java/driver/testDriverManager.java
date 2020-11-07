@@ -1,6 +1,7 @@
 package driver;
 
 import cn.rh.iot.config.IotConfig;
+import cn.rh.iot.driver.base.ByteUtil;
 import cn.rh.iot.driver.base.DriverManager;
 import org.junit.Assert;
 import org.junit.Test;
@@ -21,5 +22,15 @@ public class testDriverManager {
         if(res) {
             System.out.println(DriverManager.getInstance().Count());
         }
+    }
+
+    @Test
+    public void testBMSDriverErrorCodeFixLength(){
+        byte[] data={0x00,0x00,(byte)0xFF,(byte)0xFF,0x00,0x00,(byte)0xFF,(byte)0xFF};
+
+        long value= ByteUtil.longFrom8Bytes(data,0,false);
+
+        String errorCodeStr=ByteUtil.getFixLengthHexString(Long.toHexString(value),16);
+        ;
     }
 }

@@ -37,6 +37,8 @@ public class MainWindow extends Application {
     public void start(Stage primaryStage) {
         try {
 
+
+
             //添加shutdown hook处理函数
             Runtime.getRuntime().addShutdownHook(new Thread(this::closeHandler));
 

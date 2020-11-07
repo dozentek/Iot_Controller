@@ -50,9 +50,9 @@
 {
     "deviceName": "XXX",		//设备名称
     "deviceId": "6F9619FF-8B86-D011-B42D-00C04FC964FF",	//设备编号（仅针对UAV有用）
-    "msgId": 01,     			//报文编号 其中：通信链路通断报文编号=01
-    "payload":{               //报文内容
-    	key1:value1,    	//键值对
+    "msgId": 1,     			//报文编号 其中：通信链路通断报文编号=01
+    "payload":{                 //报文内容
+    	key1:value1,    	    //键值对
     	key2:value2,
         ...
     	keyN:valueN
@@ -70,7 +70,7 @@
 {
     "deviceName": "XXX"	,
     "deviceNumber":"6F9619FF-8B86-D011-B42D-00C04FC964FF",
-    "msgId":01,
+    "msgId":1,
     "payload":{               
     	"connectState":"ok"   //ok:连通，no:断开
 	}
@@ -87,13 +87,13 @@
 {
     "deviceName": "BMS"	,
     "deviceNumber":"",
-    "msgId":02,				  //信息报文
+    "msgId":2,				  //信息报文
     "payload":{               
     	"voltage":24.5,		  //电压。单位：V
         "current":10.2,       //电流。单位：A
         "SOC":80.8,           //%  SOC
         "SOH":100.0,		  //%  SOH
-        "DTC": "0xFFFFFFFF",  //64位，16进制
+        "DTC": "FFFFFFFF",    //64位，16进制
     	"warning":"放电温度高|总压低"   //报警信息
 	}
 }
@@ -107,9 +107,9 @@
 {
     "deviceName": "Lift",	
     "deviceNumber":"",
-    "msgId":02,				    //信息报文
+    "msgId":2,				    //信息报文
     "payload":{               
-    	"stateNumber":"0x0800",	//状态编号,16进制
+    	"stateNumber":0800",	//状态编号,16进制
     	"info":"上电状态"
 	}
 }
@@ -121,9 +121,9 @@
 {
     "deviceName": "Lift",	
     "deviceNumber":"",
-    "msgId":03,					//控制报文
+    "msgId":3,					//控制报文
     "payload":{  
-    	"serialNumber": 0x01,   //指令顺序号（1-255,循环）
+    	"serialNumber": 1,      //指令顺序号（1-255,循环）
         "msg":"up"	        	//指令   "up":上升触发, "down":下降触发;
 	}
 }
@@ -135,9 +135,9 @@
 {
     "deviceName": "Lift",
     "deviceNumber":"",
-    "msgId":04,				    //控制反馈报文
+    "msgId":4,				    //控制反馈报文
     "payload":{               
-    	"serialNumber": 0x01
+    	"serialNumber": 1
 	}
 }
 ```
@@ -211,9 +211,9 @@
 {
     "deviceName": "UAV",
     "deviceNumber":"6F9619FF-8B86-D011-B42D-00C04FC964FF",
-    "msgId":03,				    //控制报文
+    "msgId":3,				    //控制报文
     "payload":{               
-    	"serialNumber": 0x01	
+    	"serialNumber": 1	
         ...
 	}
 }
@@ -225,9 +225,9 @@
 {
     "deviceName": "UAV",
     "deviceNumber":"6F9619FF-8B86-D011-B42D-00C04FC964FF",
-    "msgId":04,				    //控制反馈报文
+    "msgId":4,				    //控制反馈报文
     "payload":{               
-    	"serialNumber": 0x01
+    	"serialNumber": 1
 	}
 }
 ```

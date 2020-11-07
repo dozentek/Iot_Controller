@@ -73,7 +73,7 @@ public class BmsDriver implements IDriver {
 
             jsonStr = "\"msgId\":\"" + 2 + "\"," + System.lineSeparator() +
                     "\"payload\":\"{" + System.lineSeparator() +
-                    "\"DTC\": " + "\"" + errorCodeStr + "\"," + System.lineSeparator() +
+                    "\"DTC\": " + "\"" + ByteUtil.getFixLengthHexString(errorCodeStr,16) + "\"," + System.lineSeparator() +
                     "\"warning\": " + "\"" + errorString + "\"" + System.lineSeparator() +
                     "}";
             return jsonStr;
