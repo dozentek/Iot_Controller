@@ -42,7 +42,7 @@ public class ByteUtil {
         return value;
     }
     /*
-     * @Description: 将前后16位调换位置后，遵循IEEE 754浮点标准，尽心转换
+     * @Description: 将前后16位调换位置后，遵循IEEE 754浮点标准
      * @Param: [bytes, offset]
      * @Return: float
      * @Author: Y.Y
