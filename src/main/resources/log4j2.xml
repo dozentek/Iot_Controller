@@ -5,7 +5,7 @@
             <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss.SSS} %-5p %c{1}:%L - %msg%n" />
         </Console>
 
-        <RollingFile name="RollingFile" filename="log/Iot.log"
+        <RollingFile name="RollingFile" filename="var/drone/iot.log"
                      filepattern="${logPath}/%d{MM-dd-yyyy}-%i.log">
             <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss.SSS} %-5p %c{1}:%L - %msg%n" />
             <Policies>
