@@ -2,26 +2,26 @@
 <Configuration status="WARN" packages="cn.rh.iot.log">
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss.SSS} [%t] %-5p %c{1}:%L - %msg%n" />
+            <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss.SSS} %-5p %c{1}:%L - %msg%n" />
         </Console>
 
-        <RollingFile name="RollingFile" filename="log/IotHub.log"
+        <RollingFile name="RollingFile" filename="log/Iot.log"
                      filepattern="${logPath}/%d{MM-dd-yyyy}-%i.log">
-            <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss.SSS} [%t] %-5p %c{1}:%L - %msg%n" />
+            <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss.SSS} %-5p %c{1}:%L - %msg%n" />
             <Policies>
                 <SizeBasedTriggeringPolicy size="10 MB" />
             </Policies>
             <DefaultRolloverStrategy max="20" />
         </RollingFile>
-        <TextArea name="TextArea">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%-5p] %c{1}:%L - %msg%n" />
-        </TextArea>
+<!--        <TextArea name="TextArea">-->
+<!--            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%-5p] %c{1}:%L - %msg%n" />-->
+<!--        </TextArea>-->
     </Appenders>
     <Loggers>
         <Root level="info">
             <AppenderRef ref="Console" />
             <AppenderRef ref="RollingFile" />
-            <AppenderRef ref="TextArea" />
+<!--            <AppenderRef ref="TextArea" />-->
         </Root>
     </Loggers>
 </Configuration>

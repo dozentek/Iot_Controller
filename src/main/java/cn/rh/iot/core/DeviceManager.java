@@ -4,7 +4,9 @@ import cn.rh.iot.config.DeviceConfigInfo;
 import cn.rh.iot.config.IotConfig;
 import cn.rh.iot.driver.base.DriverManager;
 import cn.rh.iot.driver.base.IDriver;
+import cn.rh.iot.mqtt.MqttChannel;
 import cn.rh.iot.mqtt.TopicParam;
+import cn.rh.iot.net.NetChannel;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.util.concurrent.Future;
@@ -126,12 +128,9 @@ public class DeviceManager {
             device.setSubscribeTopicParam(null);
         }
 
-
-        //为Device装配通信链路
-        Assembler.AssembleMqttChannel(device);
-        Assembler.AssembleNetChannel(device);
-
         if(!devices.containsKey(device.name)){
+            device.setChannel(new NetChannel((NetDevice)device));
+            device.setMqttChannel(new MqttChannel(device));
             devices.put(device.name,device);
         }
     }

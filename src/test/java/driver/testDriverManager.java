@@ -1,9 +1,6 @@
 package driver;
 
-import cn.rh.iot.config.IotConfig;
 import cn.rh.iot.driver.base.ByteUtil;
-import cn.rh.iot.driver.base.DriverManager;
-import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -13,16 +10,6 @@ import org.junit.Test;
  * @Create: 2020-09-27 16:03
  **/
 public class testDriverManager {
-    @Test
-    public void testDriverLoader(){
-        String filePath=System.getProperty("user.dir")+"\\out\\production\\resources\\Config.xml";
-        boolean res=IotConfig.getInstance().load(filePath);
-        Assert.assertTrue(res);
-        res=DriverManager.getInstance().load(IotConfig.getInstance().getDriverFilePath());
-        if(res) {
-            System.out.println(DriverManager.getInstance().Count());
-        }
-    }
 
     @Test
     public void testBMSDriverErrorCodeFixLength(){
