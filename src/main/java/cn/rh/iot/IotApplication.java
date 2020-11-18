@@ -11,25 +11,34 @@ public class IotApplication{
 
     public static void main(String[] args) {
 
-        log.info("-----系统启动-----");
-        IotApplication app=new IotApplication();
-        String filePath=app.getClass().getResource("/Config.xml").getFile();
+        //添加退出钩子
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            @Override
+            public void run() {
+                log.info("-----IOT关闭-----");
+            }
+        }));
+
+        log.info("-----IOT启动-----");
+
+        IotApplication iot=new IotApplication();
+
+        String filePath=iot.getClass().getResource("/Config.xml").getFile();
         boolean isOk= IotConfig.getInstance().load(filePath);
 
         if(!isOk){
-            log.error("配置文件{}加载失败.",filePath);
-            log.info("-----系统关闭-----");
+            log.error("配置文件[{}]加载失败.",filePath);
+            log.info("-----IOT关闭-----");
             return;
         }
 
-        app.start();
+        iot.start();
 
         while(true){
             try{
                 Thread.sleep(3000);
             }catch (InterruptedException ex){
                 ex.fillInStackTrace();
-                log.info("-----系统关闭-----");
             }
         }
     }

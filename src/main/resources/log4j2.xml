@@ -13,15 +13,11 @@
             </Policies>
             <DefaultRolloverStrategy max="20" />
         </RollingFile>
-<!--        <TextArea name="TextArea">-->
-<!--            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%-5p] %c{1}:%L - %msg%n" />-->
-<!--        </TextArea>-->
     </Appenders>
     <Loggers>
         <Root level="info">
             <AppenderRef ref="Console" />
             <AppenderRef ref="RollingFile" />
-<!--            <AppenderRef ref="TextArea" />-->
         </Root>
     </Loggers>
 </Configuration>
