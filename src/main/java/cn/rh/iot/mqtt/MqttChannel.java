@@ -68,7 +68,11 @@ public class MqttChannel {
         msg.setPayload(send_message.getBytes(StandardCharsets.UTF_8));
         try {
             client.publish(device.getPublishTopicParam().getTopic(),msg);
-         }catch (MqttException ex) {
+            log.info("设备[{}]发送Topic[{}]成功，内容( {} )",device.getName(),
+                    device.getPublishTopicParam().getTopic(),send_message);
+        }catch (MqttException ex) {
+            log.error("设备[{}]发送Topic[{}]失败，内容( {} )",device.getName(),
+                    device.getPublishTopicParam().getTopic(),send_message);
         }
     }
 
