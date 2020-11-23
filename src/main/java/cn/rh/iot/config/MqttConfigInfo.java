@@ -1,5 +1,6 @@
 package cn.rh.iot.config;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +14,7 @@ import org.w3c.dom.NodeList;
  * @Create: 2020-09-27 11:25
  **/
 @Slf4j
-@Getter
+@Data
 public class MqttConfigInfo {
 
     private String serverURI;

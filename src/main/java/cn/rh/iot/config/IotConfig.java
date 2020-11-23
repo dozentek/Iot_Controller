@@ -1,15 +1,21 @@
 package cn.rh.iot.config;
 
+import cn.rh.iot.ContextAwareBeanLoader;
+import cn.rh.iot.core.DeviceManager;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import javax.annotation.PostConstruct;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 /**
@@ -19,9 +25,17 @@ import java.util.regex.Pattern;
  * @Create: 2020-09-27 11:18
  **/
 @Slf4j
+@Service
 public class IotConfig {
 
-    private static final IotConfig _instance = new IotConfig();
+//    private static final IotConfig _instance = new IotConfig();
+
+//    @Value("${mqtt.server}")
+//    private String cnfMqttServer;
+//    @Value("${mqtt.keepalive}")
+//    private Integer cnfMqttKeepAlive;
+//    @Value("${mqtt.timeout}")
+//    private Integer cnfMqttTimeout;
 
     @Getter
     private MqttConfigInfo mqtt;
@@ -45,9 +59,42 @@ public class IotConfig {
     private IotConfig(){}
 
     public static IotConfig getInstance(){
-        return _instance;
+        return Objects.requireNonNull(ContextAwareBeanLoader.getBean(IotConfig.class));
     }
 
+    @PostConstruct
+    public void loadAndStart() {
+        log.info("config file loading ...");
+
+        ClassLoader classLoader = getClass().getClassLoader();
+        String filePath= classLoader.getResource("Config.xml").getFile();
+        if (!new File(filePath).exists()) {
+            filePath = System.getProperties().getProperty("user.dir")+"/Config.xml";
+        }
+        log.info("file path:{}", filePath);
+        boolean isOk= load(filePath);
+
+        if (isOk) {
+            log.info("config file load success");
+        } else {
+            log.error("配置文件[{}]加载失败.",filePath);
+            log.info("-----IOT关闭-----");
+            return;
+        }
+
+        start();
+
+    }
+
+    public void start(){
+        new Thread(() -> {
+            DeviceManager.getInstance().load(IotConfig.getInstance());
+            ArrayList<String> deviceKeyList = DeviceManager.getInstance().getKeyList();
+            for (String s : deviceKeyList) {
+                DeviceManager.getInstance().getDevice(s).Start();
+            }
+        }).start();
+    }
     public DeviceConfigInfo getDeviceInfoObject(String deviceName){
 
         for(int i=0;i<devices.size();i++){
@@ -74,7 +121,6 @@ public class IotConfig {
         if(isLoaded){
             return true;
         }
-
         File file=new File(configFilePath);
         if(!file.exists()){
             log.error("配置文件["+configFilePath+"]不存在");
@@ -140,10 +186,17 @@ public class IotConfig {
                 }
 
                 MqttConfigInfo mqttTmp=new MqttConfigInfo();
+//                mqttTmp.setServerURI(cnfMqttServer);
+//                mqttTmp.setKeepAliveInterval(cnfMqttKeepAlive);
+//                mqttTmp.setConnectionTimeout(cnfMqttTimeout);
+//                mqttTmp.setReconnectInterval(cnfMqttKeepAlive);
+//                mqtt = mqttTmp;
+
                 if(!mqttTmp.Load((Element)nodes.item(0))) {
                     return false;
                 }else{
                     mqtt=mqttTmp;
+//                    mqtt.setServerURI(cnfMqttServer);
                 }
             }
 

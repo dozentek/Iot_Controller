@@ -10,6 +10,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Program: Iot_Controller
@@ -41,7 +42,7 @@ public class DeviceConfigInfo {
     @Getter @Setter
     private String driverClassName;
 
-    private final ArrayList<TopicConfigInfo> topics=new ArrayList<>();
+    private final List<TopicConfigInfo> topics=new ArrayList<>();
 
     public int TopicCount(){
         return topics.size();
