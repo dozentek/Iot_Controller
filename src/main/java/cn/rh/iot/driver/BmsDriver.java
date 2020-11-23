@@ -44,7 +44,7 @@ public class BmsDriver implements IDriver {
     @Override
     public String decode(byte[] data) {
 
-        if(data.length!=13) { return null; }
+        if(data.length!=FRAME_LENGTH) { return null; }
 
         String jsonStr;
         int id=ByteUtil.byteArrayToInt(data,1,false);
@@ -102,7 +102,7 @@ public class BmsDriver implements IDriver {
         needAddTopic=(errorValues[0]!=0) ||(errorValues[1]!=0);
         bitValues1=ByteUtil.byteToBit(errorValues[0]);
         bitValues2=ByteUtil.byteToBit(errorValues[1]);
-        fillErrorString(DTC_LEVEL_3,needAddTopic,bitValues1,bitValues2,errorString,WARN_STRING);
+        fillErrorString(DTC_LEVEL_1,needAddTopic,bitValues1,bitValues2,errorString,WARN_STRING);
 
         //二级告警
         needAddTopic=(errorValues[2]!=0) ||(errorValues[3]!=0);
