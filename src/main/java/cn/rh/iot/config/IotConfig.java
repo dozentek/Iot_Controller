@@ -11,6 +11,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
@@ -62,8 +63,14 @@ public class IotConfig {
         return Objects.requireNonNull(ContextAwareBeanLoader.getBean(IotConfig.class));
     }
 
+    @PreDestroy
+    protected void stop() {
+        log.info("-----IOT关闭-----");
+    }
+
     @PostConstruct
     public void loadAndStart() {
+        log.info("-----IOT启动-----");
         log.info("config file loading ...");
 
         ClassLoader classLoader = getClass().getClassLoader();
