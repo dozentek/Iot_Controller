@@ -45,7 +45,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="112" />
-          <entry key="java" value="604" />
+          <entry key="java" value="605" />
           <entry key="properties" value="17" />
           <entry key="xml" value="22" />
         </counts>
@@ -53,7 +53,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="112" />
-          <entry key="JAVA" value="604" />
+          <entry key="JAVA" value="605" />
           <entry key="Properties" value="17" />
           <entry key="XML" value="22" />
         </counts>
@@ -92,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/rh/iot/IotApplication.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="365">
-              <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+              <caret line="30" column="38" lean-forward="true" selection-start-line="29" selection-start-column="2" selection-end-line="30" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -125,16 +125,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/rh/iot/mqtt/MqttChannel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
+            <state relative-caret-position="904">
+              <caret line="75" column="9" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/rh/iot/config/IotConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="2536">
               <caret line="199" column="17" selection-start-line="199" selection-start-column="17" selection-end-line="199" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -562,7 +562,6 @@
         <option value="$PROJECT_DIR$/settings.gradle" />
         <option value="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
         <option value="$PROJECT_DIR$/src/main/java/cn/rh/iot/net/ChannelCloseListenerWithLock.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/rh/iot/mqtt/MqttChannel.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/rh/iot/config/ContextAwareBeanLoader.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/rh/iot/ContextAwareBeanLoader.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
@@ -574,6 +573,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/Config.xml" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/cn/rh/iot/IotApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/rh/iot/mqtt/MqttChannel.java" />
       </list>
     </option>
   </component>
@@ -855,12 +855,12 @@
       <option name="presentableId" value="Default" />
       <updated>1606117148146</updated>
       <workItem from="1606117154323" duration="3078000" />
-      <workItem from="1606120967895" duration="10414000" />
+      <workItem from="1606120967895" duration="11340000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13492000" />
+    <option name="totallyTimeSpent" value="14418000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -874,7 +874,7 @@
       <window_info anchor="bottom" id="Java Enterprise" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.46141216" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.46141216" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39901477" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1008,13 +1008,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/rh/iot/mqtt/MqttChannel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/rh/iot/net/ByteToJsonDecoder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1059,18 +1052,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/rh/iot/config/IotConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="199" column="17" selection-start-line="199" selection-start-column="17" selection-end-line="199" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3077#3078#0" expanded="true" />
-            <element signature="e#3114#3115#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
@@ -1085,12 +1066,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/rh/iot/mqtt/MqttChannel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="904">
+          <caret line="75" column="9" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/rh/iot/IotApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
-          <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+          <caret line="30" column="38" lean-forward="true" selection-start-line="29" selection-start-column="2" selection-end-line="30" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/rh/iot/config/IotConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2536">
+          <caret line="199" column="17" selection-start-line="199" selection-start-column="17" selection-end-line="199" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3077#3078#0" expanded="true" />
+            <element signature="e#3114#3115#0" expanded="true" />
           </folding>
         </state>
       </provider>
