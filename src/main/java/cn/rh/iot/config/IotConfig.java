@@ -1,10 +1,12 @@
 package cn.rh.iot.config;
 
 import cn.rh.iot.ContextAwareBeanLoader;
+import cn.rh.iot.IotApplication;
 import cn.rh.iot.core.DeviceManager;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.system.ApplicationHome;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -73,18 +75,20 @@ public class IotConfig {
         log.info("-----IOT启动-----");
         log.info("config file loading ...");
 
+        log.info("jar path:{}", getParentDirectoryFromJar());
+
         ClassLoader classLoader = getClass().getClassLoader();
-        String filePath= classLoader.getResource("Config.xml").getFile();
-        if (!new File(filePath).exists()) {
-            filePath = System.getProperties().getProperty("user.dir")+"/Config.xml";
+        String configFilePath= classLoader.getResource("Config.xml").getFile();
+        if (!new File(configFilePath).exists()) {
+            configFilePath = getParentDirectoryFromJar() +"/Config.xml";
         }
-        log.info("file path:{}", filePath);
-        boolean isOk= load(filePath);
+
+        boolean isOk = load(configFilePath);
 
         if (isOk) {
             log.info("config file load success");
         } else {
-            log.error("配置文件[{}]加载失败.",filePath);
+            log.error("配置文件[{}]加载失败.",configFilePath);
             log.info("-----IOT关闭-----");
             return;
         }
@@ -92,7 +96,11 @@ public class IotConfig {
         start();
 
     }
-
+    public String getParentDirectoryFromJar() {
+        ApplicationHome home = new ApplicationHome(IotApplication.class);
+        return home.getDir().getPath();    // returns the folder where the jar is. This is what I wanted.
+//        home.getSource(); // returns the jar absolute path.
+    }
     public void start(){
         new Thread(() -> {
             DeviceManager.getInstance().load(IotConfig.getInstance());

@@ -5,8 +5,8 @@
             <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss.SSS} %-5p %c{1}:%L - %msg%n" />
         </Console>
 
-        <RollingFile name="RollingFile" filename="var/drone/iot.log"
-                     filepattern="${logPath}/%d{MM-dd-yyyy}-%i.log">
+        <RollingFile name="RollingFile" filename="${LOG_PATH}/iot.log"
+                     filepattern="${LOG_PATH}/%d{MM-dd-yyyy}-%i.log">
             <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss.SSS} %-5p %c{1}:%L - %msg%n" />
             <Policies>
                 <SizeBasedTriggeringPolicy size="10 MB" />
