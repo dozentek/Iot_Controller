@@ -14,19 +14,21 @@ import org.springframework.context.ConfigurableApplicationContext;
 @Slf4j
 public class IotApplication {
 
-
     public static void main(String[] args) {
+
+        //添加退出钩子
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            @Override
+            public void run() {
+                log.info("-----IOT关闭-----");
+            }
+        }));
+
         SpringApplication app = new SpringApplication(IotApplication.class);
         app.setWebApplicationType(WebApplicationType.NONE);
         ConfigurableApplicationContext ctx = app.run(args);
 
-//        //添加退出钩子
-//        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                log.info("-----IOT关闭-----");
-//            }
-//        }));
+
 //
 //        log.info("-----IOT启动-----");
 

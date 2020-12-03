@@ -43,7 +43,6 @@
             </Topics>
         </Device>
     </Devices>
-    <DriverFilePath>Driver</DriverFilePath>
     <Mqtt reconnectInterval="5" connectionTimeout="10" keepAliveInterval="8">
         <ServerURI>tcp://192.168.200.225:1883</ServerURI>
         <Username> </Username>

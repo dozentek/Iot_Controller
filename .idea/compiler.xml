@@ -3,6 +3,23 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/2.3.5.RELEASE/8769dfda61a9b0a5c82f1795fab0c4726f426c5d/spring-boot-configuration-processor-2.3.5.RELEASE.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-autoconfigure/2.3.5.RELEASE/c7c3eda5d27ec5ee45994c9bafb6e1b9362fbafd/spring-boot-autoconfigure-2.3.5.RELEASE.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.12/48e4e5d60309ebd833bc528dcf77668eab3cd72c/lombok-1.18.12.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot/2.3.5.RELEASE/1c4cd722b0ae9a2e8ad984fff56c43c7cfb24496/spring-boot-2.3.5.RELEASE.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/5.2.10.RELEASE/e43d1bb3b7387eebba96c00a63da8116f76e9426/spring-context-5.2.10.RELEASE.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/5.2.10.RELEASE/b875a6bce7b6b0040816f1fb945f5fd9557e1205/spring-aop-5.2.10.RELEASE.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/5.2.10.RELEASE/88d4eb1380940163b7cbfe1f991158f4a4cd7058/spring-beans-5.2.10.RELEASE.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/5.2.10.RELEASE/4a863c13e8b263a1f867258b43443df7480702d1/spring-expression-5.2.10.RELEASE.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/5.2.10.RELEASE/29423e9f1d766eb4f4e3516211877f361fe3169f/spring-core-5.2.10.RELEASE.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jcl/5.2.10.RELEASE/1cd2f1347ce808fe3564b7600e5f89ae2f42024e/spring-jcl-5.2.10.RELEASE.jar" />
+        </processorPath>
+        <module name="drone-iot.main" />
+      </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="1.8" />
   </component>
 </project>

@@ -39,8 +39,6 @@ public class IotConfig {
 
     @Getter
     private MqttConfigInfo mqtt;
-    @Getter
-    private String driverFilePath;
 
     @Getter
     private int netDefaultTimeout;
@@ -64,6 +62,9 @@ public class IotConfig {
 
     @PostConstruct
     public void loadAndStart() {
+
+        log.info("-----IOT启动-----");
+
         log.info("config file loading ...");
 
         ClassLoader classLoader = getClass().getClassLoader();
@@ -137,17 +138,6 @@ public class IotConfig {
         }
 
         try{
-            //获取DriverFilePath
-            {
-                NodeList nodes = document.getDocumentElement().getElementsByTagName("DriverFilePath");
-                if (nodes.getLength() <= 0) {
-                    log.error("配置文件缺少配置项：“+”DriverFilePath");
-                    return false;
-                }
-                driverFilePath = ((Element) (nodes.item(0))).getTextContent().trim();
-            }
-
-            //获取DriverFilePath
             {
                 NodeList nodes = document.getDocumentElement().getElementsByTagName("NetChannel");
                 if (nodes.getLength() <= 0) {
