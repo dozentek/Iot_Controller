@@ -9,5 +9,4 @@ class IotApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }

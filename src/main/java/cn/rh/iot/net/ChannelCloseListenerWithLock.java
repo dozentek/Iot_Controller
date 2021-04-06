@@ -1,34 +1,26 @@
 package cn.rh.iot.net;
 
-import cn.rh.iot.core.Device;
+import cn.rh.iot.core.Bridge;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import lombok.extern.slf4j.Slf4j;
 
-/**
- * @Program: Iot_Controller
- * @Description: 带输入锁的网络Channel关闭操作结果监听类
- * @Author: Y.Y
- * @Create: 2020-09-30 12:04
- **/
 @Slf4j
 public class ChannelCloseListenerWithLock implements ChannelFutureListener {
 
-    private final Device device;
+    private final Bridge bridge;
 
-    public ChannelCloseListenerWithLock(Device device) {
-        this.device=device;
+    public ChannelCloseListenerWithLock(Bridge bridge) {
+        this.bridge=bridge;
     }
 
     @Override
     public void operationComplete(ChannelFuture future){
         if(future.isSuccess()) {
-            log.info("与设备[{}]断开连接",device.getName());
-            if(device.getMqttChannel()!=null){
-                device.getMqttChannel().SendConnectStateMessage("no");
-            }
+            log.info("与[{}]断开连接",bridge.getName());
+            bridge.SendConnectStateTopic(false);
         }else{
-            log.info("设备[{}]断开连接失败。原因:{}",device.getName(),future.cause().getMessage());
+            log.info("与[{}]断开连接失败。原因:{}",bridge.getName(),future.cause().getMessage());
         }
     }
 

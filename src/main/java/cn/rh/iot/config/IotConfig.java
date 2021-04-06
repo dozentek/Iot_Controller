@@ -2,10 +2,9 @@ package cn.rh.iot.config;
 
 import cn.rh.iot.ContextAwareBeanLoader;
 import cn.rh.iot.IotApplication;
-import cn.rh.iot.core.DeviceManager;
+import cn.rh.iot.core.BridgeManager;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.system.ApplicationHome;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
@@ -19,31 +18,13 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.regex.Pattern;
 
-/**
- * @Program: Iot_Controller
- * @Description: 配置文件对象类
- * @Author: Y.Y
- * @Create: 2020-09-27 11:18
- **/
 @Slf4j
 @Service
 public class IotConfig {
 
-//    private static final IotConfig _instance = new IotConfig();
-
-//    @Value("${mqtt.server}")
-//    private String cnfMqttServer;
-//    @Value("${mqtt.keepalive}")
-//    private Integer cnfMqttKeepAlive;
-//    @Value("${mqtt.timeout}")
-//    private Integer cnfMqttTimeout;
-
     @Getter
-    private MqttConfigInfo mqtt;
-    @Getter
-    private String driverFilePath;
+    private MqttInfo mqtt;
 
     @Getter
     private int netDefaultTimeout;
@@ -57,7 +38,8 @@ public class IotConfig {
     @Getter
     private boolean isLoaded;
 
-    private final ArrayList<DeviceConfigInfo> devices=new ArrayList<>();
+    private final ArrayList<BridgeInfo> bridges=new ArrayList<>();
+    private String loadErrInfo="";
 
     private IotConfig(){}
 
@@ -67,68 +49,63 @@ public class IotConfig {
 
     @PreDestroy
     protected void stop() {
-        log.info("-----IOT关闭-----");
+        BridgeManager.getInstance().ShutDownBridge();
+        log.info("--IOT关闭--");
     }
 
     @PostConstruct
     public void loadAndStart() {
-        log.info("-----IOT启动-----");
-        log.info("config file loading ...");
 
-        log.info("jar path:{}", getParentDirectoryFromJar());
+        //加载配置文件
+        {
+            log.info("--IOT启动--");
+            log.info("配置文件加载...");
 
-        ClassLoader classLoader = getClass().getClassLoader();
-        String configFilePath= classLoader.getResource("Config.xml").getFile();
-        if (!new File(configFilePath).exists()) {
-            configFilePath = getParentDirectoryFromJar() +"/Config.xml";
+            ClassLoader classLoader = getClass().getClassLoader();
+            String configFilePath = classLoader.getResource("Config.xml").getFile();
+
+            if (!new File(configFilePath).exists()) {
+                configFilePath = getParentDirectoryFromJar() + "/Config.xml";
+            }
+
+            boolean isOk = load(configFilePath);
+
+            if (isOk) {
+                log.info("配置文件加载成功");
+            } else {
+                log.error("配置文件加载失败" + loadErrInfo);
+                log.info("--IOT关闭--");
+                return;
+            }
         }
 
-        boolean isOk = load(configFilePath);
-
-        if (isOk) {
-            log.info("config file load success");
-        } else {
-            log.error("配置文件[{}]加载失败.",configFilePath);
-            log.info("-----IOT关闭-----");
-            return;
-        }
-
-        start();
-
+        start();    //启动所有Bridge
     }
+
     public String getParentDirectoryFromJar() {
         ApplicationHome home = new ApplicationHome(IotApplication.class);
-        return home.getDir().getPath();    // returns the folder where the jar is. This is what I wanted.
-//        home.getSource(); // returns the jar absolute path.
+        return home.getDir().getPath();
     }
+
     public void start(){
         new Thread(() -> {
-            DeviceManager.getInstance().load(IotConfig.getInstance());
-            ArrayList<String> deviceKeyList = DeviceManager.getInstance().getKeyList();
-            for (String s : deviceKeyList) {
-                DeviceManager.getInstance().getDevice(s).Start();
+            boolean isLoadSuccess=BridgeManager.getInstance().load(IotConfig.getInstance());
+            if(isLoadSuccess) {
+                BridgeManager.getInstance().StartBridges();
             }
         }).start();
     }
-    public DeviceConfigInfo getDeviceInfoObject(String deviceName){
 
-        for(int i=0;i<devices.size();i++){
-            if(devices.get(i).getName()==deviceName){
-                return devices.get(i);
-            }
-        }
-        return null;
-    }
 
-    public DeviceConfigInfo getDeviceInfoObject2(int index){
-        if(index<0 || index>=devices.size()){
+    public BridgeInfo getBridgeInfoObject(int index){
+        if(index<0 || index>=bridges.size()){
             return null;
         }
-        return devices.get(index);
+        return bridges.get(index);
     }
 
-    public int DeviceCount(){
-        return devices.size();
+    public int BridgeCount(){
+        return bridges.size();
     }
 
 
@@ -152,98 +129,79 @@ public class IotConfig {
         }
 
         try{
-            //获取DriverFilePath
-            {
-                NodeList nodes = document.getDocumentElement().getElementsByTagName("DriverFilePath");
-                if (nodes.getLength() <= 0) {
-                    log.error("配置文件缺少配置项：“+”DriverFilePath");
-                    return false;
-                }
-                driverFilePath = ((Element) (nodes.item(0))).getTextContent().trim();
-            }
 
-            //获取DriverFilePath
+            //获取NetChannel
             {
                 NodeList nodes = document.getDocumentElement().getElementsByTagName("NetChannel");
                 if (nodes.getLength() <= 0) {
-                    log.error("配置文件缺少配置项：“+”NetChannel");
+                    log.error("缺少配置项：NetChannel");
                     return false;
                 }
                 String value=((Element) (nodes.item(0))).getAttribute("defaultTimeout");
-                if(value==null || !isInteger(value.trim())){
-                    netDefaultTimeout=30000;
-                }else {
+                try {
                     netDefaultTimeout = Integer.parseInt(value.trim());
+                }catch (Exception ex){
+                    netDefaultTimeout=30000;
                 }
 
                 value=((Element) (nodes.item(0))).getAttribute("reconnectInterval");
-                if(value==null || !isInteger(value.trim())){
-                    reconnectInterval=8000;
-                }else {
+                try {
                     reconnectInterval = Integer.parseInt(value.trim());
+                }catch (Exception ex){
+                    reconnectInterval=30000;
                 }
 
                 value=((Element) (nodes.item(0))).getAttribute("connectTimeout");
-                if(value==null || !isInteger(value.trim())){
-                    connectTimeout=1000;
-                }else {
+                try {
                     connectTimeout = Integer.parseInt(value.trim());
+                }catch (Exception ex){
+                    connectTimeout=1000;
                 }
             }
 
 
-            //获取Mqtt配置信息
+            //获取Mqtt服务器配置
             {
                 NodeList nodes = document.getDocumentElement().getElementsByTagName("Mqtt");
                 if (nodes.getLength() <= 0) {
-                    log.error("配置文件缺少配置项：“+”Mqtt");
+                    log.error("缺少配置项：Mqtt");
                     return false;
                 }
 
-                MqttConfigInfo mqttTmp=new MqttConfigInfo();
-//                mqttTmp.setServerURI(cnfMqttServer);
-//                mqttTmp.setKeepAliveInterval(cnfMqttKeepAlive);
-//                mqttTmp.setConnectionTimeout(cnfMqttTimeout);
-//                mqttTmp.setReconnectInterval(cnfMqttKeepAlive);
-//                mqtt = mqttTmp;
-
+                MqttInfo mqttTmp=new MqttInfo();
                 if(!mqttTmp.Load((Element)nodes.item(0))) {
                     return false;
                 }else{
                     mqtt=mqttTmp;
-//                    mqtt.setServerURI(cnfMqttServer);
                 }
             }
 
+            //获取Bridges配置信息
             {
-                NodeList nodes = document.getDocumentElement().getElementsByTagName("Devices");
+                NodeList nodes = document.getDocumentElement().getElementsByTagName("Bridges");
                 if(nodes.getLength()<=0){
-                    log.error("配置文件缺少Devices项");
+                    log.error("缺少配置项：Bridges");
                     return false;
                 }
-                nodes=((Element)nodes.item(0)).getElementsByTagName("Device");
+                nodes=((Element)nodes.item(0)).getElementsByTagName("Bridge");
                 for(int i=0;i<nodes.getLength();i++){
-                    DeviceConfigInfo device=new DeviceConfigInfo();
-                    boolean res=device.Load((Element)nodes.item(i));
+                    BridgeInfo bridge=new BridgeInfo();
+                    boolean res=bridge.Load((Element)(nodes.item(i)));
                     if(!res){
-                        log.error("配置文件中Device解析错误");
-                        devices.clear();
+                        log.error("Bridge解析错误");
+                        bridges.clear();
                         return false;
                     }
-                    devices.add(device);
+                    bridges.add(bridge);
                 }
-                log.info("配置文件加载成功");
             }
             isLoaded=true;
+            loadErrInfo="";
             return true;
         }catch (Exception ex){
-            log.error("配置文件加载失败，错误："+ex.toString());
+            loadErrInfo=ex.toString();
             return false;
         }
     }
 
-    private static boolean isInteger(String str) {
-        Pattern pattern = Pattern.compile("^[-\\+]?[\\d]*$");
-        return pattern.matcher(str).matches();
-    }
 }

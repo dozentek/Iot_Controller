@@ -109,7 +109,7 @@
     "deviceNumber":"",
     "msgId":2,				    //信息报文
     "payload":{               
-    	"stateNumber":0800",	//状态编号,16进制
+    	"stateNumber":0800,	    //状态编号,16进制
     	"info":"上电状态"
 	}
 }

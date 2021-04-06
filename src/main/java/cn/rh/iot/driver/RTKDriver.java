@@ -6,18 +6,18 @@ import cn.rh.iot.driver.base.IDriver;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
-/**
- * @Program: IOT_Controller
- * @Description: RTK驱动
- * @Author: Y.Y
- * @Create: 2020-09-23 18:33
- **/
+
 public class RTKDriver implements IDriver {
 
     private final byte[] Delimiter=new byte[]{0x0D,0x0A};  //回车+换行符 \r\n
 
     @Override
     public void InjectParams(HashMap<String, Object> params) {
+    }
+
+    @Override
+    public boolean Is2Me(byte[] data) {
+        return true;
     }
 
     @Override

@@ -1,10 +1,7 @@
 package cn.rh.iot;
 
 import cn.rh.iot.config.IotConfig;
-import cn.rh.iot.core.DeviceManager;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,30 +13,18 @@ public class IotApplication {
 
     public static void main(String[] args) {
 
-        //添加退出钩子
-        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-            @Override
-            public void run() {
-                log.info("-----IOT关闭-----");
-            }
-        }));
-
         SpringApplication app = new SpringApplication(IotApplication.class);
         app.setWebApplicationType(WebApplicationType.NONE);
         ConfigurableApplicationContext ctx = app.run(args);
 
 
-//
-//        log.info("-----IOT启动-----");
-
-//        IotConfig.getInstance();
-//        while(true){
-//            try{
-//                Thread.sleep(3000);
-//            }catch (InterruptedException ex){
-//                ex.fillInStackTrace();
-//            }
-//        }
+        while(true){
+            try{
+                Thread.sleep(3000);
+            }catch (InterruptedException ex){
+                ex.fillInStackTrace();
+            }
+        }
     }
 
 }

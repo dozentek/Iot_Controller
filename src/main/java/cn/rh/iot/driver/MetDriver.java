@@ -31,6 +31,11 @@ public class MetDriver implements IDriver {
     }
 
     @Override
+    public boolean Is2Me(byte[] data) {
+        return true;
+    }
+
+    @Override
     public byte[] encode(String jData) {
         return null;
     }

@@ -6,12 +6,6 @@ import cn.rh.iot.driver.base.IDriver;
 
 import java.util.HashMap;
 
-/**
- * @Program: IOT_Controller
- * @Description: BMS电池管理设备驱动程序
- * @Author: Y.Y
- * @Create: 2020-09-22 22:52
- **/
 public class BmsDriver implements IDriver {
 
     private final int ID_V_C=0x180228F4;
@@ -42,6 +36,11 @@ public class BmsDriver implements IDriver {
     }
 
     @Override
+    public boolean Is2Me(byte[] data) {
+        return true;
+    }
+
+    @Override
     public String decode(byte[] data) {
 
         if(data.length!=FRAME_LENGTH) { return null; }
@@ -54,14 +53,13 @@ public class BmsDriver implements IDriver {
             double  SOC=ByteUtil.bytesToUShort(data,5+4,false)*0.1;
             double  SOH=ByteUtil.bytesToUShort(data,5+6,false)*0.1;
 
-            jsonStr = "\"msgId\":" + 2 + "," + System.lineSeparator() +
+            return  "\"msgId\":" + 2 + "," + System.lineSeparator() +
                     "\"payload\":{" + System.lineSeparator() +
                     "\"voltage\": " + voltage + "," + System.lineSeparator() +
                     "\"current\": " + current +"," +System.lineSeparator() +
                     "\"SOC\": " + SOC +"," +System.lineSeparator() +
                     "\"SOH\": " + SOH + System.lineSeparator() +
                     "}";
-            return jsonStr;
 
         }else if(id==ID_DTC) {
 
@@ -71,12 +69,11 @@ public class BmsDriver implements IDriver {
             String errorCodeStr=Long.toHexString(value);
             String errorString=getErrorString(value);
 
-            jsonStr = "\"msgId\":\"" + 2 + "\"," + System.lineSeparator() +
+            return  "\"msgId\":\"" + 2 + "\"," + System.lineSeparator() +
                     "\"payload\":\"{" + System.lineSeparator() +
                     "\"DTC\": " + "\"" + ByteUtil.getFixLengthHexString(errorCodeStr,16) + "\"," + System.lineSeparator() +
                     "\"warning\": " + "\"" + errorString + "\"" + System.lineSeparator() +
                     "}";
-            return jsonStr;
         }
         return null;
     }

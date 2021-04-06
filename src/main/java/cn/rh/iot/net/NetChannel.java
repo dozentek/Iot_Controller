@@ -16,25 +16,19 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * @Program: IOT_Controller
- * @Description: 带处理逻辑的网络连接类
- * @Author: Y.Y
- * @Create: 2020-09-25 09:48
- **/
 @Slf4j
 public class NetChannel implements IChannel {
 
     @Getter @Setter
     private Channel netChannel;
     @Getter
-    private final Device device;
+    private final Bridge bridge;
 
     @Getter @Setter
     private boolean initiativeClose=false;
 
-    public NetChannel(NetDevice device) {
-        this.device = device;
+    public NetChannel(Bridge bridge) {
+        this.bridge = bridge;
     }
 
     @Override
@@ -62,10 +56,10 @@ public class NetChannel implements IChannel {
 
         Bootstrap b=new Bootstrap();
         {
-            device.setBootstrap(b);
-            b.group(DeviceManager.getInstance().getGroup());
+            b.group(bridge.getGroup());
+            bridge.setBootstrap(b);
 
-            if (((NetDevice) device).getProtocol() == NetProtocolType.UDP) {
+            if (bridge.getProtocol() == NetProtocolType.UDP) {
                 b.channel(NioDatagramChannel.class);
             } else {
                 b.channel(NioSocketChannel.class);
@@ -75,26 +69,22 @@ public class NetChannel implements IChannel {
             b.option(ChannelOption.TCP_NODELAY, true);
             b.option(ChannelOption.SO_KEEPALIVE, true);
 
-            String ip = ((NetDevice) device).getIp();
-            int port = ((NetDevice) device).getPort();
+            String ip = bridge.getIp();
+            int port = bridge.getPort();
             b.remoteAddress(ip, port);
 
-            b.handler(new NetChannelInitializer(device, this));
+            b.handler(new NetChannelInitializer(bridge, this));
         }
-        ChannelFuture future=device.getBootstrap().connect().awaitUninterruptibly();
+        ChannelFuture future=bridge.getBootstrap().connect().awaitUninterruptibly();
         future.addListener((ChannelFutureListener) futureListener -> {
             if(futureListener.isSuccess()) {
                 netChannel= futureListener.channel();
-                log.info("与设备[{}]连接成功", device.getName());
-                if(device.getMqttChannel()!=null){
-                    device.getMqttChannel().SendConnectStateMessage("ok");
-                }
+                log.info("[{}]连接成功", bridge.getName());
+                bridge.SendConnectStateTopic(true);
                 initiativeClose=false;
             }else{
-                log.info("与设备[{}]连接失败，尝试重连...",device.getName());
-                futureListener.channel().eventLoop().schedule(() -> {
-                    Connect();
-                }, IotConfig.getInstance().getReconnectInterval(), TimeUnit.MILLISECONDS);
+                log.info("[{}]连接失败，尝试重连...",bridge.getName());
+                futureListener.channel().eventLoop().schedule(this::Connect, IotConfig.getInstance().getReconnectInterval(), TimeUnit.MILLISECONDS);
             }
         });
     }
@@ -104,7 +94,7 @@ public class NetChannel implements IChannel {
         if(netChannel!=null && netChannel.isOpen()){
             initiativeClose=true;
             ChannelFuture future=netChannel.close();
-            future.addListener(new ChannelCloseListenerWithLock(device));
+            future.addListener(new ChannelCloseListenerWithLock(bridge));
             try{
                 future.await(500,TimeUnit.MILLISECONDS);
             }catch (Exception ignored){

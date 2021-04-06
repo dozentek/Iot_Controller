@@ -6,12 +6,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-/**
- * @Program: IOT_Controller
- * @Description: 通过文件加载类对象
- * @Author: Y.Y
- * @Create: 2020-09-21 08:42
- **/
 public class DriverClassLoader extends ClassLoader{
 
     /*

@@ -1,50 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Config>
-    <Devices>
-        <Device intro="升降台" name="Lift" role="Server" protocol="TCP"  timeout="10000">
-            <Net>
-                <IP>192.168.200.3</IP>
-                <Port>4096</Port>
-            </Net>
-            <Driver>cn.rh.iot.driver.LiftDriver</Driver>
-            <Topics>
-                <Topic kind="in">Lift/Ctrl</Topic>
-                <Topic kind="out">Lift/Info</Topic>
-            </Topics>
-        </Device>
-        <Device intro="车载BMS" name="BMS" role="Server" protocol="TCP"  timeout="10000">
-            <Net>
-                <IP>192.168.200.4</IP>
-                <Port>50023</Port>
-            </Net>
-            <Driver>cn.rh.iot.driver.BmsDriver</Driver>
-            <Topics>
-                <Topic kind="out">BMS/Info</Topic>
-            </Topics>
-        </Device>
-        <Device intro="车载RTK" name="RTK" role="Server" protocol="TCP"  timeout="10000">
-            <Net>
-                <IP>192.168.200.5</IP>
-                <Port>23</Port>
-            </Net>
-            <Driver>cn.rh.iot.driver.RTKDriver</Driver>
-            <Topics>
-                <Topic kind="out">RTK/Info</Topic>
-            </Topics>
-        </Device>
-        <Device intro="气象站" name="Met" role="Server" protocol="TCP" askInterval="2000" timeout="10000">
-            <Net>
-                <IP>192.168.200.6</IP>
-                <Port>502</Port>
-            </Net>
-            <Driver>cn.rh.iot.driver.MetDriver</Driver>
-            <Topics>
-                <Topic kind="out">Met/Info</Topic>
-            </Topics>
-        </Device>
-    </Devices>
+    <Bridges>
+        <Bridge name="PLC_Bridge" intro="PLC控制器" role="Server" protocol="TCP"  timeout="10000">
+            <Channel IP="127.0.0.1" Port="4001"/>
+            <Devices>
+                <Device name="Sunroof"  des="天窗">
+                    <Driver>cn.rh.iot.driver.SunroofDriver_12</Driver>
+                    <PubTopic>Sunroof/Info</PubTopic>
+                </Device>
+                <Device name="Lift"  des="升降台" >
+                    <Driver>cn.rh.iot.driver.LiftDriver_12</Driver>
+                    <SubTopic>Lift/Ctrl</SubTopic>
+                    <PubTopic>Lift/Info</PubTopic>
+                </Device>
+                <Device name="L_Hangar"  des="左机库"  sn="03">
+                    <Driver>cn.rh.iot.driver.HangarDriver_12</Driver>
+                    <SubTopic>L_Hangar/Ctrl</SubTopic>
+                    <PubTopic>L_Hangar/Info</PubTopic>
+                </Device>
+                <Device name="R_Hangar"  des="右机库"  sn="04">
+                    <Driver>cn.rh.iot.driver.HangarDriver_12</Driver>
+                    <SubTopic>R_Hangar/Ctrl</SubTopic>
+                    <PubTopic>R_Hangar/Info</PubTopic>
+                </Device>
+                <Device name="Antenna"  des="天线倒伏机构" >
+                    <Driver>cn.rh.iot.driver.AntennaDriver_12</Driver>
+                    <SubTopic>Antenna/Ctrl</SubTopic>
+                    <PubTopic>Antenna/Info</PubTopic>
+                </Device>
+            </Devices>
+        </Bridge>
+        <Bridge name="BMS_Bridge" intro="车载BMS" role="Server" protocol="TCP"  timeout="10000">
+            <Channel IP="127.0.0.1" Port="4002"/>
+            <Devices>
+                <Device name="BMS" des="储能系统">
+                    <Driver>cn.rh.iot.driver.BmsDriver</Driver>
+                    <PubTopic >BMS/Info</PubTopic>
+                </Device>
+            </Devices>
+        </Bridge>
+        <Bridge  name="RTK_Bridge" intro="车载RTK" role="Server" protocol="TCP"  timeout="10000">
+            <Channel IP="127.0.0.1" Port="4008" />
+            <Devices>
+                <Device name="RTK" des="车载RTK">
+                    <Driver>cn.rh.iot.driver.RTKDriver</Driver>
+                    <PubTopic>RTK/Info</PubTopic>
+                </Device>
+            </Devices>
+        </Bridge>
+        <Bridge name="Met_Bridge" intro="气象站" role="Server" protocol="TCP"  timeout="10000">
+            <Channel IP="127.0.0.1" Port="4004" />
+            <Devices>
+                <Device name="Met" des="气象站"  askInterval="2000">
+                    <Driver>cn.rh.iot.driver.MetDriver</Driver>
+                    <PubTopic>Met/Info</PubTopic>
+                </Device>
+            </Devices>
+        </Bridge>
+    </Bridges>
     <Mqtt reconnectInterval="5" connectionTimeout="10" keepAliveInterval="8">
-        <ServerURI>tcp://192.168.200.225:1883</ServerURI>
+        <ServerURI>tcp://dozen.tech:1883</ServerURI>
         <Username> </Username>
         <Password> </Password>
     </Mqtt>

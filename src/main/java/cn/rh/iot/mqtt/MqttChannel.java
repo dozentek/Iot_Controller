@@ -11,13 +11,11 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import java.nio.charset.StandardCharsets;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
-/**
- * @Program: IOT_Controller
- * @Description: 通过MQTT协议订阅和发布
- * @Author: Y.Y
- * @Create: 2020-09-20 12:53
- **/
+
 @Slf4j
 public class MqttChannel {
 
@@ -25,18 +23,22 @@ public class MqttChannel {
     private final MqttConnectOptions options;
     private final MqttClientPersistence persistence;
 
-    @Getter
+    @Getter @Setter
     private MqttClient client;
 
     @Getter
     private final Device device;
+
     private final String host;
 
+    @Getter
+    private final Lock disConnectLocker=new ReentrantLock();
+
     @Setter
-    private boolean isInitiativeDisconnecting=false;
+    private boolean isDisconnecting =false;
 
     public MqttChannel(Device device) {
-        this.device=device;
+        this.device = device;
         this.host= IotConfig.getInstance().getMqtt().getServerURI();
 
         RECONNECT_INTERVAL= IotConfig.getInstance().getMqtt().getReconnectInterval()*1000;
@@ -50,29 +52,24 @@ public class MqttChannel {
         options.setKeepAliveInterval(IotConfig.getInstance().getMqtt().getKeepAliveInterval());
     }
 
-    public boolean isInitiativeDisconnecting(){
-        return this.isInitiativeDisconnecting;
+    public boolean isDisconnecting(){
+        return this.isDisconnecting;
     }
 
-    public void Write(String send_message) {
+    public void Write(String topic,int qos,String send_message) {
 
         if(client==null || !client.isConnected()){
             return;
         }
-        if(device.getPublishTopicParam()==null){
-            return;
-        }
 
         MqttMessage msg=new MqttMessage();
-        msg.setQos(device.getPublishTopicParam().getQos());
+        msg.setQos(qos);
         msg.setPayload(send_message.getBytes(StandardCharsets.UTF_8));
         try {
-            client.publish(device.getPublishTopicParam().getTopic(),msg);
-            log.info("设备[{}]发送Topic[{}]成功，内容( {} )",device.getName(),
-                    device.getPublishTopicParam().getTopic(),send_message);
+            client.publish(topic,msg);
+            log.info("[{}]发送[{}]成功，内容( {} )", device.getName(),topic,send_message);
         }catch (MqttException ex) {
-            log.error("设备[{}]发送Topic[{}]失败，内容( {} )",device.getName(),
-                    device.getPublishTopicParam().getTopic(),send_message);
+            log.error("[{}]发送[{}]失败，内容( {} )", device.getName(),topic,send_message);
         }
     }
 
@@ -80,32 +77,33 @@ public class MqttChannel {
         if(client==null){
             return;
         }
-        try {
-            isInitiativeDisconnecting=true;
+
+        try{
+            isDisconnecting =true;
             client.disconnect();
             client.close();
-            log.info("设备[{}]与MQTT服务器断开连接",device.getName());
-        } catch(MqttException ex){
-            log.warn(device.getName() + "与MQTT服务器断开连接失败，因为:"+ex.getMessage());
+            log.info("[{}]与主动MQTT服务器断开连接", device.getName());
+
+        }catch(MqttException ex){
+            log.error("[{}]与主动MQTT服务器断开连接失败，原因：{}:", device.getName(), ex.getMessage());
+        }finally {
+            isDisconnecting =false;
         }
     }
 
-    public void Connect(){
+    public void Connect() {
         if(client!=null && client.isConnected()){
             return;
         }
+        isDisconnecting =false;
         try {
-            String clientId=device.getName();
-            if(device.getId()!=null && !device.getId().equals("")){
-                clientId=clientId+"_"+device.getId();
-            }
+            String clientId= device.getName()+"_"+ System.currentTimeMillis();  //避免clientId重复
             client = new MqttClient(host, clientId, persistence);
             client.setCallback(new MqttCallbackObject(device, this));
-
             client.connect(options);
         } catch(MqttException ex) {
-            //如果第一次连接不到服务器，则不断尝试连接
-            log.error("设备[{}]连接MQTT服务器失败，错误码：{}",device.getName() , ex.getReasonCode());
+            log.error("[{}]连接MQTT服务器失败，错误码：{}", device.getName() , ex.getReasonCode());
+            client=null;
             new Timer().schedule(new TimerTask() {
                 @Override
                 public void run() {
@@ -117,35 +115,37 @@ public class MqttChannel {
     }
 
     public boolean isConnected() {
-        if(client!=null){
-            return client.isConnected();
+        if(client==null){
+            return false;
         }
-        return false;
+        return client.isConnected();
     }
 
-    public void SendConnectStateMessage(String state){
+    public void SendConnectStateTopic(String state){
 
         if(!isConnected()) {
             return;
         }
 
         String connStateJson="{\n" +
-                "\"deviceName\": \""+device.getName()+"\",\n" +
-                "\"deviceNumber\":\""+device.getId()+"\",\n" +
+                "\"deviceName\": \""+ device.getName()+"\",\n" +
+                "\"deviceNumber\":\"\",\n" +
                 "\"msgId\":1,\n" +
                 "\"payload\":{ \n" +
                 "\"connectState\":\""+state+"\"\n" +
                 "\t}\n" +
                 "}";
-        MqttMessage msg=new MqttMessage();
-        msg.setQos(device.getPublishTopicParam().getQos());
-        msg.setPayload(connStateJson.getBytes(StandardCharsets.UTF_8));
+
         try {
-            client.publish(device.getPublishTopicParam().getTopic(), msg);
-            log.info("设备[{}]发送信道状态报文成功,状态[{}]",device.getName(),state);
+            MqttMessage msg=new MqttMessage();
+            msg.setQos(device.getPubTopic().getQos());
+            msg.setPayload(connStateJson.getBytes(StandardCharsets.UTF_8));
+
+            client.publish(device.getPubTopic().getTopic(), msg);
+            log.info("[{}]发送信道状态报文成功,状态[{}]", device.getName(), state);
 
         }catch (MqttException ex) {
-            log.error("设备[{}]发送信道状态报文失败,状态[{}]",device.getName(),state);
+            log.error("[{}]发送信道状态报文失败,状态[{}], 原因：{}", device.getName(),state,ex.getMessage());
         }
     }
 }

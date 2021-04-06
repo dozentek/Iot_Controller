@@ -1,6 +1,6 @@
 package cn.rh.iot.net;
 
-import cn.rh.iot.core.Device;
+import cn.rh.iot.core.Bridge;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
@@ -18,17 +18,17 @@ import java.util.List;
 @Slf4j
 public class ByteToJsonDecoder extends ByteToMessageDecoder {
 
-    private final Device device;
+    private final Bridge bridge;
 
-    public ByteToJsonDecoder(Device device) {
-        this.device = device;
+    public ByteToJsonDecoder(Bridge device) {
+        this.bridge = device;
     }
 
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) {
         if (evt instanceof IdleStateEvent) {
-            if(device.getChannel()!=null){
-                ((NetChannel)device.getChannel()).setInitiativeClose(true);
+            if(bridge.getChannel()!=null){
+                ((NetChannel) bridge.getChannel()).setInitiativeClose(true);
             }
             Reconnect("发送数据超时");
         }
@@ -36,8 +36,8 @@ public class ByteToJsonDecoder extends ByteToMessageDecoder {
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) {
-        if(device.getChannel()!=null){
-            if(!((NetChannel)device.getChannel()).isInitiativeClose()){
+        if(bridge.getChannel()!=null){
+            if(!((NetChannel) bridge.getChannel()).isInitiativeClose()){
                 Reconnect("失去连接");
             }
         }
@@ -45,55 +45,30 @@ public class ByteToJsonDecoder extends ByteToMessageDecoder {
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out){
-        if(device.getDriver()==null){
-            return;
-        }
+
         if(in.readableBytes()>0) {
             byte[] inData = new byte[in.readableBytes()];
             in.readBytes(inData);
-            String msg=device.getDriver().decode(inData);
-
-            //对于无法解析的数据，返回空字符串
-            if(msg==null || msg.equals("")){
-                return;
-            }
-            String realJson=Pack(msg);
-            out.add(realJson);         //这行代码没有用
-
-            if(device.getMqttChannel()!=null){
-                device.getMqttChannel().Write(realJson);
-            }
+            bridge.Byte2JsonAndSendMqtt(inData);
         }
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-        log.info("设备[{}]连接异常，原因：{}",device.getName(),cause.getMessage());
+        log.info("[{}]连接异常，原因：{}", bridge.getName(),cause.getMessage());
     }
 
-    private String Pack(String msg){
-
-        return "{" +
-                System.lineSeparator() +
-                "\"deviceName\":\"" + device.getName() + "\"," + System.lineSeparator() +
-                "\"deviceNumber\":\"" + (device.getId() == null ? "\"" : device.getId()) + "\"," + System.lineSeparator() +
-                msg + System.lineSeparator() +
-                "}";
-    }
 
     private void Reconnect(String disconnectReason){
 
+        bridge.SendConnectStateTopic(false);
         //尝试重连
-        log.info("设备[{}]{}，尝试重连...", device.getName(),disconnectReason);
+        log.info("[{}]{}，尝试重连...", bridge.getName(),disconnectReason);
 
-        //发送链路断路Mqtt报文
-        if (device.getMqttChannel() != null) {
-            device.getMqttChannel().SendConnectStateMessage("no");
-        }
-        if (device.getChannel() != null) {
+        if (bridge.getChannel() != null) {
             //重要，要在重连之前移走定时Handler，否则它会定时触发userEventTriggered，造成多次Reconnect
-            ((NetChannel) device.getChannel()).getNetChannel().pipeline().remove("HeartListener");
-            device.getChannel().Connect();
+            ((NetChannel) bridge.getChannel()).getNetChannel().pipeline().remove("HeartListener");
+            bridge.getChannel().Connect();
         }
     }
 }

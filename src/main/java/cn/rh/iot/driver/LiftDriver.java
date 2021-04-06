@@ -1,6 +1,7 @@
 package cn.rh.iot.driver;
 
 import cn.rh.iot.driver.base.ByteUtil;
+import cn.rh.iot.driver.base.DeviceState;
 import cn.rh.iot.driver.base.FrameType;
 import cn.rh.iot.driver.base.IDriver;
 import com.alibaba.fastjson.JSONObject;
@@ -28,28 +29,35 @@ public class LiftDriver implements IDriver {
     private final String MSG_TAG="msg";
     private final String SN_TAG="serialNumber";
 
-    private int serialNumber=0;
-
-    private final Object lock=new Object();
+    private final DeviceState unKnownState=new DeviceState(0xFFFF,"未知状态");
 
     //读取数据指令
-    private final HashMap<Integer,String>  infoMap=new HashMap<>();
+    private final HashMap<Integer, DeviceState>  infoMap=new HashMap<>();
+
     public LiftDriver() {
 
-        infoMap.put(0x0800,"上电状态");
-        infoMap.put(0x8180,"天窗开启中");
-        infoMap.put(0x8280,"天窗已开启/平台下降到位");
-        infoMap.put(0x8480,"天窗关闭中");
-        infoMap.put(0x8880,"天窗已关闭/平台准备就绪");
-        infoMap.put(0x1202,"平台上升中");
-        infoMap.put(0x2280,"平台上升到位");
-        infoMap.put(0x4202,"平台下降中");
-        infoMap.put(0x0001,"急停被按下");
-        infoMap.put(0x0200,"急停被释放");
+        infoMap.put(0x0800,new DeviceState(0x0800,"上电状态"));
+        infoMap.put(0x8180,new DeviceState(0x8180,"天窗开启中"));
+        infoMap.put(0x8280,new DeviceState(0x8280,"天窗已开启/平台下降到位"));
+        infoMap.put(0x8480,new DeviceState(0x8480,"天窗关闭中"));
+        infoMap.put(0x8880,new DeviceState(0x8880,"天窗已关闭/平台准备就绪"));
+        infoMap.put(0x1202,new DeviceState(0x1202,"平台上升中"));
+        infoMap.put(0x2280,new DeviceState(0x2280,"平台上升到位"));
+        infoMap.put(0x4202,new DeviceState(0x4202,"平台下降中"));
+        infoMap.put(0x0001,new DeviceState(0x0001,"急停被按下"));
+        infoMap.put(0x0200,new DeviceState(0x0200,"急停被释放"));
     }
 
     @Override
     public void InjectParams(HashMap<String, Object> params) {
+    }
+
+    @Override
+    public boolean Is2Me(byte[] data) {
+        if(data==null || data.length!=INFO_FRAME_LENGTH){
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -86,7 +94,7 @@ public class LiftDriver implements IDriver {
 
     @Override
     public String decode(byte[] data) {
-        if(data.length<INFO_FRAME_LENGTH){
+        if(data==null || data.length<INFO_FRAME_LENGTH){
             return null;
         }
         String sb;
@@ -97,16 +105,15 @@ public class LiftDriver implements IDriver {
         byteState[3]=data[1];
 
         int stateNumber= ByteUtil.byteArrayToInt(byteState,0,false);
-        String info=infoMap.get(stateNumber);
-        if(info==null){
-            info="未知状态";
+        DeviceState state=infoMap.get(stateNumber);
+        if(state==null){
+            state=unKnownState;
         }
-        sb = "\"msgId\":" + 2 + "," + System.lineSeparator() +
-             "\"payload\":{" + System.lineSeparator() +
-             "\"stateNumber\":" + Integer.toHexString(stateNumber) + "," + System.lineSeparator() +
-             "\"info\":" +"\""+ info +"\""+ System.lineSeparator()+
-             "}";
-        return sb;
+        return "\"msgId\":" + 2 + "," + System.lineSeparator() +
+               "\"payload\":{"    + System.lineSeparator() +
+               "\"stateNumber\":" + state.getCode() + "," + System.lineSeparator() +
+               "\"info\":" +"\""  + state.getInfo() +"\""+ System.lineSeparator()+
+               "}";
     }
 
     @Override

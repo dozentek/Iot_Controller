@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+    <Bridges>
+        <Bridge name="PLC_Bridge" intro="PLC控制器" role="Server" protocol="TCP"  timeout="10000">
+            <Channel IP="192.168.200.3" Port="4096"/>
+            <Devices>
+                <Device name="Lift"  des="升降台" >
+                    <Driver>cn.rh.iot.driver.LiftDriver</Driver>
+                    <SubTopic>Lift/Ctrl</SubTopic>
+                    <PubTopic>Lift/Info</PubTopic>
+                </Device>
+            </Devices>
+        </Bridge>
+        <Bridge name="BMS_Bridge" intro="车载BMS" role="Server" protocol="TCP"  timeout="10000">
+            <Channel IP="192.168.200.4" Port="50023"/>
+            <Devices>
+                <Device name="BMS" des="储能系统">
+                    <Driver>cn.rh.iot.driver.BmsDriver</Driver>
+                    <PubTopic >BMS/Info</PubTopic>
+                </Device>
+            </Devices>
+        </Bridge>
+        <Bridge  name="RTK_Bridge" intro="车载RTK" role="Server" protocol="TCP"  timeout="10000">
+            <Channel IP="192.168.200.5" Port="23" />
+            <Devices>
+                <Device name="RTK" des="车载RTK">
+                    <Driver>cn.rh.iot.driver.RTKDriver</Driver>
+                    <PubTopic>RTK/Info</PubTopic>
+                </Device>
+            </Devices>
+        </Bridge>
+        <Bridge name="Met_Bridge" intro="气象站" role="Server" protocol="TCP"  timeout="10000">
+            <Channel IP="192.168.200.6" Port="506" />
+            <Devices>
+                <Device name="Met" des="气象站"  askInterval="2000">
+                    <Driver>cn.rh.iot.driver.MetDriver</Driver>
+                    <PubTopic>Met/Info</PubTopic>
+                </Device>
+            </Devices>
+        </Bridge>
+    </Bridges>
+    <Mqtt reconnectInterval="5" connectionTimeout="10" keepAliveInterval="8">
+        <ServerURI>tcp://192.168.200.225:1883</ServerURI>
+        <Username> </Username>
+        <Password> </Password>
+    </Mqtt>
+    <NetChannel defaultTimeout="30000" reconnectInterval="5000" connectTimeout="1000"/>
+</Config>

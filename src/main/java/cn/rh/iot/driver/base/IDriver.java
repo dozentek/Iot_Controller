@@ -19,6 +19,16 @@ public interface IDriver {
      */
     public void InjectParams(HashMap<String,Object> params);
 
+
+    /*
+     * @description: 询问这个报文是否发给自己的
+     * @Param: byte[] 报文
+     * @Return: boolean  是否是给我的报文
+     * @Author: Y.Y
+     * @Date: 2020/9/21 10:48
+     */
+    public boolean Is2Me(byte[] data);
+
     /*
      * @description: 编码函数
      * @Param: [jData json字符串]
