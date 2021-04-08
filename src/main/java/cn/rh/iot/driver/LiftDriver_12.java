@@ -36,12 +36,14 @@ public class LiftDriver_12 implements IDriver {
         infoMapLift.put((byte) 0x03,new DeviceState(3,"平台上升中"));
         infoMapLift.put((byte) 0x04,new DeviceState(4,"平台上升到位"));
         infoMapLift.put((byte) 0x05,new DeviceState(5,"平台下降中"));
+        infoMapLift.put((byte) 0x06,new DeviceState(6,"急停按下"));
+        infoMapLift.put((byte) 0x07,new DeviceState(7,"急停释放"));
 
         infoMapAlign.put((byte) 0x01,new DeviceState(1,"对中机构已复位"));
         infoMapAlign.put((byte) 0x02,new DeviceState(2,"对中机构正在复位"));
         infoMapAlign.put((byte) 0x03,new DeviceState(3,"对中机构已锁定"));
         infoMapAlign.put((byte) 0x04,new DeviceState(4,"对中机构正在前进"));
-        infoMapAlign.put((byte) 0x04,new DeviceState(5,"对中机构前进到位"));
+        infoMapAlign.put((byte) 0x05,new DeviceState(5,"对中机构前进到位"));
 
     }
 
@@ -84,15 +86,6 @@ public class LiftDriver_12 implements IDriver {
                 break;
             case "down":
                 data[3]=0x02;
-                break;
-            case "align_reset":
-                data[3]=0x03;
-                break;
-            case "align_lock":
-                data[3]=0x04;
-                break;
-            case "align_forward":
-                data[3]=0x05;
                 break;
         }
         if(data[3]==(byte)0xFF) {

@@ -25,7 +25,6 @@
                 </Device>
                 <Device name="Antenna"  des="天线倒伏机构" >
                     <Driver>cn.rh.iot.driver.AntennaDriver_12</Driver>
-                    <SubTopic>Antenna/Ctrl</SubTopic>
                     <PubTopic>Antenna/Info</PubTopic>
                 </Device>
             </Devices>

@@ -39,7 +39,7 @@
     "msgId":3,
     "payload":{
     	"serialNumber": 1,
-        "msg":"up",
+        "msg":"seat_reset",
         "seatNO":"A"
 	}
 }
@@ -64,16 +64,7 @@
 5、天线倒伏机构(Antenna)模拟数据
 -----（使用网络助手，Server，循环周期1000ms，十六进制Hex）
 信息报文: FA 05 00 03 C0 21
-指令报文：
-{
-    "deviceName": "Antenna",
-    "deviceNumber":"",
-    "msgId":3,
-    "payload":{
-    	"serialNumber": 1,
-        "msg":"down"
-	}
-}
+
 ----------------------------------------------------------------------
 
 在进行信息报文模拟时，可以将不同设备的报文组合在一起，一起发送。系统支持自动拆包

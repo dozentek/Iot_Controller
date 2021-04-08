@@ -51,41 +51,7 @@ public class AntennaDriver_12 implements IDriver {
 
     @Override
     public byte[] encode(String jData) {
-
-        JSONObject jsonObject=JSONObject.parseObject(jData);
-        Integer msgId= jsonObject.getInteger(MSG_ID);
-        if(msgId==null){ return null;}
-        if(msgId !=CTRL_FRAME_MSG_NUMBER){return null;}
-
-        JSONObject payload=jsonObject.getJSONObject(PAYLOAD);
-        if(payload==null){return null;}
-        String msg=payload.getString(MSG_TAG);
-        if(msg==null){return null;}
-
-        byte[] data=new byte[MSG_LENGTH];
-        data[0]=MSG_HEAD;
-        data[1]=(byte)((DEVICE_ID | 0xC0) & 0xFF );
-        data[2]=0x00;
-        data[3]=(byte)0xFF;
-
-        switch (msg.trim()){
-            case "up":
-                data[3]=0x02;
-                break;
-            case "down":
-                data[3]=0x01;
-                break;
-        }
-        if(data[3]==(byte)0xFF) {
             return null;
-        }
-
-        byte[] crc=ByteUtil.CRC16(data,1,3);
-        data[4]=crc[0];
-        data[5]=crc[1];
-
-        return data;
-
     }
 
     @Override

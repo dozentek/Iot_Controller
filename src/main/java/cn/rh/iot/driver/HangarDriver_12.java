@@ -37,6 +37,8 @@ public class HangarDriver_12 implements IDriver {
         infoMapHangar.put((byte) 0x03,new DeviceState(3,"机库上升中"));
         infoMapHangar.put((byte) 0x04,new DeviceState(4,"机库上升到位"));
         infoMapHangar.put((byte) 0x05,new DeviceState(5,"机库下降中"));
+        infoMapHangar.put((byte) 0x06,new DeviceState(6,"急停按下"));
+        infoMapHangar.put((byte) 0x07,new DeviceState(7,"急停释放"));
 
         infoMapSeat.put((byte) 0x01,new DeviceState(1,"机位复位/入库完成"));
         infoMapSeat.put((byte) 0x02,new DeviceState(2,"机位出库中"));
@@ -54,8 +56,7 @@ public class HangarDriver_12 implements IDriver {
                 if (value != null) {
                     DEVICE_ID = (byte) Integer.parseInt(value.toString().trim());
                 }
-            }catch (NumberFormatException ex){
-                ;
+            }catch (NumberFormatException ignored){
             }
         }
     }
@@ -93,12 +94,6 @@ public class HangarDriver_12 implements IDriver {
         boolean isA = seatNumber.trim().toUpperCase().equals("A");
 
         switch (msg.trim()){
-            case "up":
-                data[3]=0x01;
-                break;
-            case "down":
-                data[3]=0x02;
-                break;
             case "seat_reset":
                 if(seatNumber.equals("")){
                     return null;

@@ -8,56 +8,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5e203fd-99ad-431d-9f6c-ce747ff0e88c" name="Default Changelist" comment="删除了Config.xml中配置项&lt;DriverFilePath&gt;，以及相关代码">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MockTools/1.2版本移动机场PLC模拟" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/config/DeviceInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/core/Bridge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/core/TopicType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/AntennaDriver_12.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/HangarDriver_12.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/LiftDriver_12.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/SunroofDriver_12.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/base/DeviceState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ConfigCopy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Config_v1.0_.xml" afterDir="false" />
+    <list default="true" id="c5e203fd-99ad-431d-9f6c-ce747ff0e88c" name="Default Changelist" comment="修改了与PLC的通信协议">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Knowledge/DeviceConfigSchema.xsd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Knowledge/IOT与UAVController交互接口(v0.3).md" beforeDir="false" afterPath="$PROJECT_DIR$/Knowledge/IOT与UAVController交互接口(v0.3).md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MockTools/NameStudio.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MockTools/测试记录-2020-10-9下午.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/IotApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/IotApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/config/DeviceConfigInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/config/BridgeInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/config/IotConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/config/IotConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/config/MqttConfigInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/config/MqttInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/config/TopicConfigInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/config/TopicInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/core/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/core/Device.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/core/DeviceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/core/BridgeManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/core/IChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/core/IChannel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/core/NetDevice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/core/NetProtocolType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/core/NetProtocolType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/core/NetRoleType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/core/NetRoleType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/BmsDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/BmsDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/LiftDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/LiftDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/MetDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/MetDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/RTKDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/RTKDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/base/ByteUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/base/ByteUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/base/DriverClassLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/base/DriverClassLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/base/DriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/base/DriverManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/base/IDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/base/IDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/mqtt/MqttCallbackObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/mqtt/MqttCallbackObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/mqtt/MqttChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/mqtt/MqttChannel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/net/ByteToJsonDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/net/ByteToJsonDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/net/ChannelCloseListenerWithLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/net/ChannelCloseListenerWithLock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/net/JsonToByteEncoder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/net/NetChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/net/NetChannel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/net/NetChannelInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/net/NetChannelInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/net/TimeAskHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MockTools/1.2版本移动机场PLC模拟" beforeDir="false" afterPath="$PROJECT_DIR$/MockTools/1.2版本移动机场PLC模拟" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/AntennaDriver_12.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/AntennaDriver_12.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/HangarDriver_12.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/HangarDriver_12.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/LiftDriver_12.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/LiftDriver_12.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/cn/rh/iot/IotApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cn/rh/iot/IotApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/drone/iot.log" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +35,46 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="Car_4_Drones_1.2" />
+              </list>
+            </value>
+          </entry>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/Car_4_Drones_1.2" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
@@ -104,7 +101,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -295,8 +292,19 @@
       <workItem from="1617691109907" duration="48000" />
       <workItem from="1617700404246" duration="1977000" />
       <workItem from="1617703991493" duration="299000" />
-      <workItem from="1617704564542" duration="327000" />
+      <workItem from="1617704564542" duration="1332000" />
+      <workItem from="1617783662593" duration="145000" />
+      <workItem from="1617873555092" duration="1618000" />
+      <workItem from="1617877470081" duration="1023000" />
     </task>
+    <task id="LOCAL-00001" summary="第一次创建">
+      <created>1617705118320</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1617705118320</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,7 +324,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="删除了Config.xml中配置项&lt;DriverFilePath&gt;，以及相关代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="删除了Config.xml中配置项&lt;DriverFilePath&gt;，以及相关代码" />
+    <MESSAGE value="第一次创建" />
+    <MESSAGE value="修改了与PLC的通信协议" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改了与PLC的通信协议" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616938305779">
@@ -399,6 +409,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1616924551667" />
+    <state x="552" y="239" key="Vcs.Push.Dialog.v2" timestamp="1617705171470">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="239" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1617705171470" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1617701947480">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
