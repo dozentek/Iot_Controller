@@ -11,6 +11,8 @@ public class RTKDriver implements IDriver {
 
     private final byte[] Delimiter=new byte[]{0x0D,0x0A};  //回车+换行符 \r\n
 
+    private final String sHead="$GPGGA";
+
     @Override
     public void InjectParams(HashMap<String, Object> params) {
     }
@@ -32,7 +34,7 @@ public class RTKDriver implements IDriver {
             if(data.length<5){return null;}
             String s=new String(data, StandardCharsets.US_ASCII);
             String[] valueList=s.split(",");
-            if(!valueList[0].toUpperCase().equals("$GPGGA")){
+            if(!valueList[0].toUpperCase().equals(sHead)){
                 return null;
             }
 

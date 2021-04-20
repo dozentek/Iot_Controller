@@ -8,13 +8,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5e203fd-99ad-431d-9f6c-ce747ff0e88c" name="Default Changelist" comment="修改了与PLC的通信协议">
+    <list default="true" id="c5e203fd-99ad-431d-9f6c-ce747ff0e88c" name="Default Changelist" comment="增加了CRC校验错误的日志项">
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/RTKDriver_plus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/core/Bridge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/core/Bridge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/LiftDriver_12.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/LiftDriver_12.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/base/IDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/base/IDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/net/ByteToJsonDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/net/ByteToJsonDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/RTKDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/RTKDriver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,17 +110,17 @@
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\SourceHome\Iot_Controller\src\main\resources" />
-      <recent name="D:\proj\drone\drone-iot\src\main\resources" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\proj\drone\drone-iot\var" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="cn.rh.iot.driver" />
       <recent name="cn.rh.iot.core" />
       <recent name="cn.rh.iot.config" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\proj\drone\drone-iot\var" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\SourceHome\Iot_Controller\src\main\resources" />
+      <recent name="D:\proj\drone\drone-iot\src\main\resources" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.IotApplication (1)">
@@ -308,7 +305,10 @@
       <workItem from="1618661982302" duration="221000" />
       <workItem from="1618755452621" duration="20000" />
       <workItem from="1618802528482" duration="13060000" />
-      <workItem from="1618877340659" duration="686000" />
+      <workItem from="1618877340659" duration="794000" />
+      <workItem from="1618908859196" duration="56000" />
+      <workItem from="1618911275261" duration="2650000" />
+      <workItem from="1618916299904" duration="531000" />
     </task>
     <task id="LOCAL-00001" summary="第一次创建">
       <created>1617705118320</created>
@@ -324,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617878501815</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="增加了CRC校验错误的日志项">
+      <created>1618878127797</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1618878127797</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +353,8 @@
     <MESSAGE value="删除了Config.xml中配置项&lt;DriverFilePath&gt;，以及相关代码" />
     <MESSAGE value="第一次创建" />
     <MESSAGE value="修改了与PLC的通信协议" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改了与PLC的通信协议" />
+    <MESSAGE value="增加了CRC校验错误的日志项" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加了CRC校验错误的日志项" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616938305779">
@@ -373,38 +381,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1617091819660" />
-    <state width="1877" height="353" key="GridCell.Tab.0.bottom" timestamp="1618877950674">
+    <state width="1877" height="353" key="GridCell.Tab.0.bottom" timestamp="1618878134778">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618877950674" />
-    <state width="1877" height="353" key="GridCell.Tab.0.center" timestamp="1618877950674">
+    <state width="1877" height="353" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618878134778" />
+    <state width="1877" height="353" key="GridCell.Tab.0.center" timestamp="1618878134778">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618877950674" />
-    <state width="1877" height="353" key="GridCell.Tab.0.left" timestamp="1618877950674">
+    <state width="1877" height="353" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618878134778" />
+    <state width="1877" height="353" key="GridCell.Tab.0.left" timestamp="1618878134777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618877950674" />
-    <state width="1877" height="353" key="GridCell.Tab.0.right" timestamp="1618877950674">
+    <state width="1877" height="353" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618878134777" />
+    <state width="1877" height="353" key="GridCell.Tab.0.right" timestamp="1618878134778">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618877950674" />
-    <state width="1877" height="353" key="GridCell.Tab.1.bottom" timestamp="1618877950674">
+    <state width="1877" height="353" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618878134778" />
+    <state width="1877" height="353" key="GridCell.Tab.1.bottom" timestamp="1618878134778">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618877950674" />
-    <state width="1877" height="353" key="GridCell.Tab.1.center" timestamp="1618877950674">
+    <state width="1877" height="353" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618878134778" />
+    <state width="1877" height="353" key="GridCell.Tab.1.center" timestamp="1618878134778">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618877950674" />
-    <state width="1877" height="353" key="GridCell.Tab.1.left" timestamp="1618877950674">
+    <state width="1877" height="353" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618878134778" />
+    <state width="1877" height="353" key="GridCell.Tab.1.left" timestamp="1618878134778">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618877950674" />
-    <state width="1877" height="353" key="GridCell.Tab.1.right" timestamp="1618877950674">
+    <state width="1877" height="353" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618878134778" />
+    <state width="1877" height="353" key="GridCell.Tab.1.right" timestamp="1618878134778">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618877950674" />
+    <state width="1877" height="353" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618878134778" />
     <state width="1877" height="718" key="GridCell.Tab.2.bottom" timestamp="1617360456023">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
