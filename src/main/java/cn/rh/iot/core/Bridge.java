@@ -1,5 +1,6 @@
 package cn.rh.iot.core;
 
+import cn.rh.iot.driver.base.ByteUtil;
 import cn.rh.iot.driver.base.FrameType;
 import cn.rh.iot.mqtt.TopicParam;
 import io.netty.bootstrap.Bootstrap;
@@ -137,17 +138,25 @@ public class Bridge {
     }
 
     public void Byte2JsonAndSendMqtt(byte[] data){
-        if(data.length<=0){
+        if(data==null || data.length<=0){
+            log.info("收到空数据集");
             return;
         }
+
+//        log.info("收到Hex:{}",ByteUtil.bytesToHex(data));           //for Test
 
         for (Device device:devices.values())
         {
             if(device.getDriver().Is2Me(data))
             {
                 String deviceNO="";
-                String msg=Pack(device.getName(),deviceNO,device.getDriver().decode(data));
-                device.getMqttChannel().Write(device.getPubTopic().getTopic(),device.getPubTopic().getQos(),msg);
+                String json=device.getDriver().decode(data);
+                if(json!=null) {
+                    String msg = Pack(device.getName(), deviceNO, json);
+                    device.getMqttChannel().Write(device.getPubTopic().getTopic(), device.getPubTopic().getQos(), msg);
+                }else{
+                    log.info("CRC校验失败。Hex:{}",ByteUtil.bytesToHex(data));
+                }
                 break;
             }
         }

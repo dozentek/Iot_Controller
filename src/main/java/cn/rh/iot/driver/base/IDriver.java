@@ -25,7 +25,7 @@ public interface IDriver {
      * @Param: byte[] 报文
      * @Return: boolean  是否是给我的报文
      * @Author: Y.Y
-     * @Date: 2020/9/21 10:48
+     * @Date: 2021/3/28
      */
     public boolean Is2Me(byte[] data);
 

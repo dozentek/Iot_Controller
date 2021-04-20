@@ -9,12 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
-/**
- * @Program: IOT_Controller
- * @Description: 将字节数据解码为json信息
- * @Author: Y.Y
- * @Create: 2020-09-22 08:44
- **/
 @Slf4j
 public class ByteToJsonDecoder extends ByteToMessageDecoder {
 

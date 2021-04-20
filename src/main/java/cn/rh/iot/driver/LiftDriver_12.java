@@ -106,14 +106,17 @@ public class LiftDriver_12 implements IDriver {
             return null;
         }
 
+        DeviceState lift_state=null;
+        DeviceState align_state=null;
+
         //CRC16校验
         byte[]  crc=ByteUtil.CRC16(data,1,3);
         if(data[4]!=crc[0] || data[5]!=crc[1]){
             return null;
         }
 
-        DeviceState lift_state=infoMapLift.get(data[LIFT_INFO_INDEX]);
-        DeviceState align_state=infoMapAlign.get(data[ALIGN_INFO_INDEX]);
+        lift_state = infoMapLift.get(data[LIFT_INFO_INDEX]);
+        align_state = infoMapAlign.get(data[ALIGN_INFO_INDEX]);
 
         if(lift_state==null){
             lift_state=unKnownState;
