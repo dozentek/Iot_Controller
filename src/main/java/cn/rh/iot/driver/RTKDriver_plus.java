@@ -64,7 +64,7 @@ public class RTKDriver_plus implements IDriver {
                         "\"qos\":" + quality + System.lineSeparator() +
                         "}";
 
-            }else if(sHead.equals("$GNVTG")){
+            }else if(sHead.equals("$GPVTG")){
 
                 double true_north_direction;
                 double velocity;
