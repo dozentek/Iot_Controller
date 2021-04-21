@@ -27,7 +27,7 @@
                 <IP>192.168.200.5</IP>
                 <Port>23</Port>
             </Net>
-            <Driver>cn.rh.iot.driver.RTKDriver</Driver>
+            <Driver>cn.rh.iot.driver.RTKDriver_plus</Driver>
             <Topics>
                 <Topic kind="out">RTK/Info</Topic>
             </Topics>
