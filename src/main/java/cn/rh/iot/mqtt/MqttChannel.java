@@ -1,7 +1,6 @@
 package cn.rh.iot.mqtt;
 
 import cn.rh.iot.config.IotConfig;
-import cn.rh.iot.core.Device;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -9,39 +8,42 @@ import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.*;
 
 
 @Slf4j
 public class MqttChannel {
 
-    private final int RECONNECT_INTERVAL;
-    private final MqttConnectOptions options;
-    private final MqttClientPersistence persistence;
 
-    @Getter @Setter
+    @Getter
     private MqttClient client;
 
     @Getter
-    private final Device device;
-
-    private final String host;
-
+    private final String name;
     @Getter
-    private final Lock disConnectLocker=new ReentrantLock();
+    private final String host;
+    @Getter
+    private final int reconnect_Interval;
 
     @Setter
     private boolean isDisconnecting =false;
 
-    public MqttChannel(Device device) {
-        this.device = device;
-        this.host= IotConfig.getInstance().getMqtt().getServerURI();
 
-        RECONNECT_INTERVAL= IotConfig.getInstance().getMqtt().getReconnectInterval()*1000;
+    private final MqttConnectOptions options;
+    private final MqttClientPersistence persistence;
+    private final HashMap<String,TopicParam >  subTopics;
+
+    private Collection<TopicArrivedHandler>   topicArrivedListeners;
+
+
+    public MqttChannel(String name,String host,int reconnect_interval) {
+
+        subTopics=new HashMap<>();
+
+        this.name=name;
+        this.host=host;
+
+        reconnect_Interval = reconnect_interval;
 
         persistence=new MemoryPersistence();
         options = new MqttConnectOptions();
@@ -52,11 +54,21 @@ public class MqttChannel {
         options.setKeepAliveInterval(IotConfig.getInstance().getMqtt().getKeepAliveInterval());
     }
 
+    public void AddSubTopic(TopicParam topic){
+        if( topic!=null && !subTopics.containsKey(topic.getTopic())){
+            subTopics.put(topic.getTopic(),topic);
+        }
+    }
+
+    public HashMap<String,TopicParam > getSubTopics(){
+        return subTopics;
+    }
+
     public boolean isDisconnecting(){
         return this.isDisconnecting;
     }
 
-    public void Write(String topic,int qos,String send_message) {
+    public void Write(String senderName,String topic,int qos,String send_message) {
 
         if(client==null || !client.isConnected()){
             return;
@@ -67,9 +79,9 @@ public class MqttChannel {
         msg.setPayload(send_message.getBytes(StandardCharsets.UTF_8));
         try {
             client.publish(topic,msg);
-            log.info("[{}]发送[{}]成功，内容( {} )", device.getName(),topic,send_message);
+            log.info("[{}]发送主题[{}]成功，内容( {} )", senderName,topic,send_message);
         }catch (MqttException ex) {
-            log.error("[{}]发送[{}]失败，内容( {} )", device.getName(),topic,send_message);
+            log.error("[{}]发送主题[{}]失败，内容( {} )",senderName,topic,send_message);
         }
     }
 
@@ -82,10 +94,10 @@ public class MqttChannel {
             isDisconnecting =true;
             client.disconnect();
             client.close();
-            log.info("[{}]与主动MQTT服务器断开连接", device.getName());
+            log.info("[{}]与MQTT服务器主动断开连接",name);
 
         }catch(MqttException ex){
-            log.error("[{}]与主动MQTT服务器断开连接失败，原因：{}:", device.getName(), ex.getMessage());
+            log.error("[{}]与MQTT服务器主动断开连接失败，原因：{}:", name, ex.getMessage());
         }finally {
             isDisconnecting =false;
         }
@@ -97,20 +109,20 @@ public class MqttChannel {
         }
         isDisconnecting =false;
         try {
-            String clientId= device.getName()+"_"+ System.currentTimeMillis();  //避免clientId重复
+            String clientId= name+"_"+ System.currentTimeMillis();  //避免clientId重复
             client = new MqttClient(host, clientId, persistence);
-            client.setCallback(new MqttCallbackObject(device, this));
+            client.setCallback(new MqttCallbackObject(this));
             client.connect(options);
         } catch(MqttException ex) {
-            log.error("[{}]连接MQTT服务器失败，错误码：{}", device.getName() , ex.getReasonCode());
+            log.error("[{}]连接MQTT服务器失败，错误码：{}", name, ex.getReasonCode());
             client=null;
             new Timer().schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    log.error("设备[{}]重连MQTT服务器...",device.getName());
+                    log.error("设备[{}]重连MQTT服务器...",name);
                     Connect();
                 }
-            }, RECONNECT_INTERVAL);
+            }, reconnect_Interval);
         }
     }
 
@@ -121,31 +133,30 @@ public class MqttChannel {
         return client.isConnected();
     }
 
-    public void SendConnectStateTopic(String state){
-
-        if(!isConnected()) {
-            return;
+    public void AddTopicArrivedHandler(TopicArrivedHandler listener){
+        if(topicArrivedListeners==null){
+            topicArrivedListeners=new HashSet<>();
         }
+        if(listener!=null && !topicArrivedListeners.contains(listener)) {
+            topicArrivedListeners.add(listener);
+        }
+    }
 
-        String connStateJson="{\n" +
-                "\"deviceName\": \""+ device.getName()+"\",\n" +
-                "\"deviceNumber\":\"\",\n" +
-                "\"msgId\":1,\n" +
-                "\"payload\":{ \n" +
-                "\"connectState\":\""+state+"\"\n" +
-                "\t}\n" +
-                "}";
+    public void RemoveTopicArrivedHandler(TopicArrivedHandler listener)
+    {
+        if(topicArrivedListeners!=null){
+            topicArrivedListeners.remove(listener);
+        }
+    }
 
-        try {
-            MqttMessage msg=new MqttMessage();
-            msg.setQos(device.getPubTopic().getQos());
-            msg.setPayload(connStateJson.getBytes(StandardCharsets.UTF_8));
+    public void MessageArrived(String topic, MqttMessage message) {
+        if(topicArrivedListeners!=null){
+            String msg=new String(message.getPayload());
+            TopicArrivedEvent event=new TopicArrivedEvent(this,topic,msg);
 
-            client.publish(device.getPubTopic().getTopic(), msg);
-            log.info("[{}]发送信道状态报文成功,状态[{}]", device.getName(), state);
-
-        }catch (MqttException ex) {
-            log.error("[{}]发送信道状态报文失败,状态[{}], 原因：{}", device.getName(),state,ex.getMessage());
+            for (TopicArrivedHandler listener : topicArrivedListeners) {
+                listener.TopicArrived(event);
+            }
         }
     }
 }

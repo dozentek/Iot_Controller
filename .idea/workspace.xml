@@ -8,9 +8,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5e203fd-99ad-431d-9f6c-ce747ff0e88c" name="Default Changelist" comment="增加RTKDriver_plus驱动，支持发送航向、速度数据">
+    <list default="true" id="c5e203fd-99ad-431d-9f6c-ce747ff0e88c" name="Default Changelist" comment="利用事件处理机制，将MqttChannel与Device对象解耦">
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/mqtt/MqttTranslator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/mqtt/TopicArrivedEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/mqtt/TopicArrivedHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/RTKDriver_plus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/driver/RTKDriver_plus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/core/Bridge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/core/Bridge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/core/BridgeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/core/BridgeManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/core/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/core/Device.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/mqtt/MqttCallbackObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/mqtt/MqttCallbackObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/rh/iot/mqtt/MqttChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/rh/iot/mqtt/MqttChannel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +29,16 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -97,29 +115,29 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Anaconda3/envs/dl" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.31964484" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\proj\drone\drone-iot\var" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\SourceHome\Iot_Controller\src\main\resources" />
+      <recent name="D:\proj\drone\drone-iot\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="cn.rh.iot.driver" />
       <recent name="cn.rh.iot.core" />
       <recent name="cn.rh.iot.config" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\SourceHome\Iot_Controller\src\main\resources" />
-      <recent name="D:\proj\drone\drone-iot\src\main\resources" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\proj\drone\drone-iot\var" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.IotApplication (1)">
@@ -239,16 +257,16 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.IotApplicationTests" />
-      <item itemvalue="Gradle.IotApplicationTests.contextLoads" />
       <item itemvalue="Gradle.IotApplicationTests.TestFFFF" />
+      <item itemvalue="Gradle.IotApplicationTests.contextLoads" />
       <item itemvalue="Spring Boot.IotApplication" />
       <item itemvalue="Spring Boot.IotApplication (1)" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.IotApplication (1)" />
-        <item itemvalue="Gradle.IotApplicationTests.TestFFFF" />
         <item itemvalue="Gradle.IotApplicationTests.contextLoads" />
+        <item itemvalue="Gradle.IotApplicationTests.TestFFFF" />
         <item itemvalue="Gradle.IotApplicationTests" />
       </list>
     </recent_temporary>
@@ -311,6 +329,10 @@
       <workItem from="1618975933462" duration="293000" />
       <workItem from="1618976419630" duration="705000" />
       <workItem from="1618985963858" duration="22000" />
+      <workItem from="1619397580178" duration="254000" />
+      <workItem from="1619619981454" duration="1471000" />
+      <workItem from="1619656061023" duration="10451000" />
+      <workItem from="1619679178195" duration="25000" />
     </task>
     <task id="LOCAL-00001" summary="第一次创建">
       <created>1617705118320</created>
@@ -364,7 +386,8 @@
     <MESSAGE value="修改了与PLC的通信协议" />
     <MESSAGE value="增加了CRC校验错误的日志项" />
     <MESSAGE value="增加RTKDriver_plus驱动，支持发送航向、速度数据" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加RTKDriver_plus驱动，支持发送航向、速度数据" />
+    <MESSAGE value="利用事件处理机制，将MqttChannel与Device对象解耦" />
+    <option name="LAST_COMMIT_MESSAGE" value="利用事件处理机制，将MqttChannel与Device对象解耦" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616938305779">
@@ -375,94 +398,94 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="320" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1617285651433" />
-    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1617283962348">
+    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1619658312885">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1617283962348" />
-    <state x="483" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1617355349359">
+    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1619658312885" />
+    <state x="483" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1619663948754">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="483" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617355349359" />
+    <state x="483" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619663948754" />
     <state width="425" height="466" key="DebuggerActiveHint" timestamp="1616935484712">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="425" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1616935484712" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1617091819660">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1619397746703">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1617091819660" />
-    <state width="1877" height="353" key="GridCell.Tab.0.bottom" timestamp="1618878134778">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1619397746703" />
+    <state width="1877" height="718" key="GridCell.Tab.0.bottom" timestamp="1619679153643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618878134778" />
-    <state width="1877" height="353" key="GridCell.Tab.0.center" timestamp="1618878134778">
+    <state width="1877" height="718" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1619679153643" />
+    <state width="1877" height="718" key="GridCell.Tab.0.center" timestamp="1619679153642">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618878134778" />
-    <state width="1877" height="353" key="GridCell.Tab.0.left" timestamp="1618878134777">
+    <state width="1877" height="718" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1619679153642" />
+    <state width="1877" height="718" key="GridCell.Tab.0.left" timestamp="1619679153642">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618878134777" />
-    <state width="1877" height="353" key="GridCell.Tab.0.right" timestamp="1618878134778">
+    <state width="1877" height="718" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1619679153642" />
+    <state width="1877" height="718" key="GridCell.Tab.0.right" timestamp="1619679153643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618878134778" />
-    <state width="1877" height="353" key="GridCell.Tab.1.bottom" timestamp="1618878134778">
+    <state width="1877" height="718" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619679153643" />
+    <state width="1877" height="718" key="GridCell.Tab.1.bottom" timestamp="1619679153643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618878134778" />
-    <state width="1877" height="353" key="GridCell.Tab.1.center" timestamp="1618878134778">
+    <state width="1877" height="718" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1619679153643" />
+    <state width="1877" height="718" key="GridCell.Tab.1.center" timestamp="1619679153643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618878134778" />
-    <state width="1877" height="353" key="GridCell.Tab.1.left" timestamp="1618878134778">
+    <state width="1877" height="718" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1619679153643" />
+    <state width="1877" height="718" key="GridCell.Tab.1.left" timestamp="1619679153643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618878134778" />
-    <state width="1877" height="353" key="GridCell.Tab.1.right" timestamp="1618878134778">
+    <state width="1877" height="718" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1619679153643" />
+    <state width="1877" height="718" key="GridCell.Tab.1.right" timestamp="1619679153643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618878134778" />
-    <state width="1877" height="718" key="GridCell.Tab.2.bottom" timestamp="1617360456023">
+    <state width="1877" height="718" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619679153643" />
+    <state width="1877" height="718" key="GridCell.Tab.2.bottom" timestamp="1619679153644">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="718" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617360456023" />
-    <state width="1877" height="718" key="GridCell.Tab.2.center" timestamp="1617360456023">
+    <state width="1877" height="718" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1619679153644" />
+    <state width="1877" height="718" key="GridCell.Tab.2.center" timestamp="1619679153643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="718" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617360456023" />
-    <state width="1877" height="718" key="GridCell.Tab.2.left" timestamp="1617360456023">
+    <state width="1877" height="718" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1619679153643" />
+    <state width="1877" height="718" key="GridCell.Tab.2.left" timestamp="1619679153643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="718" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617360456023" />
-    <state width="1877" height="718" key="GridCell.Tab.2.right" timestamp="1617360456023">
+    <state width="1877" height="718" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1619679153643" />
+    <state width="1877" height="718" key="GridCell.Tab.2.right" timestamp="1619679153643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="718" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617360456023" />
-    <state x="540" y="254" key="IDE.errors.dialog" timestamp="1616849210789">
+    <state width="1877" height="718" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619679153643" />
+    <state x="540" y="254" key="IDE.errors.dialog" timestamp="1619678848253">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="540" y="254" key="IDE.errors.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616849210789" />
-    <state x="461" y="164" width="1166" height="711" key="SettingsEditor" timestamp="1618386408426">
+    <state x="540" y="254" key="IDE.errors.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619678848253" />
+    <state x="203" y="96" width="1166" height="711" key="SettingsEditor" timestamp="1619679204217">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" width="1166" height="711" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1618386408426" />
+    <state x="203" y="96" width="1166" height="711" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1619679204217" />
     <state x="552" y="239" key="Vcs.Push.Dialog.v2" timestamp="1617705171470">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="239" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1617705171470" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1618877761801">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1619659097525">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618877761801" />
-    <state x="334" y="180" key="new project wizard" timestamp="1618385631406">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619659097525" />
+    <state x="345" y="81" key="new project wizard" timestamp="1619397831956">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="334" y="180" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1618385631406" />
-    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1617341548728">
+    <state x="345" y="81" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1619397831956" />
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1619664663893">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1617341548728" />
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1619664663893" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Iot_Controller$test_testFun2.ic" NAME="test.testFun2 Coverage Results" MODIFIED="1601133809518" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

@@ -2,17 +2,18 @@ package cn.rh.iot.core;
 
 import cn.rh.iot.driver.base.IDriver;
 import cn.rh.iot.mqtt.MqttChannel;
+import cn.rh.iot.mqtt.TopicArrivedEvent;
+import cn.rh.iot.mqtt.TopicArrivedHandler;
 import cn.rh.iot.mqtt.TopicParam;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 @Slf4j
-public class Device {
+public class Device implements TopicArrivedHandler {
     @Getter @Setter
     private String des;
 
@@ -37,7 +38,6 @@ public class Device {
     @Getter @Setter
     private Bridge parent;
 
-    @Getter @Setter
     protected MqttChannel mqttChannel;
 
     protected Timer askTimer=new Timer(true);
@@ -48,6 +48,20 @@ public class Device {
             askTimer.schedule(doAsk(),0,askInterval);
         }else{
             askTimer.cancel();
+        }
+    }
+
+    public MqttChannel getMqttChannel(){
+        return mqttChannel;
+    }
+
+    public void setMqttChannel(MqttChannel channel){
+        if(!channel.equals(mqttChannel)){
+            mqttChannel=channel;
+
+            if(mqttChannel!=null){
+                mqttChannel.AddTopicArrivedHandler(this);
+            }
         }
     }
 
@@ -75,16 +89,20 @@ public class Device {
         };
     }
 
-    public void MqttTopicArrived(String topic, MqttMessage message){
+    private void MqttTopicArrived(String topic, String message){
 
-        String strData=new String(message.getPayload());
-        log.info("[{}]收到[{}] -> {}",name,topic, strData);
+        log.info("[{}]收到[{}] -> {}",name,topic, message);
 
         if(subTopic.getTopic().equals(topic)) {
-            byte[] outData= driver.encode(strData);
+            byte[] outData= driver.encode(message);
             if(outData!=null && outData.length>0 && parent.getChannel()!=null) {
                 parent.getChannel().Write(outData);
             }
         }
+    }
+
+    @Override
+    public void TopicArrived(TopicArrivedEvent event) {
+        MqttTopicArrived(event.getTopic(),event.getContent());
     }
 }

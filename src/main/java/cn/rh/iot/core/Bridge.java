@@ -9,8 +9,10 @@ import jdk.nashorn.internal.runtime.regexp.joni.ScanEnvironment;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
@@ -153,7 +155,7 @@ public class Bridge {
                 String json=device.getDriver().decode(data);
                 if(json!=null) {
                     String msg = Pack(device.getName(), deviceNO, json);
-                    device.getMqttChannel().Write(device.getPubTopic().getTopic(), device.getPubTopic().getQos(), msg);
+                    device.getMqttChannel().Write(device.getName(), device.getPubTopic().getTopic(), device.getPubTopic().getQos(), msg);
                 }else{
                     log.info("CRC校验失败。Hex:{}",ByteUtil.bytesToHex(data));
                 }
@@ -169,7 +171,16 @@ public class Bridge {
         else{  msg="no"; }
 
         for (Device device : devices.values()) {
-            device.getMqttChannel().SendConnectStateTopic(msg);
+
+            String connStateJson="{\n" +
+                    "\"deviceName\": \""+ device.getName()+"\",\n" +
+                    "\"deviceNumber\":\"\",\n" +
+                    "\"msgId\":1,\n" +
+                    "\"payload\":{ \n" +
+                    "\"connectState\":\""+msg+"\"\n" +
+                    "\t}\n" +
+                    "}";
+            device.getMqttChannel().Write(device.getName(),device.getPubTopic().getTopic(),device.getPubTopic().getQos(),connStateJson);
         }
     }
 

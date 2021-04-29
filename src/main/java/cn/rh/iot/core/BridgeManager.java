@@ -107,7 +107,11 @@ public class BridgeManager {
                             device.getDriver().InjectParams(tags);
                         }
                     }
-                    device.setMqttChannel(new MqttChannel(device));
+                    MqttChannel mqttChannel=new MqttChannel(device.getName(),IotConfig.getInstance().getMqtt().getServerURI(),
+                            IotConfig.getInstance().getMqtt().getReconnectInterval()*1000);
+
+                    mqttChannel.AddSubTopic(device.getSubTopic());
+                    device.setMqttChannel(mqttChannel);
                     device.setParent(bridge);
                 }
                 bridge.AddDevice(device);
